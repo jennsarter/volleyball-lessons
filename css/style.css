@@ -1,23 +1,24 @@
 /* =========================================================
    PRIVATE VOLLEYBALL TRAINING
-   Main Styles
+   Sophisticated / Editorial Visual System
    ========================================================= */
 
 :root {
-  --navy: #101a32;
+  --navy: #10182b;
   --blue: #2457ff;
-  --blue-dark: #173fd1;
-  --cream: #f5f1e8;
+  --blue-dark: #173dcc;
+  --cream: #f5f2eb;
   --white: #ffffff;
-  --text: #111827;
-  --muted: #697080;
-  --line: #d8d3c8;
+  --black: #111318;
+  --gray: #626976;
+  --light-line: #d9d5cc;
+  --dark-line: #354057;
 }
 
 
-/* ---------------------------------------------------------
+/* =========================================================
    RESET
-   --------------------------------------------------------- */
+   ========================================================= */
 
 * {
   margin: 0;
@@ -31,9 +32,11 @@ html {
 
 body {
   background: var(--cream);
-  color: var(--text);
+  color: var(--black);
   font-family: "DM Sans", Arial, sans-serif;
-  line-height: 1.5;
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
 }
 
 a {
@@ -42,9 +45,9 @@ a {
 }
 
 
-/* ---------------------------------------------------------
-   HEADLINES
-   --------------------------------------------------------- */
+/* =========================================================
+   TYPOGRAPHY
+   ========================================================= */
 
 h1,
 h2,
@@ -52,7 +55,13 @@ h3,
 .logo {
   font-family: "Barlow Condensed", Impact, sans-serif;
   font-weight: 800;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.015em;
+}
+
+h1,
+h2,
+h3 {
+  text-transform: uppercase;
 }
 
 h1 em,
@@ -62,28 +71,29 @@ h2 em {
 }
 
 
-/* ---------------------------------------------------------
+/* =========================================================
    HEADER
-   --------------------------------------------------------- */
+   ========================================================= */
 
 .site-header {
-  min-height: 82px;
-  padding: 0 5vw;
+  min-height: 86px;
+  padding: 0 6vw;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
 
   background: var(--cream);
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--light-line);
 
   position: relative;
   z-index: 10;
 }
 
 .logo {
-  font-size: 2.2rem;
-  letter-spacing: -0.06em;
+  font-size: 2.6rem;
+  line-height: 1;
+  letter-spacing: -0.05em;
 }
 
 .logo span {
@@ -93,76 +103,77 @@ h2 em {
 .site-header nav {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 2.5rem;
 }
 
 .site-header nav a {
-  font-size: 0.75rem;
+  font-size: 0.78rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.09em;
   text-transform: uppercase;
 }
 
 .nav-cta {
-  padding: 0.8rem 1.15rem;
+  padding: 0.9rem 1.25rem;
   background: var(--navy);
   color: var(--white) !important;
 }
 
 .nav-cta span {
-  color: #7890ff;
-  margin-left: 0.25rem;
+  color: #8296ff;
+  margin-left: 0.3rem;
 }
 
 
-/* ---------------------------------------------------------
-   GENERAL
-   --------------------------------------------------------- */
+/* =========================================================
+   SHARED SECTION STYLES
+   ========================================================= */
 
 .section-pad {
-  padding: 110px 7vw;
+  padding: 140px 8vw;
 }
 
 .section-label {
-  margin-bottom: 50px;
+  margin-bottom: 65px;
 
   color: var(--blue);
 
-  font-size: 0.7rem;
+  font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.18em;
+  line-height: 1;
   text-transform: uppercase;
 }
 
 .eyebrow {
   color: var(--blue);
 
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.16em;
+  line-height: 1;
   text-transform: uppercase;
 }
 
 
-/* ---------------------------------------------------------
+/* =========================================================
    BUTTONS
-   --------------------------------------------------------- */
+   ========================================================= */
 
 .primary-button {
   display: inline-flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
+  gap: 3rem;
 
-  margin-top: 2rem;
-  padding: 1.05rem 1.35rem;
+  padding: 1.15rem 1.45rem;
 
   background: var(--blue);
   color: var(--white);
 
-  font-size: 0.76rem;
+  font-size: 0.78rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.09em;
+  line-height: 1;
   text-transform: uppercase;
 
   transition:
@@ -176,7 +187,7 @@ h2 em {
 }
 
 .primary-button span {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
 }
 
 .primary-button.light {
@@ -188,45 +199,22 @@ h2 em {
   background: #eeeeee;
 }
 
-.hero .primary-button {
-  margin-top: 1.4rem;
-}
 
-.text-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 1rem;
-
-  margin-top: 2rem;
-
-  color: var(--blue);
-
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-.text-link span {
-  font-size: 1.2rem;
-}
-
-
-/* ---------------------------------------------------------
+/* =========================================================
    HERO
-   --------------------------------------------------------- */
+   ========================================================= */
 
 .hero {
-  min-height: calc(100vh - 82px);
+  min-height: calc(100vh - 86px);
 
   display: grid;
-  grid-template-columns: 1fr 0.9fr;
+  grid-template-columns: 1fr 0.95fr;
 
   background: var(--cream);
 }
 
 .hero-content {
-  padding: 8vw 5vw 8vw 7vw;
+  padding: 8vh 6vw 8vh 8vw;
 
   display: flex;
   flex-direction: column;
@@ -235,12 +223,11 @@ h2 em {
 }
 
 .hero h1 {
-  margin-top: 1rem;
+  margin-top: 0.5rem;
 
-  font-size: clamp(7rem, 14vw, 14rem);
-  line-height: 0.73;
-
-  text-transform: uppercase;
+  font-size: clamp(8rem, 15vw, 15rem);
+  line-height: 0.72;
+  letter-spacing: -0.02em;
 }
 
 .hero h1 span {
@@ -250,38 +237,45 @@ h2 em {
 .hero-subhead {
   width: 100%;
   max-width: 720px;
-  margin-top: 2rem;
+  margin-top: 2.8rem;
 
   font-family: "DM Sans", Arial, sans-serif;
-  font-size: clamp(1.25rem, 2vw, 1.85rem);
+  font-size: clamp(1.35rem, 2vw, 1.9rem);
   font-weight: 500;
-  line-height: 1.2;
-  letter-spacing: -0.025em;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
 }
 
 .hero-support {
-  margin-top: 1.1rem;
+  margin-top: 1.2rem;
 
   color: var(--blue);
 
-  font-size: clamp(1rem, 1.4vw, 1.25rem);
+  font-size: clamp(1.05rem, 1.5vw, 1.3rem);
   font-weight: 700;
-  line-height: 1.3;
-  letter-spacing: 0;
+  line-height: 1.35;
+  letter-spacing: 0.01em;
 }
 
 .hero-copy {
-  max-width: 510px;
+  max-width: 530px;
   margin-top: 1.2rem;
 
-  color: #505765;
+  color: var(--gray);
 
-  font-size: 0.95rem;
+  font-size: 1rem;
   line-height: 1.7;
 }
 
+.hero .primary-button {
+  margin-top: 1.5rem;
+}
+
+
+/* HERO PHOTO */
+
 .hero-photo {
-  min-height: 650px;
+  min-height: 700px;
 
   background: var(--navy);
 
@@ -294,38 +288,16 @@ h2 em {
   overflow: hidden;
 }
 
-.photo-placeholder {
-  width: 72%;
-  height: 78%;
-
-  background:
-    linear-gradient(
-      145deg,
-      #31539a,
-      #182642
-    );
-
-   .hero-photo .photo-placeholder {
-  width: 100%;
-  height: 100%;
-  min-height: 650px;
-
-  background:
-    linear-gradient(
-      145deg,
-      #31539a,
-      #182642
-    );
 .hero-photo .photo-placeholder {
   width: 100%;
   height: 100%;
-  min-height: 650px;
+  min-height: 700px;
 
   background:
     linear-gradient(
       145deg,
-      #31539a,
-      #182642
+      #35559c 0%,
+      #192744 100%
     );
 
   color: var(--white);
@@ -338,20 +310,21 @@ h2 em {
   text-align: center;
 }
 
-.photo-placeholder span {
+.hero-photo .photo-placeholder span {
   font-family: "Barlow Condensed", Impact, sans-serif;
-  font-size: clamp(3rem, 6vw, 6rem);
+  font-size: clamp(4rem, 7vw, 7rem);
   font-weight: 800;
   line-height: 0.8;
+  letter-spacing: -0.02em;
 }
 
-.photo-placeholder small {
-  margin-top: 1.5rem;
+.hero-photo .photo-placeholder small {
+  margin-top: 2rem;
 
-  color: #aeb9d2;
+  color: #b4bfd7;
 
-  font-size: 0.6rem;
-  letter-spacing: 0.15em;
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
 }
 
 .photo-caption {
@@ -359,16 +332,16 @@ h2 em {
   right: 7%;
   bottom: 5%;
 
-  color: #9ba8c5;
+  color: #b2bdd4;
 
-  font-size: 0.6rem;
-  letter-spacing: 0.12em;
+  font-size: 0.62rem;
+  letter-spacing: 0.13em;
 }
 
 
-/* ---------------------------------------------------------
-   INTRO
-   --------------------------------------------------------- */
+/* =========================================================
+   THE DIFFERENCE / INTRO
+   ========================================================= */
 
 .intro {
   background: var(--white);
@@ -376,35 +349,42 @@ h2 em {
 
 .intro-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 0.95fr 1fr;
   gap: 10vw;
+  align-items: start;
 }
 
 .intro h2 {
-  font-size: clamp(5rem, 9vw, 9rem);
-  line-height: 0.78;
+  font-size: clamp(6.5rem, 11vw, 11rem);
+  line-height: 0.76;
+  letter-spacing: -0.025em;
 }
 
 .intro-grid > div {
-  max-width: 520px;
-  padding-top: 1rem;
+  max-width: 620px;
+  padding-top: 0.5rem;
 }
 
 .large-copy {
-  font-size: clamp(1.35rem, 2vw, 1.8rem);
+  font-size: clamp(1.5rem, 2.3vw, 2.1rem);
   font-weight: 600;
   line-height: 1.3;
+  letter-spacing: -0.025em;
 }
 
 .intro-grid p + p {
-  margin-top: 1.5rem;
-  color: var(--muted);
+  margin-top: 2rem;
+
+  color: var(--gray);
+
+  font-size: 1rem;
+  line-height: 1.75;
 }
 
 
-/* ---------------------------------------------------------
+/* =========================================================
    WHY TRAIN WITH ME
-   --------------------------------------------------------- */
+   ========================================================= */
 
 .why {
   background: var(--navy);
@@ -412,77 +392,84 @@ h2 em {
 }
 
 .why .section-label {
-  color: #7f9aff;
+  color: #8da0ff;
 }
 
 .section-heading {
   display: grid;
   grid-template-columns: 1fr 0.7fr;
-  gap: 8vw;
+  gap: 10vw;
   align-items: end;
 }
 
 .section-heading h2 {
-  font-size: clamp(5rem, 9vw, 9rem);
-  line-height: 0.78;
+  font-size: clamp(6.5rem, 11vw, 11rem);
+  line-height: 0.76;
+  letter-spacing: -0.025em;
 }
 
 .section-heading p {
-  max-width: 500px;
-  color: #b5bed1;
+  max-width: 540px;
+
+  color: #b8c1d3;
+
+  font-size: 1rem;
+  line-height: 1.75;
 }
 
 .benefits-grid {
-  margin-top: 90px;
+  margin-top: 110px;
 
   display: grid;
   grid-template-columns: repeat(4, 1fr);
 
-  border-top: 1px solid #34405a;
+  border-top: 1px solid var(--dark-line);
 }
 
 .benefit {
-  min-height: 330px;
-  padding: 2.5rem 2rem;
+  min-height: 360px;
+  padding: 2.8rem 2.3rem;
 
-  border-right: 1px solid #34405a;
+  border-right: 1px solid var(--dark-line);
 }
 
 .benefit + .benefit {
-  padding-left: 2.5rem;
+  padding-left: 2.8rem;
 }
-
 
 .benefit:last-child {
   border-right: none;
 }
 
 .benefit-number {
-  color: #7089d8;
+  color: #8497e5;
 
-  font-size: 0.65rem;
+  font-size: 0.7rem;
+  font-weight: 700;
   letter-spacing: 0.12em;
 }
 
 .benefit h3 {
-  margin-top: 5rem;
+  margin-top: 5.5rem;
 
-  font-size: 2rem;
+  font-size: 2.25rem;
   line-height: 0.9;
+  letter-spacing: 0;
 }
 
 .benefit p {
-  margin-top: 1.5rem;
+  margin-top: 1.7rem;
 
-  color: #b5bed1;
+  color: #b8c1d3;
 
-  font-size: 0.88rem;
+  font-size: 0.9rem;
+  line-height: 1.65;
 }
 
 
-/* ---------------------------------------------------------
+/* =========================================================
    WHO CAN TRAIN
-   --------------------------------------------------------- */
+   ========================================================= */
 
 .who {
   background: var(--cream);
@@ -490,37 +477,45 @@ h2 em {
 
 .who-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 0.95fr 1fr;
   gap: 10vw;
+  align-items: start;
 }
 
 .who h2 {
-  font-size: clamp(5rem, 9vw, 9rem);
-  line-height: 0.78;
+  font-size: clamp(6.5rem, 11vw, 11rem);
+  line-height: 0.76;
+  letter-spacing: -0.025em;
 }
 
 .who-copy {
-  max-width: 540px;
+  max-width: 620px;
+  padding-top: 0.5rem;
 }
 
 .who-copy p + p {
-  margin-top: 1.5rem;
-  color: var(--muted);
+  margin-top: 2rem;
+
+  color: var(--gray);
+
+  font-size: 1rem;
+  line-height: 1.75;
 }
 
 .athlete-types {
-  margin-top: 80px;
+  margin-top: 100px;
 
   display: grid;
   grid-template-columns: repeat(4, 1fr);
 
-  border-top: 1px solid var(--line);
+  border-top: 1px solid var(--light-line);
 }
 
 .athlete-types > div {
-  padding: 2rem 1.25rem;
+  min-height: 240px;
+  padding: 2.5rem 2rem;
 
-  border-right: 1px solid var(--line);
+  border-right: 1px solid var(--light-line);
 }
 
 .athlete-types > div:last-child {
@@ -530,32 +525,36 @@ h2 em {
 .athlete-types span {
   color: var(--blue);
 
-  font-size: 0.65rem;
+  font-size: 0.7rem;
   font-weight: 700;
+  letter-spacing: 0.12em;
 }
 
 .athlete-types strong {
   display: block;
 
-  margin-top: 2rem;
+  margin-top: 3.5rem;
 
   font-family: "Barlow Condensed", Impact, sans-serif;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
+  font-weight: 800;
   line-height: 0.9;
+  letter-spacing: 0;
 }
 
 .athlete-types p {
-  margin-top: 1rem;
+  margin-top: 1.2rem;
 
-  color: var(--muted);
+  color: var(--gray);
 
-  font-size: 0.82rem;
+  font-size: 0.85rem;
+  line-height: 1.6;
 }
 
 
-/* ---------------------------------------------------------
+/* =========================================================
    ABOUT
-   --------------------------------------------------------- */
+   ========================================================= */
 
 .about {
   background: var(--white);
@@ -564,83 +563,105 @@ h2 em {
 .about-grid {
   display: grid;
   grid-template-columns: 0.9fr 1fr;
-  gap: 8vw;
+  gap: 9vw;
   align-items: center;
 }
 
 .coach-photo {
-  min-height: 600px;
+  min-height: 700px;
 
   background: var(--navy);
 
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: stretch;
+  justify-content: stretch;
+
+  overflow: hidden;
 }
 
 .coach-photo .photo-placeholder {
-  width: 82%;
-  height: 85%;
+  width: 100%;
+  height: 100%;
+  min-height: 700px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #35559c,
+      #192744
+    );
+
+  color: var(--white);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
 }
 
 .about-content {
-  max-width: 580px;
+  max-width: 620px;
 }
 
 .about-content h2 {
-  margin-top: 1rem;
+  margin-top: 1.2rem;
 
-  font-size: clamp(5rem, 8vw, 8rem);
-  line-height: 0.78;
+  font-size: clamp(6rem, 10vw, 10rem);
+  line-height: 0.76;
 }
 
 .about-content p {
   margin-top: 2rem;
-  color: var(--muted);
+
+  color: var(--gray);
+
+  font-size: 1rem;
+  line-height: 1.75;
 }
 
-.about-content .text-link {
-  margin-top: 2rem;
-}
 
-
-/* ---------------------------------------------------------
+/* =========================================================
    TESTIMONIALS
-   --------------------------------------------------------- */
+   ========================================================= */
 
 .testimonials {
-  background: #e9e5db;
+  background: #e9e5dc;
 }
 
 .testimonial-heading {
   display: grid;
   grid-template-columns: 1fr 0.6fr;
-  gap: 8vw;
+  gap: 10vw;
   align-items: end;
 }
 
 .testimonial-heading h2 {
-  font-size: clamp(5rem, 8vw, 8rem);
-  line-height: 0.78;
+  font-size: clamp(6rem, 10vw, 10rem);
+  line-height: 0.76;
 }
 
 .testimonial-heading p {
-  color: var(--muted);
+  color: var(--gray);
+
+  font-size: 1rem;
+  line-height: 1.75;
 }
 
 .testimonial-grid {
-  margin-top: 80px;
+  margin-top: 100px;
 
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
+  gap: 2px;
 
-  background: #c9c4b8;
+  background: #cbc6bb;
 }
 
 .testimonial-grid blockquote {
-  min-height: 330px;
-  padding: 2rem;
+  min-height: 380px;
+  padding: 2.8rem;
 
   background: var(--white);
 
@@ -652,53 +673,50 @@ h2 em {
   color: var(--blue);
 
   font-family: Georgia, serif;
-  font-size: 4rem;
-  line-height: 0.7;
+  font-size: 5rem;
+  line-height: 0.65;
 }
 
 .testimonial-grid blockquote p {
-  margin-top: 2rem;
+  margin-top: 2.5rem;
 
   font-size: 1rem;
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
 .testimonial-grid footer {
   margin-top: auto;
-  padding-top: 2rem;
+  padding-top: 2.5rem;
 
-  color: var(--muted);
+  color: var(--gray);
 
-  font-size: 0.6rem;
+  font-size: 0.65rem;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
 }
 
 
-/* ---------------------------------------------------------
+/* =========================================================
    FINAL CTA
-   --------------------------------------------------------- */
+   ========================================================= */
 
 .final-cta {
-  padding: 120px 7vw;
+  padding: 150px 8vw;
 
   background: var(--blue);
   color: var(--white);
 }
 
-.final-cta-inner {
-  max-width: 900px;
-}
-
 .final-cta .eyebrow {
-  color: #b9c7ff;
+  color: #c3ceff;
 }
 
 .final-cta h2 {
-  margin-top: 1rem;
+  margin-top: 1.3rem;
 
-  font-size: clamp(7rem, 15vw, 15rem);
+  font-size: clamp(8rem, 16vw, 16rem);
   line-height: 0.7;
+  letter-spacing: -0.025em;
 }
 
 .final-cta h2 em {
@@ -706,10 +724,11 @@ h2 em {
 }
 
 .final-cta p {
-  max-width: 500px;
-  margin-top: 3rem;
+  max-width: 520px;
+  margin-top: 4rem;
 
   font-size: 1.1rem;
+  line-height: 1.6;
 }
 
 .final-cta .primary-button {
@@ -717,13 +736,13 @@ h2 em {
 }
 
 
-/* ---------------------------------------------------------
+/* =========================================================
    FOOTER
-   --------------------------------------------------------- */
+   ========================================================= */
 
 .site-footer {
-  min-height: 150px;
-  padding: 2.5rem 7vw;
+  min-height: 170px;
+  padding: 3rem 8vw;
 
   background: var(--navy);
   color: var(--white);
@@ -735,51 +754,47 @@ h2 em {
 
 .footer-brand {
   font-family: "Barlow Condensed", Impact, sans-serif;
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: 800;
+  line-height: 1;
 }
 
 .footer-brand span {
-  color: #718cff;
+  color: #8195ff;
 }
 
 .footer-note {
-  color: #a9b3c8;
+  color: #aeb7ca;
 
-  font-size: 0.6rem;
-  line-height: 1.5;
+  font-size: 0.65rem;
+  line-height: 1.6;
   letter-spacing: 0.1em;
 }
 
 .footer-copy {
-  color: #78849c;
+  color: #7f899d;
 
-  font-size: 0.6rem;
+  font-size: 0.65rem;
   text-align: right;
 }
 
 
-/* ---------------------------------------------------------
+/* =========================================================
    TABLET
-   --------------------------------------------------------- */
+   ========================================================= */
 
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
 
   .site-header {
-    min-height: 72px;
     padding: 0 5vw;
   }
 
   .site-header nav {
-    gap: 0.7rem;
+    gap: 1rem;
   }
 
   .site-header nav a:not(.nav-cta) {
     display: none;
-  }
-
-  .nav-cta {
-    padding: 0.7rem 0.85rem;
   }
 
   .hero {
@@ -791,19 +806,15 @@ h2 em {
   }
 
   .hero-photo {
-    min-height: 550px;
+    min-height: 600px;
   }
 
-  .hero h1 {
-    font-size: clamp(7rem, 25vw, 12rem);
+  .hero-photo .photo-placeholder {
+    min-height: 600px;
   }
 
   .section-pad {
-    padding: 80px 7vw;
-  }
-
-  .section-label {
-    margin-bottom: 35px;
+    padding: 110px 7vw;
   }
 
   .intro-grid,
@@ -812,19 +823,24 @@ h2 em {
   .about-grid,
   .testimonial-heading {
     grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: 4rem;
   }
 
   .benefits-grid {
     grid-template-columns: 1fr 1fr;
   }
 
+  .benefit {
+    border-bottom: 1px solid var(--dark-line);
+  }
+
   .benefit:nth-child(2) {
     border-right: none;
   }
 
-  .benefit:nth-child(-n+2) {
-    border-bottom: 1px solid #34405a;
+  .benefit:nth-child(3),
+  .benefit:nth-child(4) {
+    border-bottom: none;
   }
 
   .athlete-types {
@@ -836,15 +852,7 @@ h2 em {
   }
 
   .athlete-types > div:nth-child(-n+2) {
-    border-bottom: 1px solid var(--line);
-  }
-
-  .about-grid {
-    gap: 4rem;
-  }
-
-  .coach-photo {
-    min-height: 500px;
+    border-bottom: 1px solid var(--light-line);
   }
 
   .testimonial-grid {
@@ -862,66 +870,117 @@ h2 em {
 }
 
 
-/* ---------------------------------------------------------
+/* =========================================================
    PHONE
-   --------------------------------------------------------- */
+   ========================================================= */
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
+
+  body {
+    font-size: 16px;
+  }
+
+  .site-header {
+    min-height: 72px;
+  }
+
+  .logo {
+    font-size: 2.2rem;
+  }
 
   .hero-content {
-    padding-top: 70px;
+    padding: 70px 7vw 70px;
   }
 
   .hero h1 {
-    font-size: 6.8rem;
+    font-size: clamp(6.5rem, 25vw, 9rem);
   }
 
   .hero-subhead {
-    font-size: 1.45rem;
+    margin-top: 2.3rem;
+    font-size: 1.35rem;
   }
 
   .hero-support {
+    font-size: 1rem;
+  }
+
+  .hero-copy {
     font-size: 0.9rem;
   }
 
   .hero-photo {
-    min-height: 450px;
+    min-height: 480px;
   }
 
-  .photo-placeholder {
-    width: 82%;
-    height: 82%;
+  .hero-photo .photo-placeholder {
+    min-height: 480px;
   }
 
-  .benefits-grid {
-    grid-template-columns: 1fr;
+  .section-pad {
+    padding: 90px 7vw;
   }
 
-  .benefit,
-  .benefit:nth-child(2) {
-    border-right: none;
-    border-bottom: 1px solid #34405a;
+  .section-label {
+    margin-bottom: 45px;
   }
 
-  .benefit:last-child {
-    border-bottom: none;
+  .intro h2,
+  .section-heading h2,
+  .who h2,
+  .about-content h2,
+  .testimonial-heading h2 {
+    font-size: clamp(5.5rem, 23vw, 8rem);
   }
 
+  .benefits-grid,
   .athlete-types {
     grid-template-columns: 1fr;
   }
 
+  .benefit,
+  .benefit + .benefit {
+    min-height: auto;
+    padding: 2.5rem 1.5rem;
+    border-right: none;
+    border-bottom: 1px solid var(--dark-line);
+  }
+
+  .benefit h3 {
+    margin-top: 3.5rem;
+  }
+
   .athlete-types > div,
   .athlete-types > div:nth-child(2) {
+    min-height: auto;
+    padding: 2.5rem 1.5rem;
     border-right: none;
-    border-bottom: 1px solid var(--line);
+    border-bottom: 1px solid var(--light-line);
   }
 
   .athlete-types > div:last-child {
     border-bottom: none;
   }
 
+  .coach-photo,
+  .coach-photo .photo-placeholder {
+    min-height: 500px;
+  }
+
+  .testimonial-grid blockquote {
+    min-height: 320px;
+    padding: 2rem;
+  }
+
+  .final-cta {
+    padding: 100px 7vw;
+  }
+
   .final-cta h2 {
-    font-size: 7rem;
+    font-size: clamp(6.5rem, 25vw, 9rem);
+  }
+
+  .site-footer {
+    padding: 2.5rem 7vw;
   }
 }
