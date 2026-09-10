@@ -412,11 +412,16 @@ h2 em {
 }
 
 .benefit {
-  min-height: 310px;
-  padding: 2rem 1.5rem;
+  min-height: 330px;
+  padding: 2.5rem 2rem;
 
   border-right: 1px solid #34405a;
 }
+
+.benefit + .benefit {
+  padding-left: 2.5rem;
+}
+
 
 .benefit:last-child {
   border-right: none;
