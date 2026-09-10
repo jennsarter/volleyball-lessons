@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="Register for private volleyball training."
+  >
+
+  <title>Register | FPO Volleyball Training</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<header class="site-header">
+
+  <a class="logo" href="index.html">
+    FPO<span>VB</span>
+  </a>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a class="nav-cta" href="register.html">Register <span>↗</span></a>
+  </nav>
+
+</header>
+
+
+<main>
+
+  <!-- PAGE INTRO -->
+
+  <section class="registration-hero section-pad">
+
+    <div class="section-label">
+      REGISTRATION
+    </div>
+
+    <h1>
+      FIND YOUR<br>
+      <em>TRAINING TIME.</em>
+    </h1>
+
+    <p class="hero-copy">
+      Choose an available session below and submit your information
+      to request your training time.
+    </p>
+
+  </section>
+
+
+  <!-- AVAILABILITY -->
+
+  <section class="availability-section section-pad">
+
+    <div class="section-label">
+      01 / AVAILABLE SESSIONS
+    </div>
+
+    <div class="availability-intro">
+
+      <div>
+        <h2>
+          Choose a<br>
+          <span>time.</span>
+        </h2>
+      </div>
+
+      <p>
+        Available sessions are shown below. Booked sessions are shown
+        as unavailable. No athlete or parent information is displayed
+        publicly.
+      </p>
+
+    </div>
+
+
+    <!-- FPO SCHEDULE -->
+
+    <div class="schedule">
+
+      <div class="schedule-day">
+
+        <div class="day-header">
+          <div>
+            <span class="day-name">SATURDAY</span>
+            <span class="day-date">FPO / SEPTEMBER 19</span>
+          </div>
+        </div>
+
+        <button class="slot available" type="button" data-day="Saturday" data-time="9:00 AM">
+          <span>9:00 AM</span>
+          <span class="slot-status">AVAILABLE</span>
+        </button>
+
+        <button class="slot available" type="button" data-day="Saturday" data-time="10:00 AM">
+          <span>10:00 AM</span>
+          <span class="slot-status">AVAILABLE</span>
+        </button>
+
+        <button class="slot unavailable" type="button" disabled>
+          <span>11:00 AM</span>
+          <span class="slot-status">NOT AVAILABLE</span>
+        </button>
+
+        <button class="slot available" type="button" data-day="Saturday" data-time="12:00 PM">
+          <span>12:00 PM</span>
+          <span class="slot-status">AVAILABLE</span>
+        </button>
+
+      </div>
+
+
+      <div class="schedule-day sunday">
+
+        <div class="day-header">
+
+          <div>
+            <span class="day-name">SUNDAY</span>
+            <span class="day-date">FPO / SEPTEMBER 20</span>
+          </div>
+
+          <span class="sunday-badge">
+            SPECIAL REGISTRATION
+          </span>
+
+        </div>
+
+        <button class="slot available sunday-slot" type="button" data-day="Sunday" data-time="10:00 AM">
+          <span>10:00 AM</span>
+          <span class="slot-status">AVAILABLE</span>
+        </button>
+
+        <button class="slot available sunday-slot" type="button" data-day="Sunday" data-time="11:00 AM">
+          <span>11:00 AM</span>
+          <span class="slot-status">AVAILABLE</span>
+        </button>
+
+        <button class="slot unavailable" type="button" disabled>
+          <span>12:00 PM</span>
+          <span class="slot-status">NOT AVAILABLE</span>
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- REGISTRATION FORM -->
+
+  <section class="registration-form-section section-pad">
+
+    <div class="section-label">
+      02 / ATHLETE INFORMATION
+    </div>
+
+    <div class="form-wrapper">
+
+      <div class="form-heading">
+
+        <h2>
+          Reserve<br>
+          your <em>spot.</em>
+        </h2>
+
+        <p>
+          FPO — Please complete the information below. Your information
+          is used only to coordinate your lesson and is not displayed
+          publicly.
+        </p>
+
+      </div>
+
+
+      <form id="registrationForm">
+
+        <!-- SELECTED SESSION -->
+
+        <div class="selected-session">
+
+          <span>SELECTED SESSION</span>
+
+          <strong id="selectedSession">
+            Please select an available time above.
+          </strong>
+
+          <input
+            type="hidden"
+            id="selectedDay"
+            name="day"
+          >
+
+          <input
+            type="hidden"
+            id="selectedTime"
+            name="time"
+          >
+
+        </div>
+
+
+        <!-- ATHLETE -->
+
+        <div class="form-grid">
+
+          <div class="form-field">
+
+            <label for="name">
+              ATHLETE NAME
+            </label>
+
+            <input
+              id="name"
+              name="name"
+              type="text"
+              placeholder="FPO / Athlete name"
+              required
+            >
+
+          </div>
+
+
+          <div class="form-field">
+
+            <label for="ageGrade">
+              AGE / GRADE
+            </label>
+
+            <input
+              id="ageGrade"
+              name="ageGrade"
+              type="text"
+              placeholder="FPO / 8th grade"
+              required
+            >
+
+          </div>
+
+
+          <div class="form-field">
+
+            <label for="parentName">
+              PARENT / GUARDIAN NAME
+            </label>
+
+            <input
+              id="parentName"
+              name="parentName"
+              type="text"
+              placeholder="FPO / Parent name"
+              required
+            >
+
+          </div>
+
+
+          <div class="form-field">
+
+            <label for="phone">
+              PHONE NUMBER
+            </label>
+
+            <input
+              id="phone"
+              name="phone"
+              type="tel"
+              placeholder="FPO / (555) 555-5555"
+              required
+            >
+
+          </div>
+
+
+          <div class="form-field full">
+
+            <label for="location">
+              LOCATION
+            </label>
+
+            <input
+              id="location"
+              name="location"
+              type="text"
+              placeholder="FPO / Training location"
+              required
+            >
+
+          </div>
+
+        </div>
+
+
+        <!-- TRAINING FORMAT -->
+
+        <div class="form-group">
+
+          <label>
+            TRAINING FORMAT
+          </label>
+
+          <div class="format-options">
+
+            <label class="format-option">
+              <input type="radio" name="format" value="1:1" required>
+              <span>1:1</span>
+            </label>
+
+            <label class="format-option">
+              <input type="radio" name="format" value="2:1">
+              <span>2:1</span>
+            </label>
+
+            <label class="format-option">
+              <input type="radio" name="format" value="3:1">
+              <span>3:1</span>
+            </label>
+
+            <label class="format-option">
+              <input type="radio" name="format" value="4:1">
+              <span>4:1</span>
+            </label>
+
+            <label class="format-option">
+              <input type="radio" name="format" value="Larger Group">
+              <span>LARGER GROUP</span>
+            </label>
+
+          </div>
+
+        </div>
+
+
+        <!-- COST -->
+
+        <div class="cost-box">
+
+          <span>SESSION COST</span>
+
+          <strong id="sessionCost">
+            FPO
+          </strong>
+
+          <p>
+            Payment is handled directly. No online payment is required.
+          </p>
+
+        </div>
+
+
+        <!-- SUNDAY NOTICE -->
+
+        <div
+          class="sunday-notice"
+          id="sundayNotice"
+          hidden
+        >
+
+          <strong>
+            SUNDAY SESSION
+          </strong>
+
+          <p>
+            FPO — Sunday lessons require confirmation with our
+            Sunday registration contact before the session is finalized.
+            After submitting this form, you will receive instructions
+            for contacting the appropriate person and arranging payment.
+          </p>
+
+        </div>
+
+
+        <button
+          type="submit"
+          class="primary-button form-submit"
+        >
+          Submit Registration
+          <span>→</span>
+        </button>
+
+        <p class="form-disclaimer">
+          FPO — By submitting this form, you are requesting the selected
+          session. Your information remains private.
+        </p>
+
+      </form>
+
+    </div>
+
+  </section>
+
+
+  <!-- CONFIRMATION -->
+
+  <section
+    class="confirmation-section section-pad"
+    id="confirmation"
+    hidden
+  >
+
+    <div class="confirmation-box">
+
+      <span class="eyebrow">
+        REGISTRATION RECEIVED
+      </span>
+
+      <h2>
+        YOU'RE<br>
+        <em>ON THE LIST.</em>
+      </h2>
+
+      <p id="confirmationMessage">
+        FPO — Your registration has been received.
+      </p>
+
+      <a
+        href="index.html"
+        class="primary-button"
+      >
+        Back to Home
+        <span>→</span>
+      </a>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer class="site-footer">
+
+  <div class="footer-brand">
+    FPO<span>VB</span>
+  </div>
+
+  <div class="footer-note">
+    PRIVATE VOLLEYBALL TRAINING<br>
+    FPO / YOUR LOCATION
+  </div>
+
+  <div class="footer-copy">
+    © 2026 FPO Volleyball Training
+  </div>
+
+</footer>
+
+
+<script src="js/registration.js"></script>
+
+</body>
+</html>
