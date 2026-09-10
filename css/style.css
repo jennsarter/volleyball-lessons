@@ -1,3 +1,24 @@
+/* =========================================================
+   PRIVATE VOLLEYBALL TRAINING
+   Main Styles
+   ========================================================= */
+
+:root {
+  --navy: #101a32;
+  --blue: #2457ff;
+  --blue-dark: #173fd1;
+  --cream: #f5f1e8;
+  --white: #ffffff;
+  --text: #111827;
+  --muted: #697080;
+  --line: #d8d3c8;
+}
+
+
+/* ---------------------------------------------------------
+   RESET
+   --------------------------------------------------------- */
+
 * {
   margin: 0;
   padding: 0;
@@ -9,8 +30,8 @@ html {
 }
 
 body {
-  background: #f5f1e8;
-  color: #111827;
+  background: var(--cream);
+  color: var(--text);
   font-family: "DM Sans", Arial, sans-serif;
   line-height: 1.5;
 }
@@ -20,22 +41,17 @@ a {
   text-decoration: none;
 }
 
-:root {
-  --navy: #101a32;
-  --blue: #2457ff;
-  --cream: #f5f1e8;
-  --white: #ffffff;
-  --black: #111827;
-  --muted: #697080;
-  --line: #d8d3c8;
-}
+
+/* ---------------------------------------------------------
+   HEADLINES
+   --------------------------------------------------------- */
 
 h1,
 h2,
 h3,
 .logo {
   font-family: "Barlow Condensed", Impact, sans-serif;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: -0.025em;
 }
 
@@ -45,21 +61,29 @@ h2 em {
   font-style: normal;
 }
 
+
+/* ---------------------------------------------------------
+   HEADER
+   --------------------------------------------------------- */
+
 .site-header {
   min-height: 82px;
   padding: 0 5vw;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   background: var(--cream);
   border-bottom: 1px solid var(--line);
+
   position: relative;
   z-index: 10;
 }
 
 .logo {
-  font-size: 2rem;
-  letter-spacing: -0.04em;
+  font-size: 2.2rem;
+  letter-spacing: -0.06em;
 }
 
 .logo span {
@@ -73,22 +97,27 @@ h2 em {
 }
 
 .site-header nav a {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
 .nav-cta {
+  padding: 0.8rem 1.15rem;
   background: var(--navy);
   color: var(--white) !important;
-  padding: 0.8rem 1.15rem;
 }
 
 .nav-cta span {
-  color: #6d8cff;
+  color: #7890ff;
   margin-left: 0.25rem;
 }
+
+
+/* ---------------------------------------------------------
+   GENERAL
+   --------------------------------------------------------- */
 
 .section-pad {
   padding: 110px 7vw;
@@ -96,8 +125,10 @@ h2 em {
 
 .section-label {
   margin-bottom: 50px;
+
   color: var(--blue);
-  font-size: 0.72rem;
+
+  font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -105,29 +136,42 @@ h2 em {
 
 .eyebrow {
   color: var(--blue);
-  font-size: 0.78rem;
+
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
+
+
+/* ---------------------------------------------------------
+   BUTTONS
+   --------------------------------------------------------- */
 
 .primary-button {
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
   gap: 2rem;
+
+  margin-top: 2rem;
+  padding: 1.05rem 1.35rem;
+
   background: var(--blue);
   color: var(--white);
-  padding: 1.05rem 1.35rem;
-  font-size: 0.78rem;
+
+  font-size: 0.76rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  transition: transform 0.2s ease, background 0.2s ease;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
 }
 
 .primary-button:hover {
-  background: #1744db;
+  background: var(--blue-dark);
   transform: translateY(-2px);
 }
 
@@ -141,15 +185,19 @@ h2 em {
 }
 
 .primary-button.light:hover {
-  background: #e8e8e8;
+  background: #eeeeee;
 }
 
 .text-link {
   display: inline-flex;
-  gap: 1rem;
   align-items: center;
+  gap: 1rem;
+
+  margin-top: 2rem;
+
   color: var(--blue);
-  font-size: 0.78rem;
+
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -159,15 +207,23 @@ h2 em {
   font-size: 1.2rem;
 }
 
+
+/* ---------------------------------------------------------
+   HERO
+   --------------------------------------------------------- */
+
 .hero {
   min-height: calc(100vh - 82px);
+
   display: grid;
   grid-template-columns: 1fr 0.9fr;
+
   background: var(--cream);
 }
 
 .hero-content {
   padding: 8vw 5vw 8vw 7vw;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -176,8 +232,10 @@ h2 em {
 
 .hero h1 {
   margin-top: 1rem;
-  font-size: clamp(6rem, 12vw, 12rem);
-  line-height: 0.78;
+
+  font-size: clamp(7rem, 14vw, 14rem);
+  line-height: 0.73;
+
   text-transform: uppercase;
 }
 
@@ -185,58 +243,83 @@ h2 em {
   color: var(--blue);
 }
 
-.hero-tagline {
-  margin-top: 2.4rem;
-  font-size: clamp(1.3rem, 2vw, 2rem);
+.hero-subhead {
+  margin-top: 2.5rem;
+
+  font-family: "DM Sans", Arial, sans-serif;
+  font-size: clamp(1.5rem, 2.4vw, 2.4rem);
   font-weight: 600;
-  line-height: 1.2;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+
+.hero-support {
+  margin-top: 1rem;
+
+  color: var(--blue);
+
+  font-size: 1rem;
+  font-weight: 700;
 }
 
 .hero-copy {
   max-width: 510px;
-  margin-top: 1.5rem;
-  color: #505765;
-  font-size: 1rem;
-  line-height: 1.7;
-}
+  margin-top: 1.2rem;
 
-.hero .primary-button {
-  margin-top: 2rem;
+  color: #505765;
+
+  font-size: 0.95rem;
+  line-height: 1.7;
 }
 
 .hero-photo {
   min-height: 650px;
+
   background: var(--navy);
+
   position: relative;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   overflow: hidden;
 }
 
 .photo-placeholder {
   width: 72%;
   height: 78%;
-  background: linear-gradient(145deg, #2e4d91, #182642);
+
+  background:
+    linear-gradient(
+      145deg,
+      #31539a,
+      #182642
+    );
+
   color: var(--white);
+
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
   text-align: center;
 }
 
 .photo-placeholder span {
   font-family: "Barlow Condensed", Impact, sans-serif;
   font-size: clamp(3rem, 6vw, 6rem);
-  font-weight: 700;
-  line-height: 0.82;
+  font-weight: 800;
+  line-height: 0.8;
 }
 
 .photo-placeholder small {
   margin-top: 1.5rem;
+
   color: #aeb9d2;
-  font-size: 0.65rem;
+
+  font-size: 0.6rem;
   letter-spacing: 0.15em;
 }
 
@@ -244,10 +327,17 @@ h2 em {
   position: absolute;
   right: 7%;
   bottom: 5%;
+
   color: #9ba8c5;
-  font-size: 0.65rem;
+
+  font-size: 0.6rem;
   letter-spacing: 0.12em;
 }
+
+
+/* ---------------------------------------------------------
+   INTRO
+   --------------------------------------------------------- */
 
 .intro {
   background: var(--white);
@@ -260,8 +350,8 @@ h2 em {
 }
 
 .intro h2 {
-  font-size: clamp(4rem, 8vw, 8rem);
-  line-height: 0.82;
+  font-size: clamp(5rem, 9vw, 9rem);
+  line-height: 0.78;
 }
 
 .intro-grid > div {
@@ -270,7 +360,7 @@ h2 em {
 }
 
 .large-copy {
-  font-size: clamp(1.3rem, 2vw, 1.8rem);
+  font-size: clamp(1.35rem, 2vw, 1.8rem);
   font-weight: 600;
   line-height: 1.3;
 }
@@ -279,6 +369,11 @@ h2 em {
   margin-top: 1.5rem;
   color: var(--muted);
 }
+
+
+/* ---------------------------------------------------------
+   WHY TRAIN WITH ME
+   --------------------------------------------------------- */
 
 .why {
   background: var(--navy);
@@ -297,25 +392,28 @@ h2 em {
 }
 
 .section-heading h2 {
-  font-size: clamp(4rem, 8vw, 8rem);
-  line-height: 0.82;
+  font-size: clamp(5rem, 9vw, 9rem);
+  line-height: 0.78;
 }
 
 .section-heading p {
-  color: #b5bed1;
   max-width: 500px;
+  color: #b5bed1;
 }
 
 .benefits-grid {
   margin-top: 90px;
+
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+
   border-top: 1px solid #34405a;
 }
 
 .benefit {
-  min-height: 300px;
+  min-height: 310px;
   padding: 2rem 1.5rem;
+
   border-right: 1px solid #34405a;
 }
 
@@ -325,21 +423,30 @@ h2 em {
 
 .benefit-number {
   color: #7089d8;
-  font-size: 0.7rem;
+
+  font-size: 0.65rem;
   letter-spacing: 0.12em;
 }
 
 .benefit h3 {
   margin-top: 4rem;
+
   font-size: 2rem;
-  line-height: 0.9;
+  line-height: 0.88;
 }
 
 .benefit p {
   margin-top: 1.5rem;
+
   color: #b5bed1;
-  font-size: 0.9rem;
+
+  font-size: 0.88rem;
 }
+
+
+/* ---------------------------------------------------------
+   WHO CAN TRAIN
+   --------------------------------------------------------- */
 
 .who {
   background: var(--cream);
@@ -353,7 +460,7 @@ h2 em {
 
 .who h2 {
   font-size: clamp(5rem, 9vw, 9rem);
-  line-height: 0.8;
+  line-height: 0.78;
 }
 
 .who-copy {
@@ -367,13 +474,16 @@ h2 em {
 
 .athlete-types {
   margin-top: 80px;
+
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+
   border-top: 1px solid var(--line);
 }
 
 .athlete-types > div {
   padding: 2rem 1.25rem;
+
   border-right: 1px solid var(--line);
 }
 
@@ -383,23 +493,33 @@ h2 em {
 
 .athlete-types span {
   color: var(--blue);
-  font-size: 0.7rem;
+
+  font-size: 0.65rem;
   font-weight: 700;
 }
 
 .athlete-types strong {
   display: block;
+
   margin-top: 2rem;
+
   font-family: "Barlow Condensed", Impact, sans-serif;
   font-size: 1.6rem;
-  line-height: 0.95;
+  line-height: 0.9;
 }
 
 .athlete-types p {
   margin-top: 1rem;
+
   color: var(--muted);
-  font-size: 0.85rem;
+
+  font-size: 0.82rem;
 }
+
+
+/* ---------------------------------------------------------
+   ABOUT
+   --------------------------------------------------------- */
 
 .about {
   background: var(--white);
@@ -414,7 +534,9 @@ h2 em {
 
 .coach-photo {
   min-height: 600px;
+
   background: var(--navy);
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -431,8 +553,9 @@ h2 em {
 
 .about-content h2 {
   margin-top: 1rem;
-  font-size: clamp(4rem, 7vw, 7rem);
-  line-height: 0.82;
+
+  font-size: clamp(5rem, 8vw, 8rem);
+  line-height: 0.78;
 }
 
 .about-content p {
@@ -443,6 +566,11 @@ h2 em {
 .about-content .text-link {
   margin-top: 2rem;
 }
+
+
+/* ---------------------------------------------------------
+   TESTIMONIALS
+   --------------------------------------------------------- */
 
 .testimonials {
   background: #e9e5db;
@@ -456,8 +584,8 @@ h2 em {
 }
 
 .testimonial-heading h2 {
-  font-size: clamp(4rem, 7vw, 7rem);
-  line-height: 0.82;
+  font-size: clamp(5rem, 8vw, 8rem);
+  line-height: 0.78;
 }
 
 .testimonial-heading p {
@@ -466,22 +594,27 @@ h2 em {
 
 .testimonial-grid {
   margin-top: 80px;
+
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1px;
+
   background: #c9c4b8;
 }
 
 .testimonial-grid blockquote {
   min-height: 330px;
   padding: 2rem;
+
   background: var(--white);
+
   display: flex;
   flex-direction: column;
 }
 
 .quote-mark {
   color: var(--blue);
+
   font-family: Georgia, serif;
   font-size: 4rem;
   line-height: 0.7;
@@ -489,23 +622,32 @@ h2 em {
 
 .testimonial-grid blockquote p {
   margin-top: 2rem;
-  font-size: 1.05rem;
+
+  font-size: 1rem;
   line-height: 1.6;
 }
 
 .testimonial-grid footer {
   margin-top: auto;
   padding-top: 2rem;
+
   color: var(--muted);
-  font-size: 0.65rem;
+
+  font-size: 0.6rem;
   font-weight: 700;
   letter-spacing: 0.1em;
 }
 
+
+/* ---------------------------------------------------------
+   FINAL CTA
+   --------------------------------------------------------- */
+
 .final-cta {
+  padding: 120px 7vw;
+
   background: var(--blue);
   color: var(--white);
-  padding: 120px 7vw;
 }
 
 .final-cta-inner {
@@ -518,8 +660,9 @@ h2 em {
 
 .final-cta h2 {
   margin-top: 1rem;
+
   font-size: clamp(7rem, 15vw, 15rem);
-  line-height: 0.72;
+  line-height: 0.7;
 }
 
 .final-cta h2 em {
@@ -527,8 +670,9 @@ h2 em {
 }
 
 .final-cta p {
-  margin-top: 3rem;
   max-width: 500px;
+  margin-top: 3rem;
+
   font-size: 1.1rem;
 }
 
@@ -536,11 +680,18 @@ h2 em {
   margin-top: 2rem;
 }
 
+
+/* ---------------------------------------------------------
+   FOOTER
+   --------------------------------------------------------- */
+
 .site-footer {
   min-height: 150px;
   padding: 2.5rem 7vw;
+
   background: var(--navy);
   color: var(--white);
+
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
@@ -549,7 +700,7 @@ h2 em {
 .footer-brand {
   font-family: "Barlow Condensed", Impact, sans-serif;
   font-size: 2rem;
-  font-weight: 700;
+  font-weight: 800;
 }
 
 .footer-brand span {
@@ -558,16 +709,23 @@ h2 em {
 
 .footer-note {
   color: #a9b3c8;
-  font-size: 0.65rem;
+
+  font-size: 0.6rem;
   line-height: 1.5;
   letter-spacing: 0.1em;
 }
 
 .footer-copy {
   color: #78849c;
-  font-size: 0.65rem;
+
+  font-size: 0.6rem;
   text-align: right;
 }
+
+
+/* ---------------------------------------------------------
+   TABLET
+   --------------------------------------------------------- */
 
 @media (max-width: 900px) {
 
@@ -601,7 +759,7 @@ h2 em {
   }
 
   .hero h1 {
-    font-size: clamp(6rem, 25vw, 11rem);
+    font-size: clamp(7rem, 25vw, 12rem);
   }
 
   .section-pad {
@@ -667,6 +825,11 @@ h2 em {
   }
 }
 
+
+/* ---------------------------------------------------------
+   PHONE
+   --------------------------------------------------------- */
+
 @media (max-width: 500px) {
 
   .hero-content {
@@ -674,11 +837,15 @@ h2 em {
   }
 
   .hero h1 {
-    font-size: 6.5rem;
+    font-size: 6.8rem;
   }
 
-  .hero-tagline {
-    font-size: 1.25rem;
+  .hero-subhead {
+    font-size: 1.45rem;
+  }
+
+  .hero-support {
+    font-size: 0.9rem;
   }
 
   .hero-photo {
