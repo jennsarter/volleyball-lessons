@@ -244,13 +244,14 @@ h2 em {
 }
 
 .hero-subhead {
-  max-width: 560px;
-  margin-top: 2.2rem;
+  width: 100%;
+  max-width: 720px;
+  margin-top: 2rem;
 
   font-family: "DM Sans", Arial, sans-serif;
-  font-size: clamp(1.15rem, 1.8vw, 1.7rem);
+  font-size: clamp(1.25rem, 2vw, 1.85rem);
   font-weight: 500;
-  line-height: 1.25;
+  line-height: 1.2;
   letter-spacing: -0.025em;
 }
 
