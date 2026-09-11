@@ -1,22 +1,58 @@
 document.addEventListener("DOMContentLoaded", function () {
 
   const slots = document.querySelectorAll(".slot.available");
-  const selectedSession = document.getElementById("selectedSession");
-  const selectedDay = document.getElementById("selectedDay");
-  const selectedTime = document.getElementById("selectedTime");
+  const clinics = document.querySelectorAll(".clinic-card.available");
 
-  const sundayNotice = document.getElementById("sundayNotice");
-  const sessionCost = document.getElementById("sessionCost");
-  const registrationForm = document.getElementById("registrationForm");
+  const selectedSession =
+    document.getElementById("selectedSession");
 
+  const selectedType =
+    document.getElementById("selectedType");
+
+  const selectedDay =
+    document.getElementById("selectedDay");
+
+  const selectedDate =
+    document.getElementById("selectedDate");
+
+  const selectedTime =
+    document.getElementById("selectedTime");
+
+  const selectedLocation =
+    document.getElementById("selectedLocation");
+
+  const selectedClinic =
+    document.getElementById("selectedClinic");
+
+  const sundayNotice =
+    document.getElementById("sundayNotice");
+
+  const clinicNotice =
+    document.getElementById("clinicNotice");
+
+  const sessionCost =
+    document.getElementById("sessionCost");
+
+  const registrationForm =
+    document.getElementById("registrationForm");
+
+  const privateTrainingOptions =
+    document.getElementById("privateTrainingOptions");
+
+
+  let currentType = "";
   let currentDay = "";
+  let currentDate = "";
   let currentTime = "";
+  let currentLocation = "";
+  let currentClinic = "";
+  let currentPrice = "";
 
 
   /*
-   * FPO PRICING
+   * PRIVATE TRAINING PRICING
    *
-   * Replace these values later with your actual prices.
+   * Replace these values with your actual prices.
    */
 
   const prices = {
@@ -24,37 +60,117 @@ document.addEventListener("DOMContentLoaded", function () {
     "2:1": 45,
     "3:1": 35,
     "4:1": 30,
-    "Larger Group": 0
+    "5:1": 27,
+    "6:1": 25
   };
 
 
   /*
-   * SLOT SELECTION
+   * CLEAR CURRENT SELECTION
+   */
+
+  function clearSelections() {
+
+    slots.forEach(function (slot) {
+      slot.classList.remove("selected");
+    });
+
+    clinics.forEach(function (clinic) {
+      clinic.classList.remove("selected");
+    });
+
+  }
+
+
+  /*
+   * UPDATE FORM VISIBILITY
+   */
+
+  function updateFormForType() {
+
+    const isClinic = currentType === "clinic";
+
+    privateTrainingOptions.hidden = isClinic;
+
+    clinicNotice.hidden = !isClinic;
+
+    if (isClinic) {
+
+      document
+        .querySelectorAll('input[name="format"]')
+        .forEach(function (input) {
+          input.checked = false;
+          input.required = false;
+        });
+
+      sessionCost.textContent =
+        currentPrice || "FPO";
+
+    } else {
+
+      document
+        .querySelectorAll('input[name="format"]')
+        .forEach(function (input) {
+          input.required = true;
+        });
+
+      sessionCost.textContent = "SELECT FORMAT";
+
+    }
+
+  }
+
+
+  /*
+   * PRIVATE LESSON SELECTION
    */
 
   slots.forEach(function (slot) {
 
     slot.addEventListener("click", function () {
 
-      slots.forEach(function (otherSlot) {
-        otherSlot.classList.remove("selected");
-      });
+      clearSelections();
 
       slot.classList.add("selected");
 
-      currentDay = slot.dataset.day;
-      currentTime = slot.dataset.time;
+      currentType =
+        slot.dataset.type || "lesson";
 
+      currentDay =
+        slot.dataset.day || "";
+
+      currentDate =
+        slot.dataset.date || "";
+
+      currentTime =
+        slot.dataset.time || "";
+
+      currentLocation =
+        slot.dataset.location || "";
+
+      currentClinic = "";
+
+      currentPrice = "";
+
+
+      selectedType.value = currentType;
       selectedDay.value = currentDay;
+      selectedDate.value = currentDate;
       selectedTime.value = currentTime;
+      selectedLocation.value = currentLocation;
+      selectedClinic.value = "";
+
 
       selectedSession.textContent =
-        currentDay + " • " + currentTime;
+        currentDay +
+        " • " +
+        currentDate +
+        " • " +
+        currentTime;
 
 
       /*
-       * Sunday lessons have a different
-       * registration/payment workflow.
+       * Sunday lessons have a separate workflow.
        */
 
       if (currentDay === "Sunday") {
@@ -67,32 +183,97 @@ document.addEventListener("DOMContentLoaded", function () {
 
       }
 
+
+      updateFormForType();
+
     });
 
   });
 
 
   /*
-   * TRAINING FORMAT / COST
+   * CLINIC SELECTION
+   */
+
+  clinics.forEach(function (clinic) {
+
+    clinic.addEventListener("click", function () {
+
+      clearSelections();
+
+      clinic.classList.add("selected");
+
+      currentType = "clinic";
+
+      currentDay = "";
+
+      currentDate =
+        clinic.dataset.date || "";
+
+      currentTime =
+        clinic.dataset.time || "";
+
+      currentLocation =
+        clinic.dataset.location || "";
+
+      currentClinic =
+        clinic.dataset.clinic || "";
+
+      currentPrice =
+        clinic.dataset.price || "FPO";
+
+
+      selectedType.value = currentType;
+      selectedDay.value = "";
+      selectedDate.value = currentDate;
+      selectedTime.value = currentTime;
+      selectedLocation.value = currentLocation;
+      selectedClinic.value = currentClinic;
+
+
+      selectedSession.textContent =
+        currentClinic +
+        " • " +
+        currentDate +
+        " • " +
+        currentTime;
+
+
+      sundayNotice.hidden = true;
+
+      updateFormForType();
+
+    });
+
+  });
+
+
+  /*
+   * PRIVATE TRAINING FORMAT / COST
    */
 
   const formatOptions =
-    document.querySelectorAll('input[name="format"]');
+    document.querySelectorAll(
+      'input[name="format"]'
+    );
+
 
   formatOptions.forEach(function (option) {
 
     option.addEventListener("change", function () {
 
+      if (currentType === "clinic") {
+        return;
+      }
+
       const format = option.value;
 
-      if (format === "Larger Group") {
-
-        sessionCost.textContent = "CONTACT";
-
-      } else {
+      if (prices[format] !== undefined) {
 
         sessionCost.textContent =
-          "$" + prices[format] + " / SESSION";
+          "$" +
+          prices[format] +
+          " / SESSION";
 
       }
 
@@ -104,101 +285,149 @@ document.addEventListener("DOMContentLoaded", function () {
   /*
    * FORM SUBMISSION
    *
-   * This is currently a demonstration.
+   * This currently demonstrates the registration flow.
    *
-   * Later we will connect this to Google Apps Script
-   * so registrations are securely recorded and
-   * unavailable slots are protected from double booking.
+   * The final version will POST the form to Google Apps Script.
+   * That backend will:
+   *
+   * 1. Save the registration privately.
+   * 2. Check whether the selected lesson is still available.
+   * 3. Prevent double booking.
+   * 4. Track clinic enrollment.
+   * 5. Automatically cap clinics at six players.
    */
 
-  registrationForm.addEventListener("submit", function (event) {
+  registrationForm.addEventListener(
+    "submit",
+    function (event) {
 
-    event.preventDefault();
+      event.preventDefault();
 
 
-    /*
-     * Make sure a lesson time was selected.
-     */
+      /*
+       * Make sure a lesson or clinic was selected.
+       */
 
-    if (!currentDay || !currentTime) {
+      if (!currentType) {
 
-      alert(
-        "Please select an available lesson time before submitting."
-      );
+        alert(
+          "Please select an available lesson or clinic before submitting."
+        );
 
-      return;
+        return;
+
+      }
+
+
+      /*
+       * Private lesson requires a format.
+       */
+
+      if (currentType === "lesson") {
+
+        const selectedFormat =
+          document.querySelector(
+            'input[name="format"]:checked'
+          );
+
+
+        if (!selectedFormat) {
+
+          alert(
+            "Please select a training format."
+          );
+
+          return;
+
+        }
+
+      }
+
+
+      /*
+       * Confirmation elements.
+       */
+
+      const confirmation =
+        document.getElementById("confirmation");
+
+      const confirmationMessage =
+        document.getElementById(
+          "confirmationMessage"
+        );
+
+
+      /*
+       * Sunday confirmation.
+       */
+
+      if (
+        currentType === "lesson" &&
+        currentDay === "Sunday"
+      ) {
+
+        confirmationMessage.textContent =
+          "Your Sunday session request has been received. " +
+          "You will receive instructions for contacting the " +
+          "Sunday registration contact to confirm your time " +
+          "and arrange payment.";
+
+      }
+
+
+      /*
+       * Clinic confirmation.
+       */
+
+      else if (currentType === "clinic") {
+
+        confirmationMessage.textContent =
+          "Your registration request for the " +
+          currentClinic +
+          " has been received. " +
+          "The clinic is capped at six players and you will " +
+          "receive confirmation of your spot and payment instructions.";
+
+      }
+
+
+      /*
+       * Regular lesson confirmation.
+       */
+
+      else {
+
+        const selectedFormat =
+          document.querySelector(
+            'input[name="format"]:checked'
+          );
+
+
+        confirmationMessage.textContent =
+          "Your registration request for " +
+          currentDay +
+          " at " +
+          currentTime +
+          " has been received. " +
+          "Payment will be arranged directly with Coach Jenn.";
+
+      }
+
+
+      /*
+       * Hide form and show confirmation.
+       */
+
+      registrationForm.style.display =
+        "none";
+
+      confirmation.hidden = false;
+
+      confirmation.scrollIntoView({
+        behavior: "smooth"
+      });
 
     }
-
-
-    /*
-     * Get selected training format.
-     */
-
-    const selectedFormat =
-      document.querySelector(
-        'input[name="format"]:checked'
-      );
-
-
-    if (!selectedFormat) {
-
-      alert(
-        "Please select a training format."
-      );
-
-      return;
-
-    }
-
-
-    /*
-     * Get confirmation elements.
-     */
-
-    const confirmation =
-      document.getElementById("confirmation");
-
-    const confirmationMessage =
-      document.getElementById("confirmationMessage");
-
-
-    /*
-     * Sunday message.
-     */
-
-    if (currentDay === "Sunday") {
-
-      confirmationMessage.textContent =
-        "Your Sunday session request has been received. " +
-        "FPO — Please contact the Sunday registration contact " +
-        "to confirm your time and arrange payment.";
-
-    } else {
-
-      confirmationMessage.textContent =
-        "Your registration request for " +
-        currentDay +
-        " at " +
-        currentTime +
-        " has been received. " +
-        "FPO — Payment will be arranged directly with the coach.";
-
-    }
-
-
-    /*
-     * Hide the form and show confirmation.
-     */
-
-    registrationForm.style.display = "none";
-
-    confirmation.hidden = false;
-
-    confirmation.scrollIntoView({
-      behavior: "smooth"
-    });
-
-  });
+  );
 
 });
