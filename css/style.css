@@ -984,3 +984,860 @@ h2 em {
     padding: 2.5rem 7vw;
   }
 }
+/* =========================================================
+   TRAINING SECTION
+   ========================================================= */
+
+.training {
+  background: var(--white);
+}
+
+.training-heading {
+  max-width: 1000px;
+}
+
+.training-heading h2 {
+  font-size: clamp(6.5rem, 11vw, 11rem);
+  line-height: 0.76;
+  letter-spacing: -0.025em;
+}
+
+.training-formats {
+  margin-top: 90px;
+
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+
+  border-top: 1px solid var(--light-line);
+  border-bottom: 1px solid var(--light-line);
+}
+
+.training-formats > div,
+.training-formats > strong {
+  min-height: 190px;
+  padding: 2rem;
+
+  border-right: 1px solid var(--light-line);
+}
+
+.training-formats > strong:last-child {
+  border-right: none;
+}
+
+.training-formats .format-number {
+  min-height: auto;
+  padding-bottom: 0;
+
+  border-right: none;
+
+  color: var(--blue);
+
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.training-formats strong {
+  grid-row: 2;
+
+  padding-top: 0;
+
+  font-family: "Barlow Condensed", Impact, sans-serif;
+  font-size: 3.2rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.training-copy {
+  margin-top: 70px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10vw;
+
+  max-width: 1200px;
+}
+
+.training-copy p + p {
+  color: var(--gray);
+
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+
+/* =========================================================
+   MEET YOUR COACH
+   ========================================================= */
+
+.coach-intro {
+  margin-top: 150px;
+
+  padding-top: 90px;
+
+  border-top: 1px solid var(--light-line);
+}
+
+.coach-intro .section-label {
+  margin-bottom: 50px;
+}
+
+.coach-intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10vw;
+  align-items: start;
+}
+
+.coach-intro-copy h3 {
+  margin-top: 1.5rem;
+
+  font-size: clamp(3.5rem, 6vw, 6rem);
+  line-height: 0.82;
+}
+
+.coach-intro-grid > div:last-child {
+  max-width: 620px;
+}
+
+.coach-intro-grid p + p {
+  margin-top: 2rem;
+
+  color: var(--gray);
+
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+
+/* =========================================================
+   WHY I COACH
+   ========================================================= */
+
+.why-coach {
+  background: var(--navy);
+  color: var(--white);
+}
+
+.why-coach .section-label {
+  color: #8da0ff;
+}
+
+.why-coach .section-heading h2 {
+  font-size: clamp(6.5rem, 11vw, 11rem);
+  line-height: 0.76;
+}
+
+.why-coach .section-heading p {
+  color: #b8c1d3;
+}
+
+
+/* =========================================================
+   REGISTRATION PAGE
+   ========================================================= */
+
+.registration-hero {
+  background: var(--cream);
+}
+
+.registration-hero h1 {
+  max-width: 1200px;
+
+  font-size: clamp(7rem, 13vw, 13rem);
+  line-height: 0.74;
+}
+
+.registration-hero .hero-copy {
+  margin-top: 3rem;
+  max-width: 600px;
+}
+
+
+/* =========================================================
+   AVAILABILITY
+   ========================================================= */
+
+.availability-section {
+  background: var(--white);
+}
+
+.availability-intro {
+  display: grid;
+  grid-template-columns: 1fr 0.8fr;
+  gap: 10vw;
+  align-items: end;
+}
+
+.availability-intro h2 {
+  font-size: clamp(5rem, 8vw, 8rem);
+  line-height: 0.78;
+}
+
+.availability-intro h2 span {
+  color: var(--blue);
+}
+
+.availability-intro > p {
+  max-width: 560px;
+
+  color: var(--gray);
+
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+
+/* =========================================================
+   SCHEDULE
+   ========================================================= */
+
+.schedule {
+  margin-top: 90px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 4rem;
+}
+
+.schedule-day {
+  border-top: 1px solid var(--light-line);
+}
+
+.day-header {
+  min-height: 110px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-bottom: 1px solid var(--light-line);
+}
+
+.day-header > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.day-name {
+  font-family: "Barlow Condensed", Impact, sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.day-date {
+  margin-top: 0.5rem;
+
+  color: var(--gray);
+
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.slot {
+  width: 100%;
+
+  padding: 1.5rem 1.2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--light-line);
+
+  cursor: pointer;
+
+  font-family: "DM Sans", Arial, sans-serif;
+  text-align: left;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.slot.available:hover,
+.slot.available.selected {
+  background: var(--blue);
+  color: var(--white);
+}
+
+.slot.unavailable {
+  color: #999;
+  cursor: not-allowed;
+}
+
+.slot > span:first-child {
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.slot-status {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.sunday-badge {
+  padding: 0.5rem 0.7rem;
+
+  background: var(--navy);
+  color: var(--white);
+
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+
+/* =========================================================
+   CLINICS
+   ========================================================= */
+
+.clinics-section {
+  background: var(--cream);
+}
+
+.clinic-list {
+  margin-top: 90px;
+
+  border-top: 1px solid var(--light-line);
+}
+
+.clinic-card {
+  width: 100%;
+
+  padding: 2.5rem 0;
+
+  display: grid;
+  grid-template-columns: 70px 1fr auto;
+  gap: 2rem;
+  align-items: start;
+
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--light-line);
+
+  cursor: pointer;
+
+  text-align: left;
+
+  transition:
+    background 0.2s ease,
+    padding 0.2s ease;
+}
+
+.clinic-card:hover,
+.clinic-card.selected {
+  background: var(--white);
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.clinic-number {
+  color: var(--blue);
+
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.clinic-main strong {
+  font-family: "Barlow Condensed", Impact, sans-serif;
+  font-size: 2.4rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.clinic-main p {
+  max-width: 600px;
+  margin-top: 1rem;
+
+  color: var(--gray);
+
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+.clinic-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+
+  color: var(--gray);
+
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+
+/* =========================================================
+   REGISTRATION FORM
+   ========================================================= */
+
+.registration-form-section {
+  background: var(--white);
+}
+
+.form-wrapper {
+  max-width: 1200px;
+}
+
+.form-heading {
+  display: grid;
+  grid-template-columns: 1fr 0.7fr;
+  gap: 10vw;
+  align-items: end;
+}
+
+.form-heading h2 {
+  font-size: clamp(5.5rem, 9vw, 9rem);
+  line-height: 0.76;
+}
+
+.form-heading p {
+  color: var(--gray);
+
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+#registrationForm {
+  margin-top: 90px;
+}
+
+.selected-session {
+  margin-bottom: 60px;
+  padding: 1.8rem;
+
+  background: var(--cream);
+
+  border-left: 4px solid var(--blue);
+
+  display: flex;
+  flex-direction: column;
+}
+
+.selected-session > span {
+  color: var(--blue);
+
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+.selected-session strong {
+  margin-top: 0.7rem;
+
+  font-size: 1.1rem;
+}
+
+
+.form-group {
+  margin-top: 55px;
+}
+
+.form-group > label {
+  display: block;
+  margin-bottom: 1.5rem;
+
+  color: var(--blue);
+
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-field.full {
+  grid-column: 1 / -1;
+}
+
+.form-field label {
+  margin-bottom: 0.6rem;
+
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.form-field input,
+.form-field textarea {
+  width: 100%;
+
+  padding: 1rem;
+
+  background: var(--cream);
+
+  border: 1px solid var(--light-line);
+
+  color: var(--black);
+
+  font-family: "DM Sans", Arial, sans-serif;
+  font-size: 1rem;
+
+  outline: none;
+
+  transition: border-color 0.2s ease;
+}
+
+.form-field textarea {
+  resize: vertical;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+  border-color: var(--blue);
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+  color: #989b9f;
+}
+
+
+/* =========================================================
+   FORMAT OPTIONS
+   ========================================================= */
+
+.format-options {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+
+  border-top: 1px solid var(--light-line);
+  border-bottom: 1px solid var(--light-line);
+}
+
+.format-option {
+  position: relative;
+
+  min-height: 100px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-right: 1px solid var(--light-line);
+
+  cursor: pointer;
+}
+
+.format-option:last-child {
+  border-right: none;
+}
+
+.format-option input {
+  position: absolute;
+  opacity: 0;
+}
+
+.format-option span {
+  font-family: "Barlow Condensed", Impact, sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.format-option:has(input:checked) {
+  background: var(--blue);
+  color: var(--white);
+}
+
+
+/* =========================================================
+   COST / NOTICES / WAIVER
+   ========================================================= */
+
+.cost-box {
+  margin-top: 50px;
+  padding: 2rem;
+
+  background: var(--navy);
+  color: var(--white);
+
+  display: flex;
+  flex-direction: column;
+}
+
+.cost-box > span {
+  color: #8da0ff;
+
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+}
+
+.cost-box strong {
+  margin-top: 0.5rem;
+
+  font-family: "Barlow Condensed", Impact, sans-serif;
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.cost-box p {
+  margin-top: 1rem;
+
+  color: #b8c1d3;
+
+  font-size: 0.85rem;
+}
+
+.sunday-notice,
+.clinic-notice {
+  margin-top: 25px;
+  padding: 1.5rem;
+
+  background: #eef1ff;
+
+  border-left: 4px solid var(--blue);
+}
+
+.sunday-notice strong,
+.clinic-notice strong {
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+}
+
+.sunday-notice p,
+.clinic-notice p {
+  margin-top: 0.7rem;
+
+  color: var(--gray);
+
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+.waiver-box {
+  margin-top: 45px;
+  padding: 1.5rem;
+
+  background: var(--cream);
+}
+
+.checkbox-field {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+
+  cursor: pointer;
+
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+.checkbox-field input {
+  flex: 0 0 auto;
+
+  width: 18px;
+  height: 18px;
+
+  margin-top: 0.15rem;
+}
+
+.form-submit {
+  margin-top: 35px;
+}
+
+.form-disclaimer {
+  max-width: 700px;
+  margin-top: 1.5rem;
+
+  color: var(--gray);
+
+  font-size: 0.72rem;
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   CONFIRMATION
+   ========================================================= */
+
+.confirmation-section {
+  background: var(--blue);
+  color: var(--white);
+}
+
+.confirmation-box {
+  max-width: 850px;
+}
+
+.confirmation-box .eyebrow {
+  color: #c3ceff;
+}
+
+.confirmation-box h2 {
+  margin-top: 1.5rem;
+
+  font-size: clamp(6rem, 11vw, 11rem);
+  line-height: 0.74;
+}
+
+.confirmation-box h2 em {
+  color: var(--white);
+}
+
+.confirmation-box p {
+  max-width: 600px;
+  margin-top: 3rem;
+
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.confirmation-box .primary-button {
+  margin-top: 2rem;
+}
+
+
+/* =========================================================
+   TABLET ADDITIONS
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+  .training-formats {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .training-formats > div,
+  .training-formats > strong {
+    border-bottom: 1px solid var(--light-line);
+  }
+
+  .training-copy,
+  .coach-intro-grid,
+  .availability-intro,
+  .form-heading {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .schedule {
+    grid-template-columns: 1fr;
+  }
+
+  .clinic-card {
+    grid-template-columns: 50px 1fr;
+  }
+
+  .clinic-meta {
+    grid-column: 2;
+    align-items: flex-start;
+  }
+
+  .format-options {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .format-option:nth-child(3) {
+    border-right: none;
+  }
+
+  .format-option:nth-child(-n+3) {
+    border-bottom: 1px solid var(--light-line);
+  }
+
+}
+
+
+/* =========================================================
+   PHONE ADDITIONS
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  .training-heading h2,
+  .registration-hero h1 {
+    font-size: clamp(5rem, 22vw, 8rem);
+  }
+
+  .training-formats {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .training-formats > div,
+  .training-formats > strong {
+    min-height: 130px;
+  }
+
+  .training-formats > strong {
+    font-size: 2.5rem;
+  }
+
+  .training-copy {
+    margin-top: 50px;
+  }
+
+  .coach-intro {
+    margin-top: 100px;
+    padding-top: 70px;
+  }
+
+  .schedule {
+    margin-top: 60px;
+  }
+
+  .clinic-list {
+    margin-top: 60px;
+  }
+
+  .clinic-card {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .clinic-meta {
+    grid-column: auto;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-field.full {
+    grid-column: auto;
+  }
+
+  .format-options {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .format-option {
+    min-height: 80px;
+  }
+
+  .format-option:nth-child(2),
+  .format-option:nth-child(4),
+  .format-option:nth-child(6) {
+    border-right: none;
+  }
+
+  .format-option:nth-child(3),
+  .format-option:nth-child(4) {
+    border-bottom: 1px solid var(--light-line);
+  }
+
+  .cost-box {
+    margin-top: 35px;
+  }
+
+}
