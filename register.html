@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register | Private Volleyball Training</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <a href="index.html" class="site-logo">JS.</a>
+
+    <nav class="site-nav">
+      <a href="index.html#training">Training</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#testimonials">Testimonials</a>
+      <a href="register.html" class="nav-register">Register</a>
+    </nav>
+  </header>
+
+
+  <!-- REGISTRATION HERO -->
+  <main>
+
+    <section class="registration-hero section-pad">
+      <div class="registration-hero-inner">
+        <p class="eyebrow">REGISTRATION</p>
+
+        <h1>LET'S GET<br>STARTED.</h1>
+
+        <p class="registration-intro">
+          Choose a training session or skill-specific clinic, then complete the registration form below.
+        </p>
+      </div>
+    </section>
+
+
+    <!-- PRIVATE TRAINING -->
+    <section class="availability-section section-pad" id="private-training">
+
+      <div class="availability-intro">
+        <div>
+          <p class="eyebrow">01 / PRIVATE TRAINING</p>
+          <h2>AVAILABLE<br>LESSONS</h2>
+        </div>
+
+        <div class="availability-copy">
+          <p>
+            Select an available lesson below. Once a lesson is selected, choose the training format that works best for your player.
+          </p>
+        </div>
+      </div>
+
+
+      <div class="schedule">
+
+        <!-- SATURDAY -->
+        <div class="schedule-day">
+          <div class="schedule-day-header">
+            <div>
+              <p class="schedule-day-name">SATURDAY</p>
+              <p class="schedule-date">AVAILABLE LESSONS</p>
+            </div>
+          </div>
+
+          <!-- Replace these FPO times/details with actual availability -->
+          <button
+            type="button"
+            class="slot available"
+            data-type="lesson"
+            data-day="Saturday"
+            data-date="FPO DATE"
+            data-time="FPO TIME"
+            data-location="FPO LOCATION">
+            <span class="slot-time">FPO TIME</span>
+            <span class="slot-location">FPO LOCATION</span>
+            <span class="slot-status">AVAILABLE</span>
+          </button>
+
+          <button
+            type="button"
+            class="slot available"
+            data-type="lesson"
+            data-day="Saturday"
+            data-date="FPO DATE"
+            data-time="FPO TIME"
+            data-location="FPO LOCATION">
+            <span class="slot-time">FPO TIME</span>
+            <span class="slot-location">FPO LOCATION</span>
+            <span class="slot-status">AVAILABLE</span>
+          </button>
+
+        </div>
+
+
+        <!-- SUNDAY -->
+        <div class="schedule-day">
+          <div class="schedule-day-header">
+            <div>
+              <p class="schedule-day-name">SUNDAY</p>
+              <p class="schedule-date">AVAILABLE LESSONS</p>
+            </div>
+
+            <span class="sunday-badge">SUNDAY PRICING</span>
+          </div>
+
+          <!-- Replace these FPO times/details with actual availability -->
+          <button
+            type="button"
+            class="slot available sunday-slot"
+            data-type="lesson"
+            data-day="Sunday"
+            data-date="FPO DATE"
+            data-time="FPO TIME"
+            data-location="FPO LOCATION"
+            data-sunday="true">
+            <span class="slot-time">FPO TIME</span>
+            <span class="slot-location">FPO LOCATION</span>
+            <span class="slot-status">AVAILABLE</span>
+          </button>
+
+          <button
+            type="button"
+            class="slot available sunday-slot"
+            data-type="lesson"
+            data-day="Sunday"
+            data-date="FPO DATE"
+            data-time="FPO TIME"
+            data-location="FPO LOCATION"
+            data-sunday="true">
+            <span class="slot-time">FPO TIME</span>
+            <span class="slot-location">FPO LOCATION</span>
+            <span class="slot-status">AVAILABLE</span>
+          </button>
+
+        </div>
+
+      </div>
+
+      <div class="availability-note">
+        <p>
+          Available lesson times and locations will be updated as scheduling is finalized.
+        </p>
+      </div>
+
+    </section>
+
+
+    <!-- SKILL-SPECIFIC CLINICS -->
+    <section class="clinics-section section-pad" id="clinics">
+
+      <div class="availability-intro">
+        <div>
+          <p class="eyebrow">02 / SKILL-SPECIFIC CLINICS</p>
+          <h2>FOCUSED<br>TRAINING.</h2>
+        </div>
+
+        <div class="availability-copy">
+          <p>
+            Skill-specific clinics give players focused instruction and repetition around one area of the game. Each clinic is capped at six players.
+          </p>
+        </div>
+      </div>
+
+
+      <div class="clinic-list">
+
+        <!-- CLINIC 1 -->
+        <button
+          type="button"
+          class="clinic-card available"
+          data-type="clinic"
+          data-clinic="Serving Clinic"
+          data-date="FPO DATE"
+          data-time="FPO TIME"
+          data-location="FPO LOCATION"
+          data-price="FPO PRICE"
+          data-spots="6">
+
+          <div class="clinic-main">
+            <div>
+              <p class="clinic-number">01</p>
+              <h3>SERVING CLINIC</h3>
+            </div>
+
+            <span class="clinic-status">AVAILABLE</span>
+          </div>
+
+          <div class="clinic-meta">
+            <span>FPO DATE</span>
+            <span>FPO TIME</span>
+            <span>FPO LOCATION</span>
+            <span>UP TO 6 PLAYERS</span>
+          </div>
+
+        </button>
+
+
+        <!-- CLINIC 2 -->
+        <button
+          type="button"
+          class="clinic-card available"
+          data-type="clinic"
+          data-clinic="Passing Clinic"
+          data-date="FPO DATE"
+          data-time="FPO TIME"
+          data-location="FPO LOCATION"
+          data-price="FPO PRICE"
+          data-spots="6">
+
+          <div class="clinic-main">
+            <div>
+              <p class="clinic-number">02</p>
+              <h3>PASSING CLINIC</h3>
+            </div>
+
+            <span class="clinic-status">AVAILABLE</span>
+          </div>
+
+          <div class="clinic-meta">
+            <span>FPO DATE</span>
+            <span>FPO TIME</span>
+            <span>FPO LOCATION</span>
+            <span>UP TO 6 PLAYERS</span>
+          </div>
+
+        </button>
+
+      </div>
+
+      <div class="clinic-notice">
+        <strong>CLINICS ARE CAPPED AT SIX PLAYERS.</strong>
+        <p>
+          Select a clinic above, then complete the registration form below.
+        </p>
+      </div>
+
+    </section>
+
+
+    <!-- REGISTRATION FORM -->
+    <section class="registration-form-section section-pad" id="registration-form">
+
+      <div class="form-wrapper">
+
+        <div class="form-heading">
+          <p class="eyebrow">03 / PLAYER INFORMATION</p>
+          <h2>REGISTER<br>YOUR PLAYER.</h2>
+          <p>
+            Complete the information below to request the selected session.
+          </p>
+        </div>
+
+
+        <!-- SELECTED SESSION -->
+        <div class="selected-session" id="selected-session">
+
+          <div class="selected-session-label">
+            SELECTED SESSION
+          </div>
+
+          <div class="selected-session-content">
+            <p id="selected-session-name">
+              Please select an available lesson or clinic above.
+            </p>
+
+            <p id="selected-session-details"></p>
+          </div>
+
+        </div>
+
+
+        <form id="registration-form-element">
+
+          <!-- Hidden session fields -->
+          <input type="hidden" id="sessionType" name="sessionType">
+          <input type="hidden" id="sessionDay" name="sessionDay">
+          <input type="hidden" id="sessionDate" name="sessionDate">
+          <input type="hidden" id="sessionTime" name="sessionTime">
+          <input type="hidden" id="sessionLocation" name="sessionLocation">
+          <input type="hidden" id="sessionClinic" name="sessionClinic">
+          <input type="hidden" id="sessionPrice" name="sessionPrice">
+
+
+          <!-- PLAYER -->
+          <div class="form-section">
+
+            <div class="form-section-heading">
+              <span>01</span>
+              <h3>PLAYER</h3>
+            </div>
+
+            <div class="form-grid">
+
+              <div class="form-field">
+                <label for="playerFirstName">FIRST NAME *</label>
+                <input
+                  type="text"
+                  id="playerFirstName"
+                  name="playerFirstName"
+                  required>
+              </div>
+
+              <div class="form-field">
+                <label for="playerLastName">LAST NAME *</label>
+                <input
+                  type="text"
+                  id="playerLastName"
+                  name="playerLastName"
+                  required>
+              </div>
+
+              <div class="form-field">
+                <label for="playerAge">AGE *</label>
+                <input
+                  type="number"
+                  id="playerAge"
+                  name="playerAge"
+                  min="5"
+                  max="18"
+                  required>
+              </div>
+
+              <div class="form-field">
+                <label for="playerGrade">GRADE *</label>
+                <select id="playerGrade" name="playerGrade" required>
+                  <option value="">SELECT</option>
+                  <option value="Elementary School">ELEMENTARY SCHOOL</option>
+                  <option value="6th">6TH</option>
+                  <option value="7th">7TH</option>
+                  <option value="8th">8TH</option>
+                </select>
+              </div>
+
+              <div class="form-field form-field-full">
+                <label for="playerSchool">SCHOOL *</label>
+                <input
+                  type="text"
+                  id="playerSchool"
+                  name="playerSchool"
+                  required>
+              </div>
+
+              <div class="form-field form-field-full">
+                <label for="playerExperience">VOLLEYBALL EXPERIENCE / LEVEL *</label>
+                <textarea
+                  id="playerExperience"
+                  name="playerExperience"
+                  rows="4"
+                  placeholder="Tell me a little about your player's volleyball experience and current level."
+                  required></textarea>
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- PARENT / GUARDIAN -->
+          <div class="form-section">
+
+            <div class="form-section-heading">
+              <span>02</span>
+              <h3>PARENT / GUARDIAN</h3>
+            </div>
+
+            <div class="form-grid">
+
+              <div class="form-field form-field-full">
+                <label for="parentName">NAME *</label>
+                <input
+                  type="text"
+                  id="parentName"
+                  name="parentName"
+                  required>
+              </div>
+
+              <div class="form-field">
+                <label for="parentEmail">EMAIL *</label>
+                <input
+                  type="email"
+                  id="parentEmail"
+                  name="parentEmail"
+                  required>
+              </div>
+
+              <div class="form-field">
+                <label for="parentPhone">PHONE *</label>
+                <input
+                  type="tel"
+                  id="parentPhone"
+                  name="parentPhone"
+                  required>
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- TRAINING FORMAT -->
+          <div class="form-section" id="training-format-section">
+
+            <div class="form-section-heading">
+              <span>03</span>
+              <h3>TRAINING FORMAT</h3>
+            </div>
+
+            <p class="format-intro">
+              Select the format that works best for your player.
+            </p>
+
+            <div class="format-options">
+
+              <label class="format-option">
+                <input type="radio" name="trainingFormat" value="1:1" required>
+                <span>
+                  <strong>1:1</strong>
+                  <small>PRIVATE</small>
+                </span>
+              </label>
+
+              <label class="format-option">
+                <input type="radio" name="trainingFormat" value="2:1">
+                <span>
+                  <strong>2:1</strong>
+                  <small>TWO PLAYERS</small>
+                </span>
+              </label>
+
+              <label class="format-option">
+                <input type="radio" name="trainingFormat" value="3:1">
+                <span>
+                  <strong>3:1</strong>
+                  <small>THREE PLAYERS</small>
+                </span>
+              </label>
+
+              <label class="format-option">
+                <input type="radio" name="trainingFormat" value="4:1">
+                <span>
+                  <strong>4:1</strong>
+                  <small>FOUR PLAYERS</small>
+                </span>
+              </label>
+
+              <label class="format-option">
+                <input type="radio" name="trainingFormat" value="5:1">
+                <span>
+                  <strong>5:1</strong>
+                  <small>FIVE PLAYERS</small>
+                </span>
+              </label>
+
+              <label class="format-option">
+                <input type="radio" name="trainingFormat" value="6:1">
+                <span>
+                  <strong>6:1</strong>
+                  <small>SIX PLAYERS</small>
+                </span>
+              </label>
+
+            </div>
+
+          </div>
+
+
+          <!-- COST -->
+          <div class="cost-box">
+
+            <div>
+              <p class="cost-label">SESSION COST</p>
+              <p class="cost-note">
+                Final cost will be confirmed based on the selected session and format.
+              </p>
+            </div>
+
+            <div class="cost-amount" id="cost-amount">
+              —
+            </div>
+
+          </div>
+
+
+          <!-- SUNDAY NOTICE -->
+          <div class="sunday-notice" id="sunday-notice">
+
+            <strong>SUNDAY REGISTRATION</strong>
+
+            <p>
+              Sunday sessions have separate pricing and registration. After submitting this form, you will be directed to the appropriate contact for Sunday registration and payment.
+            </p>
+
+          </div>
+
+
+          <!-- PAYMENT -->
+          <div class="form-section">
+
+            <div class="form-section-heading">
+              <span>04</span>
+              <h3>PAYMENT</h3>
+            </div>
+
+            <p class="payment-copy">
+              Payment is handled directly and is not collected through this website.
+            </p>
+
+            <p class="payment-methods">
+              <strong>REGULAR LESSONS:</strong> CASH · ZELLE · VENMO
+            </p>
+
+          </div>
+
+
+          <!-- WAIVER -->
+          <div class="waiver-box">
+
+            <label class="checkbox-field">
+
+              <input
+                type="checkbox"
+                id="parentAuthorization"
+                name="parentAuthorization"
+                required>
+
+              <span>
+                I am the parent or legal guardian of the player named above and authorize their participation in the selected volleyball training session. I understand that volleyball training involves physical activity and potential risks of injury. I acknowledge that participation is voluntary and that I am responsible for providing accurate information regarding the player's ability to participate.
+              </span>
+
+            </label>
+
+          </div>
+
+
+          <button type="submit" class="form-submit">
+            SUBMIT REGISTRATION
+          </button>
+
+          <p class="form-disclaimer">
+            Submitting this form does not process payment. Registration is subject to availability and confirmation.
+          </p>
+
+        </form>
+
+      </div>
+
+    </section>
+
+
+    <!-- CONFIRMATION -->
+    <section class="confirmation-section section-pad" id="confirmation-section">
+
+      <div class="confirmation-inner">
+
+        <p class="eyebrow">REGISTRATION RECEIVED</p>
+
+        <h2>YOU'RE<br>ON YOUR WAY.</h2>
+
+        <p id="confirmation-message">
+          Thank you. Your registration request has been received.
+        </p>
+
+        <a href="index.html" class="button-primary">
+          BACK TO HOME
+        </a>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+
+    <div class="footer-brand">
+      <a href="index.html" class="site-logo">JS.</a>
+      <p>PRIVATE VOLLEYBALL TRAINING</p>
+    </div>
+
+    <div class="footer-location">
+      <p>SCOTTSDALE, AZ</p>
+    </div>
+
+    <div class="footer-links">
+      <a href="index.html">HOME</a>
+      <a href="index.html#training">TRAINING</a>
+      <a href="index.html#about">ABOUT</a>
+      <a href="register.html">REGISTER</a>
+    </div>
+
+  </footer>
+
+
+  <script src="js/registration.js"></script>
+
+</body>
+</html>
