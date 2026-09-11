@@ -1,6 +1,5 @@
 /* =========================================================
-   PRIVATE VOLLEYBALL TRAINING
-   Sophisticated / Editorial Visual System
+   COACH JENN SARTER — PRIVATE VOLLEYBALL TRAINING
    ========================================================= */
 
 :root {
@@ -11,18 +10,15 @@
   --white: #ffffff;
   --black: #111318;
   --gray: #626976;
-  --light-line: #d9d5cc;
+  --light-gray: #e9e7e1;
+  --line: #d9d5cc;
   --dark-line: #354057;
+
+  --display: "Barlow Condensed", sans-serif;
+  --body: "DM Sans", sans-serif;
 }
 
-
-/* =========================================================
-   RESET
-   ========================================================= */
-
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
 
@@ -31,12 +27,19 @@ html {
 }
 
 body {
-  background: var(--cream);
+  margin: 0;
+  padding: 0;
+  background: var(--white);
   color: var(--black);
-  font-family: "DM Sans", Arial, sans-serif;
-  font-size: 17px;
-  line-height: 1.65;
-  -webkit-font-smoothing: antialiased;
+  font-family: var(--body);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 a {
@@ -44,30 +47,43 @@ a {
   text-decoration: none;
 }
 
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
 
 /* =========================================================
-   TYPOGRAPHY
+   TYPE
    ========================================================= */
 
 h1,
 h2,
 h3,
-.logo {
-  font-family: "Barlow Condensed", Impact, sans-serif;
-  font-weight: 800;
-  letter-spacing: -0.015em;
+p {
+  margin-top: 0;
 }
 
 h1,
 h2,
 h3 {
-  text-transform: uppercase;
+  font-family: var(--display);
+  font-weight: 700;
+  line-height: .9;
+  letter-spacing: -.025em;
 }
 
-h1 em,
-h2 em {
+.eyebrow {
+  margin-bottom: 22px;
   color: var(--blue);
-  font-style: normal;
+  font-family: var(--body);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  line-height: 1.3;
+  text-transform: uppercase;
 }
 
 
@@ -76,24 +92,24 @@ h2 em {
    ========================================================= */
 
 .site-header {
-  min-height: 86px;
-  padding: 0 6vw;
-
+  position: relative;
+  z-index: 10;
   display: flex;
   align-items: center;
   justify-content: space-between;
-
+  min-height: 86px;
+  padding: 0 6vw;
   background: var(--cream);
-  border-bottom: 1px solid var(--light-line);
-
-  position: relative;
-  z-index: 10;
+  border-bottom: 1px solid var(--line);
 }
 
 .logo {
-  font-size: 2.6rem;
+  display: inline-block;
+  font-family: var(--display);
+  font-size: 38px;
+  font-weight: 700;
   line-height: 1;
-  letter-spacing: -0.05em;
+  letter-spacing: -.04em;
 }
 
 .logo span {
@@ -103,100 +119,37 @@ h2 em {
 .site-header nav {
   display: flex;
   align-items: center;
-  gap: 2.5rem;
+  gap: 38px;
 }
 
 .site-header nav a {
-  font-size: 0.78rem;
+  font-size: 12px;
   font-weight: 700;
-  letter-spacing: 0.09em;
+  letter-spacing: .09em;
   text-transform: uppercase;
+  transition: color .2s ease;
 }
 
-.nav-cta {
-  padding: 0.9rem 1.25rem;
-  background: var(--navy);
-  color: var(--white) !important;
+.site-header nav a:hover {
+  color: var(--blue);
+}
+
+.site-header nav .nav-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 18px;
+  color: var(--white);
+  background: var(--blue);
+}
+
+.site-header nav .nav-cta:hover {
+  color: var(--white);
+  background: var(--blue-dark);
 }
 
 .nav-cta span {
-  color: #8296ff;
-  margin-left: 0.3rem;
-}
-
-
-/* =========================================================
-   SHARED SECTION STYLES
-   ========================================================= */
-
-.section-pad {
-  padding: 140px 8vw;
-}
-
-.section-label {
-  margin-bottom: 65px;
-
-  color: var(--blue);
-
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  line-height: 1;
-  text-transform: uppercase;
-}
-
-.eyebrow {
-  color: var(--blue);
-
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  line-height: 1;
-  text-transform: uppercase;
-}
-
-
-/* =========================================================
-   BUTTONS
-   ========================================================= */
-
-.primary-button {
-  display: inline-flex;
-  align-items: center;
-  gap: 3rem;
-
-  padding: 1.15rem 1.45rem;
-
-  background: var(--blue);
-  color: var(--white);
-
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.09em;
-  line-height: 1;
-  text-transform: uppercase;
-
-  transition:
-    background 0.2s ease,
-    transform 0.2s ease;
-}
-
-.primary-button:hover {
-  background: var(--blue-dark);
-  transform: translateY(-2px);
-}
-
-.primary-button span {
-  font-size: 1.3rem;
-}
-
-.primary-button.light {
-  background: var(--white);
-  color: var(--navy);
-}
-
-.primary-button.light:hover {
-  background: #eeeeee;
+  font-size: 16px;
 }
 
 
@@ -205,29 +158,30 @@ h2 em {
    ========================================================= */
 
 .hero {
-  min-height: calc(100vh - 86px);
-
   display: grid;
-  grid-template-columns: 1fr 0.95fr;
-
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+  min-height: calc(100vh - 86px);
   background: var(--cream);
 }
 
 .hero-content {
-  padding: 8vh 6vw 8vh 8vw;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  padding: 90px 7vw 90px 8vw;
+}
+
+.hero-content .eyebrow {
+  margin-bottom: 30px;
+  font-size: 14px;
 }
 
 .hero h1 {
-  margin-top: 0.5rem;
-
-  font-size: clamp(8rem, 15vw, 15rem);
-  line-height: 0.72;
-  letter-spacing: -0.02em;
+  margin-bottom: 34px;
+  font-size: clamp(7rem, 12vw, 12.5rem);
+  font-weight: 700;
+  line-height: .76;
+  letter-spacing: -.045em;
 }
 
 .hero h1 span {
@@ -235,504 +189,520 @@ h2 em {
 }
 
 .hero-subhead {
-  width: 100%;
-  max-width: 720px;
-  margin-top: 2.8rem;
-
-  font-family: "DM Sans", Arial, sans-serif;
-  font-size: clamp(1.35rem, 2vw, 1.9rem);
-  font-weight: 500;
-  line-height: 1.25;
-  letter-spacing: -0.02em;
+  max-width: 570px;
+  margin-bottom: 20px;
+  font-family: var(--body);
+  color: var(--black);
+  font-size: clamp(18px, 2vw, 26px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: .015em;
 }
 
 .hero-support {
-  margin-top: 1.2rem;
-
+  margin-bottom: 10px;
   color: var(--blue);
-
-  font-size: clamp(1.05rem, 1.5vw, 1.3rem);
+  font-size: 17px;
   font-weight: 700;
-  line-height: 1.35;
-  letter-spacing: 0.01em;
 }
 
 .hero-copy {
   max-width: 530px;
-  margin-top: 1.2rem;
-
+  margin-bottom: 32px;
   color: var(--gray);
-
-  font-size: 1rem;
-  line-height: 1.7;
+  font-size: 16px;
+  line-height: 1.65;
 }
 
-.hero .primary-button {
-  margin-top: 1.5rem;
-}
-
-
-/* HERO PHOTO */
-
-.hero-photo {
-  min-height: 700px;
-
-  background: var(--navy);
-
-  position: relative;
-
-  display: flex;
-  align-items: stretch;
-  justify-content: stretch;
-
-  overflow: hidden;
-}
-
-.hero-photo .photo-placeholder {
-  width: 100%;
-  height: 100%;
-  min-height: 700px;
-
-  background:
-    linear-gradient(
-      145deg,
-      #35559c 0%,
-      #192744 100%
-    );
-
-  color: var(--white);
-
-  display: flex;
-  flex-direction: column;
+.primary-button,
+.secondary-button {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-
-  text-align: center;
+  align-self: flex-start;
+  gap: 22px;
+  min-height: 54px;
+  padding: 14px 22px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  transition: all .2s ease;
 }
 
-.hero-photo .photo-placeholder span {
-  font-family: "Barlow Condensed", Impact, sans-serif;
-  font-size: clamp(4rem, 7vw, 7rem);
-  font-weight: 800;
-  line-height: 0.8;
-  letter-spacing: -0.02em;
+.primary-button {
+  color: var(--white);
+  background: var(--blue);
 }
 
-.hero-photo .photo-placeholder small {
-  margin-top: 2rem;
+.primary-button:hover {
+  background: var(--blue-dark);
+}
 
-  color: #b4bfd7;
+.primary-button span,
+.secondary-button span {
+  font-size: 18px;
+  line-height: 1;
+}
 
-  font-size: 0.62rem;
-  letter-spacing: 0.16em;
+.hero-photo {
+  position: relative;
+  min-height: 620px;
+  overflow: hidden;
+  background: #d8d7d2;
+}
+
+.hero-photo img {
+  width: 100%;
+  height: 100%;
+  min-height: 620px;
+  object-fit: cover;
+  object-position: center;
 }
 
 .photo-caption {
   position: absolute;
-  right: 7%;
-  bottom: 5%;
-
-  color: #b2bdd4;
-
-  font-size: 0.62rem;
-  letter-spacing: 0.13em;
+  right: 28px;
+  bottom: 24px;
+  padding: 7px 10px;
+  color: var(--white);
+  background: rgba(16, 24, 43, .78);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .13em;
 }
 
 
 /* =========================================================
-   THE DIFFERENCE / INTRO
+   MEET YOUR COACH
    ========================================================= */
 
-.intro {
+.coach-intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 620px;
   background: var(--white);
 }
 
-.intro-grid {
-  display: grid;
-  grid-template-columns: 0.95fr 1fr;
-  gap: 10vw;
-  align-items: start;
+.coach-intro-photo {
+  min-height: 620px;
+  overflow: hidden;
+  background: var(--light-gray);
 }
 
-.intro h2 {
-  font-size: clamp(6.5rem, 11vw, 11rem);
-  line-height: 0.76;
-  letter-spacing: -0.025em;
+.coach-intro-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 35%;
 }
 
-.intro-grid > div {
-  max-width: 620px;
-  padding-top: 0.5rem;
+.coach-intro-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 90px 9vw;
 }
 
-.large-copy {
-  font-size: clamp(1.5rem, 2.3vw, 2.1rem);
-  font-weight: 600;
-  line-height: 1.3;
-  letter-spacing: -0.025em;
+.coach-intro-copy h2 {
+  margin-bottom: 28px;
+  font-size: clamp(5rem, 8vw, 8.5rem);
 }
 
-.intro-grid p + p {
-  margin-top: 2rem;
-
-  color: var(--gray);
-
-  font-size: 1rem;
-  line-height: 1.75;
+.coach-rule {
+  width: 70px;
+  height: 3px;
+  margin-bottom: 30px;
+  background: var(--blue);
 }
 
-
-/* =========================================================
-   WHY TRAIN WITH ME
-   ========================================================= */
-
-.why {
-  background: var(--navy);
-  color: var(--white);
-}
-
-.why .section-label {
-  color: #8da0ff;
-}
-
-.section-heading {
-  display: grid;
-  grid-template-columns: 1fr 0.7fr;
-  gap: 10vw;
-  align-items: end;
-}
-
-.section-heading h2 {
-  font-size: clamp(6.5rem, 11vw, 11rem);
-  line-height: 0.76;
-  letter-spacing: -0.025em;
-}
-
-.section-heading p {
-  max-width: 540px;
-
-  color: #b8c1d3;
-
-  font-size: 1rem;
-  line-height: 1.75;
-}
-
-.benefits-grid {
-  margin-top: 110px;
-
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-
-  border-top: 1px solid var(--dark-line);
-}
-
-.benefit {
-  min-height: 360px;
-  padding: 2.8rem 2.3rem;
-
-  border-right: 1px solid var(--dark-line);
-}
-
-.benefit + .benefit {
-  padding-left: 2.8rem;
-}
-
-.benefit:last-child {
-  border-right: none;
-}
-
-.benefit-number {
-  color: #8497e5;
-
-  font-size: 0.7rem;
+.coach-intro-copy h3 {
+  margin-bottom: 18px;
+  font-family: var(--body);
+  font-size: 15px;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  line-height: 1.3;
+  letter-spacing: .08em;
 }
 
-.benefit h3 {
-  margin-top: 5.5rem;
-
-  font-size: 2.25rem;
-  line-height: 0.9;
-  letter-spacing: 0;
-}
-
-.benefit p {
-  margin-top: 1.7rem;
-
-  color: #b8c1d3;
-
-  font-size: 0.9rem;
+.coach-intro-copy p:not(.eyebrow) {
+  max-width: 510px;
+  margin-bottom: 16px;
+  color: var(--gray);
+  font-size: 16px;
   line-height: 1.65;
 }
 
 
 /* =========================================================
-   WHO CAN TRAIN
+   TRAINING
    ========================================================= */
 
-.who {
+.training {
+  padding: 120px 8vw;
+  background: var(--navy);
+  color: var(--white);
+}
+
+.training-top {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--dark-line);
+}
+
+.training-top .eyebrow {
+  margin: 0;
+}
+
+.training-formats {
+  white-space: nowrap;
+  font-family: var(--display);
+  font-size: clamp(25px, 3vw, 42px);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -.015em;
+}
+
+.training-formats span {
+  margin: 0 5px;
+  color: var(--blue);
+}
+
+.training-copy {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 9vw;
+  padding-top: 55px;
+}
+
+.training-copy .large-copy {
+  margin: 0;
+  font-family: var(--display);
+  font-size: clamp(35px, 4.3vw, 62px);
+  font-weight: 500;
+  line-height: .98;
+  letter-spacing: -.02em;
+}
+
+.training-copy p:last-child {
+  max-width: 570px;
+  margin: 0;
+  color: #c5c9d2;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+
+/* =========================================================
+   YOUR GAME / YOUR GOALS
+   ========================================================= */
+
+.your-game {
+  display: grid;
+  grid-template-columns: .85fr 1.15fr;
+  gap: 8vw;
+  padding: 130px 8vw;
+  background: var(--white);
+}
+
+.your-game-heading h2 {
+  margin: 0;
+  font-size: clamp(5rem, 8vw, 9rem);
+}
+
+.your-game-heading h2 span {
+  color: var(--blue);
+}
+
+.your-game-copy {
+  align-self: center;
+  max-width: 650px;
+}
+
+.large-copy {
+  font-family: var(--display);
+  font-size: clamp(32px, 4vw, 54px);
+  font-weight: 500;
+  line-height: 1.02;
+  letter-spacing: -.02em;
+}
+
+.your-game-copy .large-copy {
+  margin-bottom: 28px;
+}
+
+.your-game-copy p:last-child {
+  color: var(--gray);
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+
+/* =========================================================
+   FOR EVERY PLAYER
+   ========================================================= */
+
+.for-every-player {
+  display: grid;
+  grid-template-columns: .85fr 1.15fr;
+  gap: 8vw;
+  padding: 120px 8vw;
   background: var(--cream);
 }
 
-.who-grid {
+.for-every-player-heading h2 {
+  margin: 0;
+  font-size: clamp(5rem, 7vw, 8rem);
+}
+
+.player-list {
+  border-top: 1px solid var(--line);
+}
+
+.player-item {
   display: grid;
-  grid-template-columns: 0.95fr 1fr;
-  gap: 10vw;
-  align-items: start;
+  grid-template-columns: 55px 1fr;
+  gap: 22px;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--line);
 }
 
-.who h2 {
-  font-size: clamp(6.5rem, 11vw, 11rem);
-  line-height: 0.76;
-  letter-spacing: -0.025em;
-}
-
-.who-copy {
-  max-width: 620px;
-  padding-top: 0.5rem;
-}
-
-.who-copy p + p {
-  margin-top: 2rem;
-
-  color: var(--gray);
-
-  font-size: 1rem;
-  line-height: 1.75;
-}
-
-.athlete-types {
-  margin-top: 100px;
-
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-
-  border-top: 1px solid var(--light-line);
-}
-
-.athlete-types > div {
-  min-height: 240px;
-  padding: 2.5rem 2rem;
-
-  border-right: 1px solid var(--light-line);
-}
-
-.athlete-types > div:last-child {
-  border-right: none;
-}
-
-.athlete-types span {
+.player-item > span {
   color: var(--blue);
+  font-family: var(--display);
+  font-size: 25px;
+  font-weight: 600;
+}
 
-  font-size: 0.7rem;
+.player-item h3 {
+  margin-bottom: 7px;
+  font-family: var(--body);
+  font-size: 14px;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: .07em;
+  line-height: 1.3;
 }
 
-.athlete-types strong {
-  display: block;
-
-  margin-top: 3.5rem;
-
-  font-family: "Barlow Condensed", Impact, sans-serif;
-  font-size: 1.8rem;
-  font-weight: 800;
-  line-height: 0.9;
-  letter-spacing: 0;
-}
-
-.athlete-types p {
-  margin-top: 1.2rem;
-
+.player-item p {
+  max-width: 570px;
+  margin: 0;
   color: var(--gray);
-
-  font-size: 0.85rem;
+  font-size: 15px;
   line-height: 1.6;
 }
 
 
 /* =========================================================
-   ABOUT
+   WHY I COACH
    ========================================================= */
 
-.about {
+.why-coach {
+  display: grid;
+  grid-template-columns: .85fr 1.15fr;
+  gap: 8vw;
+  padding: 130px 8vw;
   background: var(--white);
 }
 
-.about-grid {
-  display: grid;
-  grid-template-columns: 0.9fr 1fr;
-  gap: 9vw;
-  align-items: center;
+.why-coach-heading h2 {
+  margin: 0;
+  font-size: clamp(5rem, 8vw, 9rem);
 }
 
-.coach-photo {
-  min-height: 700px;
-
-  background: var(--navy);
-
-  display: flex;
-  align-items: stretch;
-  justify-content: stretch;
-
-  overflow: hidden;
+.why-coach-heading h2 span {
+  color: var(--blue);
 }
 
-.coach-photo .photo-placeholder {
-  width: 100%;
-  height: 100%;
-  min-height: 700px;
-
-  background:
-    linear-gradient(
-      145deg,
-      #35559c,
-      #192744
-    );
-
-  color: var(--white);
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  text-align: center;
+.why-coach-copy {
+  align-self: center;
+  max-width: 650px;
 }
 
-.about-content {
-  max-width: 620px;
+.why-coach-copy .large-copy {
+  margin-bottom: 28px;
 }
 
-.about-content h2 {
-  margin-top: 1.2rem;
-
-  font-size: clamp(6rem, 10vw, 10rem);
-  line-height: 0.76;
-}
-
-.about-content p {
-  margin-top: 2rem;
-
+.why-coach-copy p:last-child {
   color: var(--gray);
-
-  font-size: 1rem;
+  font-size: 16px;
   line-height: 1.75;
 }
 
 
 /* =========================================================
-   TESTIMONIALS
+   PLAYERS NOTICE
    ========================================================= */
 
-.testimonials {
-  background: #e9e5dc;
+.players-notice {
+  padding: 120px 8vw;
+  background: var(--navy);
+  color: var(--white);
 }
 
-.testimonial-heading {
-  display: grid;
-  grid-template-columns: 1fr 0.6fr;
-  gap: 10vw;
-  align-items: end;
+.players-notice-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 65px;
 }
 
-.testimonial-heading h2 {
-  font-size: clamp(6rem, 10vw, 10rem);
-  line-height: 0.76;
+.players-notice-heading .eyebrow {
+  margin: 0 0 10px;
 }
 
-.testimonial-heading p {
-  color: var(--gray);
-
-  font-size: 1rem;
-  line-height: 1.75;
+.players-notice-heading h2 {
+  margin: 0;
+  font-size: clamp(5rem, 8vw, 9rem);
+  text-align: right;
 }
 
-.testimonial-grid {
-  margin-top: 100px;
-
+.players-notice-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2px;
-
-  background: #cbc6bb;
+  gap: 35px;
 }
 
-.testimonial-grid blockquote {
-  min-height: 380px;
-  padding: 2.8rem;
-
-  background: var(--white);
-
-  display: flex;
-  flex-direction: column;
+.players-notice blockquote {
+  margin: 0;
+  padding: 35px;
+  border: 1px solid var(--dark-line);
 }
 
 .quote-mark {
+  margin-bottom: 15px;
   color: var(--blue);
-
   font-family: Georgia, serif;
-  font-size: 5rem;
-  line-height: 0.65;
+  font-size: 55px;
+  line-height: .7;
 }
 
-.testimonial-grid blockquote p {
-  margin-top: 2.5rem;
-
-  font-size: 1rem;
+.players-notice blockquote p {
+  min-height: 105px;
+  margin-bottom: 30px;
+  color: #e4e6eb;
+  font-size: 15px;
   line-height: 1.7;
 }
 
-.testimonial-grid footer {
-  margin-top: auto;
-  padding-top: 2.5rem;
-
-  color: var(--gray);
-
-  font-size: 0.65rem;
+.players-notice blockquote footer {
+  color: #aeb4c0;
+  font-size: 10px;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: .12em;
 }
 
 
 /* =========================================================
-   FINAL CTA
+   UPCOMING TRAINING
    ========================================================= */
 
-.final-cta {
-  padding: 150px 8vw;
+.upcoming-training {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8vw;
+  align-items: center;
+  padding: 110px 8vw;
+  background: var(--white);
+}
 
+.upcoming-training h2 {
+  margin: 0;
+  font-size: clamp(4.5rem, 7vw, 8rem);
+}
+
+.upcoming-copy {
+  max-width: 500px;
+}
+
+.upcoming-copy p {
+  margin-bottom: 30px;
+  color: var(--gray);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.secondary-button {
+  color: var(--blue);
+  border: 1px solid var(--blue);
+}
+
+.secondary-button:hover {
+  color: var(--white);
   background: var(--blue);
+}
+
+
+/* =========================================================
+   FINAL PHOTO CTA
+   ========================================================= */
+
+.final-photo-cta {
+  position: relative;
+  min-height: 600px;
+  overflow: hidden;
+  background: var(--navy);
+}
+
+.final-photo {
+  position: absolute;
+  inset: 0;
+}
+
+.final-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.final-photo::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background: linear-gradient(
+    90deg,
+    rgba(16, 24, 43, .94) 0%,
+    rgba(16, 24, 43, .72) 46%,
+    rgba(16, 24, 43, .2) 100%
+  );
+}
+
+.final-photo-overlay {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8vw;
+  align-items: end;
+  min-height: 600px;
+  padding: 80px 8vw;
   color: var(--white);
 }
 
-.final-cta .eyebrow {
-  color: #c3ceff;
+.final-photo-overlay h2 {
+  margin: 0;
+  font-size: clamp(6rem, 10vw, 11rem);
+  line-height: .78;
 }
 
-.final-cta h2 {
-  margin-top: 1.3rem;
-
-  font-size: clamp(8rem, 16vw, 16rem);
-  line-height: 0.7;
-  letter-spacing: -0.025em;
+.final-photo-overlay h2 span {
+  color: var(--blue);
 }
 
-.final-cta h2 em {
-  color: var(--white);
+.final-cta-copy {
+  max-width: 400px;
+  padding-left: 35px;
+  border-left: 1px solid rgba(255, 255, 255, .35);
 }
 
-.final-cta p {
-  max-width: 520px;
-  margin-top: 4rem;
-
-  font-size: 1.1rem;
-  line-height: 1.6;
-}
-
-.final-cta .primary-button {
-  margin-top: 2rem;
+.final-cta-copy p {
+  margin-bottom: 28px;
+  color: #d9dce3;
+  font-size: 16px;
+  line-height: 1.65;
 }
 
 
@@ -741,46 +711,581 @@ h2 em {
    ========================================================= */
 
 .site-footer {
-  min-height: 170px;
-  padding: 3rem 8vw;
-
-  background: var(--navy);
-  color: var(--white);
-
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
+  gap: 30px;
+  padding: 35px 6vw;
+  color: var(--white);
+  background: var(--navy);
+  border-top: 1px solid var(--dark-line);
 }
 
 .footer-brand {
-  font-family: "Barlow Condensed", Impact, sans-serif;
-  font-size: 2.5rem;
-  font-weight: 800;
-  line-height: 1;
+  display: flex;
+  align-items: center;
+  gap: 22px;
 }
 
-.footer-brand span {
-  color: #8195ff;
+.footer-brand .logo {
+  font-size: 32px;
+}
+
+.footer-brand p,
+.footer-note,
+.footer-copy {
+  margin: 0;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .12em;
 }
 
 .footer-note {
-  color: #aeb7ca;
-
-  font-size: 0.65rem;
-  line-height: 1.6;
-  letter-spacing: 0.1em;
+  color: #c4c8d1;
 }
 
 .footer-copy {
-  color: #7f899d;
-
-  font-size: 0.65rem;
+  color: #858c9c;
   text-align: right;
 }
 
 
 /* =========================================================
-   TABLET
+   REGISTRATION PAGE
+   ========================================================= */
+
+.registration-hero {
+  padding: 110px 8vw 100px;
+  background: var(--cream);
+}
+
+.registration-hero-inner {
+  max-width: 900px;
+}
+
+.registration-hero h1 {
+  margin-bottom: 30px;
+  font-size: clamp(6rem, 10vw, 11rem);
+}
+
+.registration-intro {
+  max-width: 620px;
+  margin: 0;
+  color: var(--gray);
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.availability-section,
+.clinics-section {
+  padding: 100px 8vw;
+  background: var(--white);
+}
+
+.availability-intro {
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
+  gap: 8vw;
+  align-items: end;
+  margin-bottom: 55px;
+}
+
+.availability-intro h2 {
+  margin: 0;
+  font-size: clamp(4.5rem, 7vw, 8rem);
+}
+
+.availability-copy {
+  max-width: 600px;
+  color: var(--gray);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.schedule {
+  display: grid;
+  gap: 0;
+  border-top: 1px solid var(--line);
+}
+
+.schedule-day {
+  display: contents;
+}
+
+.schedule-day-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28px 0 14px;
+}
+
+.schedule-day-name,
+.schedule-date {
+  margin: 0;
+}
+
+.schedule-day-name {
+  font-family: var(--display);
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.schedule-date {
+  color: var(--gray);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .1em;
+}
+
+.slot {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 25px;
+  width: 100%;
+  padding: 24px 0;
+  text-align: left;
+  color: var(--black);
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  cursor: pointer;
+}
+
+.slot:hover,
+.slot.selected {
+  color: var(--blue);
+}
+
+.slot-time {
+  font-family: var(--display);
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.slot-location {
+  color: var(--gray);
+  font-size: 13px;
+  align-self: center;
+}
+
+.slot-status {
+  align-self: center;
+  color: var(--blue);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .1em;
+}
+
+.sunday-badge {
+  padding: 7px 10px;
+  color: var(--blue);
+  border: 1px solid var(--blue);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .1em;
+}
+
+.availability-note {
+  margin-top: 25px;
+  color: var(--gray);
+  font-size: 13px;
+}
+
+.availability-note p {
+  margin: 0;
+}
+
+
+/* =========================================================
+   CLINIC STYLING — kept basic for now
+   ========================================================= */
+
+.clinics-section {
+  background: var(--cream);
+}
+
+.clinic-list {
+  border-top: 1px solid var(--line);
+}
+
+.clinic-card {
+  display: block;
+  width: 100%;
+  padding: 30px 0;
+  text-align: left;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  cursor: pointer;
+}
+
+.clinic-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.clinic-number {
+  margin: 0 0 6px;
+  color: var(--blue);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .1em;
+}
+
+.clinic-main h3 {
+  margin: 0;
+  font-size: 40px;
+}
+
+.clinic-status {
+  color: var(--blue);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .1em;
+}
+
+.clinic-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin-top: 18px;
+  color: var(--gray);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .08em;
+}
+
+.clinic-notice,
+.sunday-notice {
+  margin-top: 35px;
+  padding: 25px;
+  background: var(--white);
+  border-left: 3px solid var(--blue);
+}
+
+.clinic-notice strong,
+.sunday-notice strong {
+  display: block;
+  margin-bottom: 7px;
+  font-size: 11px;
+  letter-spacing: .1em;
+}
+
+.clinic-notice p,
+.sunday-notice p {
+  margin: 0;
+  color: var(--gray);
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   FORM
+   ========================================================= */
+
+.registration-form-section {
+  padding: 110px 8vw;
+  background: var(--navy);
+  color: var(--white);
+}
+
+.form-wrapper {
+  max-width: 1050px;
+  margin: 0 auto;
+}
+
+.form-heading {
+  margin-bottom: 50px;
+}
+
+.form-heading h2 {
+  margin-bottom: 25px;
+  font-size: clamp(5rem, 8vw, 9rem);
+}
+
+.form-heading > p:last-child {
+  max-width: 600px;
+  margin: 0;
+  color: #c5c9d2;
+}
+
+.selected-session {
+  display: grid;
+  grid-template-columns: 190px 1fr;
+  margin-bottom: 55px;
+  padding: 25px;
+  background: #19233a;
+  border: 1px solid var(--dark-line);
+}
+
+.selected-session-label {
+  color: #9da5b5;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .12em;
+}
+
+.selected-session-content p {
+  margin: 0;
+}
+
+#selected-session-name {
+  font-family: var(--display);
+  font-size: 30px;
+  font-weight: 600;
+}
+
+#selected-session-details {
+  color: #aeb4c0;
+  font-size: 13px;
+}
+
+.form-section {
+  margin-bottom: 55px;
+}
+
+.form-section-heading {
+  display: flex;
+  align-items: baseline;
+  gap: 18px;
+  margin-bottom: 28px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--dark-line);
+}
+
+.form-section-heading span {
+  color: var(--blue);
+  font-family: var(--display);
+  font-size: 25px;
+}
+
+.form-section-heading h3 {
+  margin: 0;
+  font-family: var(--body);
+  font-size: 13px;
+  letter-spacing: .1em;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-field-full {
+  grid-column: 1 / -1;
+}
+
+.form-field label {
+  margin-bottom: 8px;
+  color: #b8bec9;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .1em;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  width: 100%;
+  padding: 14px 15px;
+  color: var(--white);
+  background: transparent;
+  border: 1px solid var(--dark-line);
+  border-radius: 0;
+  outline: none;
+}
+
+.form-field textarea {
+  resize: vertical;
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  border-color: var(--blue);
+}
+
+.form-field select option {
+  color: var(--black);
+}
+
+.format-intro {
+  margin-bottom: 20px;
+  color: #b8bec9;
+}
+
+.format-options {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+}
+
+.format-option {
+  cursor: pointer;
+}
+
+.format-option input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.format-option span {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 90px;
+  padding: 12px;
+  border: 1px solid var(--dark-line);
+  text-align: center;
+}
+
+.format-option strong {
+  font-family: var(--display);
+  font-size: 30px;
+}
+
+.format-option small {
+  color: #aeb4c0;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: .08em;
+}
+
+.format-option:has(input:checked) span {
+  color: var(--white);
+  background: var(--blue);
+  border-color: var(--blue);
+}
+
+.format-option:has(input:checked) small {
+  color: var(--white);
+}
+
+.cost-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 30px;
+  padding: 25px;
+  background: var(--white);
+  color: var(--black);
+}
+
+.cost-label {
+  margin-bottom: 5px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .1em;
+}
+
+.cost-note {
+  margin: 0;
+  color: var(--gray);
+  font-size: 12px;
+}
+
+.cost-amount {
+  color: var(--blue);
+  font-family: var(--display);
+  font-size: 38px;
+  font-weight: 600;
+}
+
+.payment-copy {
+  color: #c5c9d2;
+}
+
+.payment-methods {
+  color: var(--white);
+  font-size: 12px;
+  letter-spacing: .06em;
+}
+
+.waiver-box {
+  margin-bottom: 30px;
+  padding: 25px;
+  background: #19233a;
+  border: 1px solid var(--dark-line);
+}
+
+.checkbox-field {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  cursor: pointer;
+}
+
+.checkbox-field input {
+  flex: 0 0 auto;
+  width: 18px;
+  height: 18px;
+  margin-top: 4px;
+}
+
+.checkbox-field span {
+  color: #c5c9d2;
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.form-submit {
+  width: 100%;
+  min-height: 58px;
+  padding: 15px 25px;
+  color: var(--white);
+  background: var(--blue);
+  border: 0;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.form-submit:hover {
+  background: var(--blue-dark);
+}
+
+.form-disclaimer {
+  margin-top: 15px;
+  color: #858c9c;
+  font-size: 11px;
+  text-align: center;
+}
+
+.confirmation-section {
+  display: none;
+  padding: 120px 8vw;
+  background: var(--cream);
+}
+
+.confirmation-inner {
+  max-width: 800px;
+}
+
+.confirmation-inner h2 {
+  margin-bottom: 30px;
+  font-size: clamp(5rem, 8vw, 9rem);
+}
+
+.confirmation-inner p:not(.eyebrow) {
+  max-width: 550px;
+  color: var(--gray);
+}
+
+
+/* =========================================================
+   RESPONSIVE — TABLET
    ========================================================= */
 
 @media (max-width: 1000px) {
@@ -790,11 +1295,7 @@ h2 em {
   }
 
   .site-header nav {
-    gap: 1rem;
-  }
-
-  .site-header nav a:not(.nav-cta) {
-    display: none;
+    gap: 20px;
   }
 
   .hero {
@@ -802,1042 +1303,271 @@ h2 em {
   }
 
   .hero-content {
-    padding: 90px 7vw 80px;
+    padding: 80px 7vw;
   }
 
   .hero-photo {
-    min-height: 600px;
+    min-height: 520px;
   }
 
-  .hero-photo .photo-placeholder {
-    min-height: 600px;
+  .hero-photo img {
+    min-height: 520px;
   }
 
-  .section-pad {
-    padding: 110px 7vw;
-  }
-
-  .intro-grid,
-  .section-heading,
-  .who-grid,
-  .about-grid,
-  .testimonial-heading {
-    grid-template-columns: 1fr;
-    gap: 4rem;
-  }
-
-  .benefits-grid {
+  .coach-intro {
     grid-template-columns: 1fr 1fr;
   }
 
-  .benefit {
-    border-bottom: 1px solid var(--dark-line);
+  .coach-intro-copy {
+    padding: 70px 6vw;
   }
 
-  .benefit:nth-child(2) {
-    border-right: none;
-  }
-
-  .benefit:nth-child(3),
-  .benefit:nth-child(4) {
-    border-bottom: none;
-  }
-
-  .athlete-types {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .athlete-types > div:nth-child(2) {
-    border-right: none;
-  }
-
-  .athlete-types > div:nth-child(-n+2) {
-    border-bottom: 1px solid var(--light-line);
-  }
-
-  .testimonial-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .site-footer {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  .footer-copy {
-    text-align: left;
-  }
-}
-
-
-/* =========================================================
-   PHONE
-   ========================================================= */
-
-@media (max-width: 600px) {
-
-  body {
-    font-size: 16px;
-  }
-
-  .site-header {
-    min-height: 72px;
-  }
-
-  .logo {
-    font-size: 2.2rem;
-  }
-
-  .hero-content {
-    padding: 70px 7vw 70px;
-  }
-
-  .hero h1 {
-    font-size: clamp(6.5rem, 25vw, 9rem);
-  }
-
-  .hero-subhead {
-    margin-top: 2.3rem;
-    font-size: 1.35rem;
-  }
-
-  .hero-support {
-    font-size: 1rem;
-  }
-
-  .hero-copy {
-    font-size: 0.9rem;
-  }
-
-  .hero-photo {
-    min-height: 480px;
-  }
-
-  .hero-photo .photo-placeholder {
-    min-height: 480px;
-  }
-
-  .section-pad {
-    padding: 90px 7vw;
-  }
-
-  .section-label {
-    margin-bottom: 45px;
-  }
-
-  .intro h2,
-  .section-heading h2,
-  .who h2,
-  .about-content h2,
-  .testimonial-heading h2 {
-    font-size: clamp(5.5rem, 23vw, 8rem);
-  }
-
-  .benefits-grid,
-  .athlete-types {
-    grid-template-columns: 1fr;
-  }
-
-  .benefit,
-  .benefit + .benefit {
-    min-height: auto;
-    padding: 2.5rem 1.5rem;
-    border-right: none;
-    border-bottom: 1px solid var(--dark-line);
-  }
-
-  .benefit h3 {
-    margin-top: 3.5rem;
-  }
-
-  .athlete-types > div,
-  .athlete-types > div:nth-child(2) {
-    min-height: auto;
-    padding: 2.5rem 1.5rem;
-    border-right: none;
-    border-bottom: 1px solid var(--light-line);
-  }
-
-  .athlete-types > div:last-child {
-    border-bottom: none;
-  }
-
-  .coach-photo,
-  .coach-photo .photo-placeholder {
-    min-height: 500px;
-  }
-
-  .testimonial-grid blockquote {
-    min-height: 320px;
-    padding: 2rem;
-  }
-
-  .final-cta {
-    padding: 100px 7vw;
-  }
-
-  .final-cta h2 {
-    font-size: clamp(6.5rem, 25vw, 9rem);
-  }
-
-  .site-footer {
-    padding: 2.5rem 7vw;
-  }
-}
-/* =========================================================
-   TRAINING SECTION
-   ========================================================= */
-
-.training {
-  background: var(--white);
-}
-
-.training-heading {
-  max-width: 1000px;
-}
-
-.training-heading h2 {
-  font-size: clamp(6.5rem, 11vw, 11rem);
-  line-height: 0.76;
-  letter-spacing: -0.025em;
-}
-
-.training-formats {
-  margin-top: 90px;
-
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-
-  border-top: 1px solid var(--light-line);
-  border-bottom: 1px solid var(--light-line);
-}
-
-.training-formats > div,
-.training-formats > strong {
-  min-height: 190px;
-  padding: 2rem;
-
-  border-right: 1px solid var(--light-line);
-}
-
-.training-formats > strong:last-child {
-  border-right: none;
-}
-
-.training-formats .format-number {
-  min-height: auto;
-  padding-bottom: 0;
-
-  border-right: none;
-
-  color: var(--blue);
-
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-}
-
-.training-formats strong {
-  grid-row: 2;
-
-  padding-top: 0;
-
-  font-family: "Barlow Condensed", Impact, sans-serif;
-  font-size: 3.2rem;
-  font-weight: 800;
-  line-height: 1;
-  letter-spacing: 0;
-}
-
-.training-copy {
-  margin-top: 70px;
-
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10vw;
-
-  max-width: 1200px;
-}
-
-.training-copy p + p {
-  color: var(--gray);
-
-  font-size: 1rem;
-  line-height: 1.75;
-}
-
-
-/* =========================================================
-   MEET YOUR COACH
-   ========================================================= */
-
-.coach-intro {
-  margin-top: 150px;
-
-  padding-top: 90px;
-
-  border-top: 1px solid var(--light-line);
-}
-
-.coach-intro .section-label {
-  margin-bottom: 50px;
-}
-
-.coach-intro-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10vw;
-  align-items: start;
-}
-
-.coach-intro-copy h3 {
-  margin-top: 1.5rem;
-
-  font-size: clamp(3.5rem, 6vw, 6rem);
-  line-height: 0.82;
-}
-
-.coach-intro-grid > div:last-child {
-  max-width: 620px;
-}
-
-.coach-intro-grid p + p {
-  margin-top: 2rem;
-
-  color: var(--gray);
-
-  font-size: 1rem;
-  line-height: 1.75;
-}
-
-
-/* =========================================================
-   WHY I COACH
-   ========================================================= */
-
-.why-coach {
-  background: var(--navy);
-  color: var(--white);
-}
-
-.why-coach .section-label {
-  color: #8da0ff;
-}
-
-.why-coach .section-heading h2 {
-  font-size: clamp(6.5rem, 11vw, 11rem);
-  line-height: 0.76;
-}
-
-.why-coach .section-heading p {
-  color: #b8c1d3;
-}
-
-
-/* =========================================================
-   REGISTRATION PAGE
-   ========================================================= */
-
-.registration-hero {
-  background: var(--cream);
-}
-
-.registration-hero h1 {
-  max-width: 1200px;
-
-  font-size: clamp(7rem, 13vw, 13rem);
-  line-height: 0.74;
-}
-
-.registration-hero .hero-copy {
-  margin-top: 3rem;
-  max-width: 600px;
-}
-
-
-/* =========================================================
-   AVAILABILITY
-   ========================================================= */
-
-.availability-section {
-  background: var(--white);
-}
-
-.availability-intro {
-  display: grid;
-  grid-template-columns: 1fr 0.8fr;
-  gap: 10vw;
-  align-items: end;
-}
-
-.availability-intro h2 {
-  font-size: clamp(5rem, 8vw, 8rem);
-  line-height: 0.78;
-}
-
-.availability-intro h2 span {
-  color: var(--blue);
-}
-
-.availability-intro > p {
-  max-width: 560px;
-
-  color: var(--gray);
-
-  font-size: 1rem;
-  line-height: 1.75;
-}
-
-
-/* =========================================================
-   SCHEDULE
-   ========================================================= */
-
-.schedule {
-  margin-top: 90px;
-
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-
-  gap: 4rem;
-}
-
-.schedule-day {
-  border-top: 1px solid var(--light-line);
-}
-
-.day-header {
-  min-height: 110px;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  border-bottom: 1px solid var(--light-line);
-}
-
-.day-header > div {
-  display: flex;
-  flex-direction: column;
-}
-
-.day-name {
-  font-family: "Barlow Condensed", Impact, sans-serif;
-  font-size: 2rem;
-  font-weight: 800;
-  line-height: 1;
-}
-
-.day-date {
-  margin-top: 0.5rem;
-
-  color: var(--gray);
-
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-}
-
-.slot {
-  width: 100%;
-
-  padding: 1.5rem 1.2rem;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid var(--light-line);
-
-  cursor: pointer;
-
-  font-family: "DM Sans", Arial, sans-serif;
-  text-align: left;
-
-  transition:
-    background 0.2s ease,
-    color 0.2s ease;
-}
-
-.slot.available:hover,
-.slot.available.selected {
-  background: var(--blue);
-  color: var(--white);
-}
-
-.slot.unavailable {
-  color: #999;
-  cursor: not-allowed;
-}
-
-.slot > span:first-child {
-  font-size: 1.15rem;
-  font-weight: 600;
-}
-
-.slot-status {
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-}
-
-.sunday-badge {
-  padding: 0.5rem 0.7rem;
-
-  background: var(--navy);
-  color: var(--white);
-
-  font-size: 0.6rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-}
-
-
-/* =========================================================
-   CLINICS
-   ========================================================= */
-
-.clinics-section {
-  background: var(--cream);
-}
-
-.clinic-list {
-  margin-top: 90px;
-
-  border-top: 1px solid var(--light-line);
-}
-
-.clinic-card {
-  width: 100%;
-
-  padding: 2.5rem 0;
-
-  display: grid;
-  grid-template-columns: 70px 1fr auto;
-  gap: 2rem;
-  align-items: start;
-
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid var(--light-line);
-
-  cursor: pointer;
-
-  text-align: left;
-
-  transition:
-    background 0.2s ease,
-    padding 0.2s ease;
-}
-
-.clinic-card:hover,
-.clinic-card.selected {
-  background: var(--white);
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-}
-
-.clinic-number {
-  color: var(--blue);
-
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-}
-
-.clinic-main strong {
-  font-family: "Barlow Condensed", Impact, sans-serif;
-  font-size: 2.4rem;
-  font-weight: 800;
-  line-height: 1;
-}
-
-.clinic-main p {
-  max-width: 600px;
-  margin-top: 1rem;
-
-  color: var(--gray);
-
-  font-size: 0.9rem;
-  line-height: 1.65;
-}
-
-.clinic-meta {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 0.5rem;
-
-  color: var(--gray);
-
-  font-size: 0.62rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-}
-
-
-/* =========================================================
-   REGISTRATION FORM
-   ========================================================= */
-
-.registration-form-section {
-  background: var(--white);
-}
-
-.form-wrapper {
-  max-width: 1200px;
-}
-
-.form-heading {
-  display: grid;
-  grid-template-columns: 1fr 0.7fr;
-  gap: 10vw;
-  align-items: end;
-}
-
-.form-heading h2 {
-  font-size: clamp(5.5rem, 9vw, 9rem);
-  line-height: 0.76;
-}
-
-.form-heading p {
-  color: var(--gray);
-
-  font-size: 1rem;
-  line-height: 1.75;
-}
-
-#registrationForm {
-  margin-top: 90px;
-}
-
-.selected-session {
-  margin-bottom: 60px;
-  padding: 1.8rem;
-
-  background: var(--cream);
-
-  border-left: 4px solid var(--blue);
-
-  display: flex;
-  flex-direction: column;
-}
-
-.selected-session > span {
-  color: var(--blue);
-
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-}
-
-.selected-session strong {
-  margin-top: 0.7rem;
-
-  font-size: 1.1rem;
-}
-
-
-.form-group {
-  margin-top: 55px;
-}
-
-.form-group > label {
-  display: block;
-  margin-bottom: 1.5rem;
-
-  color: var(--blue);
-
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-}
-
-.form-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-}
-
-.form-field {
-  display: flex;
-  flex-direction: column;
-}
-
-.form-field.full {
-  grid-column: 1 / -1;
-}
-
-.form-field label {
-  margin-bottom: 0.6rem;
-
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-}
-
-.form-field input,
-.form-field textarea {
-  width: 100%;
-
-  padding: 1rem;
-
-  background: var(--cream);
-
-  border: 1px solid var(--light-line);
-
-  color: var(--black);
-
-  font-family: "DM Sans", Arial, sans-serif;
-  font-size: 1rem;
-
-  outline: none;
-
-  transition: border-color 0.2s ease;
-}
-
-.form-field textarea {
-  resize: vertical;
-}
-
-.form-field input:focus,
-.form-field textarea:focus {
-  border-color: var(--blue);
-}
-
-.form-field input::placeholder,
-.form-field textarea::placeholder {
-  color: #989b9f;
-}
-
-
-/* =========================================================
-   FORMAT OPTIONS
-   ========================================================= */
-
-.format-options {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-
-  border-top: 1px solid var(--light-line);
-  border-bottom: 1px solid var(--light-line);
-}
-
-.format-option {
-  position: relative;
-
-  min-height: 100px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  border-right: 1px solid var(--light-line);
-
-  cursor: pointer;
-}
-
-.format-option:last-child {
-  border-right: none;
-}
-
-.format-option input {
-  position: absolute;
-  opacity: 0;
-}
-
-.format-option span {
-  font-family: "Barlow Condensed", Impact, sans-serif;
-  font-size: 2rem;
-  font-weight: 800;
-}
-
-.format-option:has(input:checked) {
-  background: var(--blue);
-  color: var(--white);
-}
-
-
-/* =========================================================
-   COST / NOTICES / WAIVER
-   ========================================================= */
-
-.cost-box {
-  margin-top: 50px;
-  padding: 2rem;
-
-  background: var(--navy);
-  color: var(--white);
-
-  display: flex;
-  flex-direction: column;
-}
-
-.cost-box > span {
-  color: #8da0ff;
-
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.13em;
-}
-
-.cost-box strong {
-  margin-top: 0.5rem;
-
-  font-family: "Barlow Condensed", Impact, sans-serif;
-  font-size: 3rem;
-  line-height: 1;
-}
-
-.cost-box p {
-  margin-top: 1rem;
-
-  color: #b8c1d3;
-
-  font-size: 0.85rem;
-}
-
-.sunday-notice,
-.clinic-notice {
-  margin-top: 25px;
-  padding: 1.5rem;
-
-  background: #eef1ff;
-
-  border-left: 4px solid var(--blue);
-}
-
-.sunday-notice strong,
-.clinic-notice strong {
-  font-size: 0.7rem;
-  letter-spacing: 0.12em;
-}
-
-.sunday-notice p,
-.clinic-notice p {
-  margin-top: 0.7rem;
-
-  color: var(--gray);
-
-  font-size: 0.9rem;
-  line-height: 1.65;
-}
-
-.waiver-box {
-  margin-top: 45px;
-  padding: 1.5rem;
-
-  background: var(--cream);
-}
-
-.checkbox-field {
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-
-  cursor: pointer;
-
-  font-size: 0.85rem;
-  line-height: 1.6;
-}
-
-.checkbox-field input {
-  flex: 0 0 auto;
-
-  width: 18px;
-  height: 18px;
-
-  margin-top: 0.15rem;
-}
-
-.form-submit {
-  margin-top: 35px;
-}
-
-.form-disclaimer {
-  max-width: 700px;
-  margin-top: 1.5rem;
-
-  color: var(--gray);
-
-  font-size: 0.72rem;
-  line-height: 1.6;
-}
-
-
-/* =========================================================
-   CONFIRMATION
-   ========================================================= */
-
-.confirmation-section {
-  background: var(--blue);
-  color: var(--white);
-}
-
-.confirmation-box {
-  max-width: 850px;
-}
-
-.confirmation-box .eyebrow {
-  color: #c3ceff;
-}
-
-.confirmation-box h2 {
-  margin-top: 1.5rem;
-
-  font-size: clamp(6rem, 11vw, 11rem);
-  line-height: 0.74;
-}
-
-.confirmation-box h2 em {
-  color: var(--white);
-}
-
-.confirmation-box p {
-  max-width: 600px;
-  margin-top: 3rem;
-
-  font-size: 1.05rem;
-  line-height: 1.7;
-}
-
-.confirmation-box .primary-button {
-  margin-top: 2rem;
-}
-
-
-/* =========================================================
-   TABLET ADDITIONS
-   ========================================================= */
-
-@media (max-width: 1000px) {
-
-  .training-formats {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .training-formats > div,
-  .training-formats > strong {
-    border-bottom: 1px solid var(--light-line);
+  .training,
+  .your-game,
+  .for-every-player,
+  .why-coach,
+  .players-notice,
+  .upcoming-training,
+  .availability-section,
+  .clinics-section,
+  .registration-form-section {
+    padding-left: 6vw;
+    padding-right: 6vw;
   }
 
   .training-copy,
-  .coach-intro-grid,
-  .availability-intro,
-  .form-heading {
-    grid-template-columns: 1fr;
-    gap: 3rem;
+  .your-game,
+  .for-every-player,
+  .why-coach,
+  .upcoming-training {
+    gap: 5vw;
   }
 
-  .schedule {
-    grid-template-columns: 1fr;
-  }
-
-  .clinic-card {
-    grid-template-columns: 50px 1fr;
-  }
-
-  .clinic-meta {
-    grid-column: 2;
-    align-items: flex-start;
+  .players-notice-grid {
+    gap: 20px;
   }
 
   .format-options {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  .format-option:nth-child(3) {
-    border-right: none;
-  }
-
-  .format-option:nth-child(-n+3) {
-    border-bottom: 1px solid var(--light-line);
-  }
-
 }
 
 
 /* =========================================================
-   PHONE ADDITIONS
+   RESPONSIVE — PHONE
    ========================================================= */
 
-@media (max-width: 600px) {
+@media (max-width: 650px) {
 
-  .training-heading h2,
-  .registration-hero h1 {
-    font-size: clamp(5rem, 22vw, 8rem);
+  .site-header {
+    min-height: 72px;
+    padding: 0 6vw;
   }
 
-  .training-formats {
-    grid-template-columns: 1fr 1fr;
+  .site-header nav {
+    gap: 12px;
   }
 
-  .training-formats > div,
-  .training-formats > strong {
-    min-height: 130px;
+  .site-header nav a:not(.nav-cta) {
+    display: none;
   }
 
-  .training-formats > strong {
-    font-size: 2.5rem;
+  .site-header nav .nav-cta {
+    padding: 10px 14px;
   }
 
-  .training-copy {
-    margin-top: 50px;
+  .hero-content {
+    padding: 65px 7vw 60px;
+  }
+
+  .hero-content .eyebrow {
+    margin-bottom: 25px;
+    font-size: 11px;
+  }
+
+  .hero h1 {
+    margin-bottom: 28px;
+    font-size: clamp(6rem, 25vw, 9rem);
+  }
+
+  .hero-subhead {
+    font-size: 18px;
+  }
+
+  .hero-copy {
+    font-size: 14px;
+  }
+
+  .hero-photo,
+  .hero-photo img {
+    min-height: 420px;
   }
 
   .coach-intro {
-    margin-top: 100px;
-    padding-top: 70px;
-  }
-
-  .schedule {
-    margin-top: 60px;
-  }
-
-  .clinic-list {
-    margin-top: 60px;
-  }
-
-  .clinic-card {
     grid-template-columns: 1fr;
-    gap: 1rem;
+  }
+
+  .coach-intro-photo {
+    min-height: 430px;
+  }
+
+  .coach-intro-copy {
+    padding: 70px 7vw;
+  }
+
+  .coach-intro-copy h2 {
+    font-size: 6rem;
+  }
+
+  .training,
+  .your-game,
+  .for-every-player,
+  .why-coach,
+  .players-notice,
+  .upcoming-training,
+  .availability-section,
+  .clinics-section,
+  .registration-form-section {
+    padding-top: 75px;
+    padding-bottom: 75px;
+    padding-left: 7vw;
+    padding-right: 7vw;
+  }
+
+  .training-top {
+    display: block;
+  }
+
+  .training-top .eyebrow {
+    margin-bottom: 22px;
+  }
+
+  .training-formats {
+    white-space: normal;
+    font-size: 30px;
+    line-height: 1.2;
+  }
+
+  .training-copy,
+  .your-game,
+  .for-every-player,
+  .why-coach,
+  .upcoming-training {
+    grid-template-columns: 1fr;
+    gap: 45px;
+  }
+
+  .your-game-heading h2,
+  .for-every-player-heading h2,
+  .why-coach-heading h2 {
+    font-size: 5.5rem;
+  }
+
+  .players-notice-heading {
+    display: block;
+  }
+
+  .players-notice-heading h2 {
+    margin-top: 35px;
+    text-align: left;
+    font-size: 6rem;
+  }
+
+  .players-notice-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .players-notice blockquote p {
+    min-height: auto;
+  }
+
+  .final-photo-cta,
+  .final-photo-overlay {
+    min-height: 570px;
+  }
+
+  .final-photo-overlay {
+    grid-template-columns: 1fr;
+    align-items: end;
+    gap: 40px;
+    padding: 60px 7vw;
+  }
+
+  .final-photo-overlay h2 {
+    font-size: 6.5rem;
+  }
+
+  .final-cta-copy {
+    padding-left: 20px;
+  }
+
+  .site-footer {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 30px 7vw;
+  }
+
+  .footer-copy {
+    text-align: left;
+  }
+
+  .availability-intro {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .availability-intro h2 {
+    font-size: 5.5rem;
+  }
+
+  .schedule-day-header {
+    align-items: flex-start;
+  }
+
+  .slot {
+    grid-template-columns: 1fr auto;
+    gap: 8px;
+  }
+
+  .slot-location {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+
+  .slot-status {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .clinic-main h3 {
+    font-size: 32px;
   }
 
   .clinic-meta {
-    grid-column: auto;
+    gap: 12px 18px;
   }
 
   .form-grid {
     grid-template-columns: 1fr;
   }
 
-  .form-field.full {
+  .form-field-full {
     grid-column: auto;
   }
 
   .format-options {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  .format-option {
-    min-height: 80px;
-  }
-
-  .format-option:nth-child(2),
-  .format-option:nth-child(4),
-  .format-option:nth-child(6) {
-    border-right: none;
-  }
-
-  .format-option:nth-child(3),
-  .format-option:nth-child(4) {
-    border-bottom: 1px solid var(--light-line);
+  .selected-session {
+    grid-template-columns: 1fr;
+    gap: 12px;
   }
 
   .cost-box {
-    margin-top: 35px;
+    align-items: flex-start;
+    flex-direction: column;
   }
 
 }
