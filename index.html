@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/style.css">
 
@@ -25,6 +25,9 @@
       --home-white: #ffffff;
       --home-gray: #626976;
       --home-line: #d9d5cc;
+
+      --body: 'Inter', sans-serif;
+      --display: 'Barlow Condensed', sans-serif;
 
       background: var(--home-white);
       color: #111318;
@@ -53,7 +56,7 @@
     body.homepage .home-logo {
       font-family: var(--display);
       font-size: 38px;
-      font-weight: 700;
+      font-weight: 800;
       line-height: 1;
       letter-spacing: -.04em;
     }
@@ -124,16 +127,25 @@
     }
 
     body.homepage .home-hero h1 {
-      margin: 0 0 20px;
+      margin: 0 0 22px;
       font-family: var(--display);
-      font-size: clamp(6rem, 10vw, 10rem);
-      font-weight: 700;
-      line-height: .78;
+      font-size: clamp(7rem, 12vw, 12rem);
+      font-weight: 800;
+      line-height: .76;
       letter-spacing: -.045em;
     }
 
     body.homepage .home-hero h1 span {
       color: var(--home-blue);
+    }
+
+    /* PRIVATE VOLLEYBALL TRAINING */
+    body.homepage .home-hero .home-eyebrow {
+      margin: 0 0 12px;
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: .1em;
+      line-height: 1.2;
     }
 
     body.homepage .home-subhead {
@@ -207,8 +219,8 @@
     body.homepage .home-format h2 {
       margin: 0;
       font-family: var(--display);
-      font-size: clamp(4.8rem, 6.5vw, 7.5rem);
-      font-weight: 700;
+      font-size: clamp(5rem, 6.8vw, 7.8rem);
+      font-weight: 800;
       line-height: .82;
       letter-spacing: -.03em;
     }
@@ -275,8 +287,8 @@
     body.homepage .home-game h2 {
       margin: 0;
       font-family: var(--display);
-      font-size: clamp(4.8rem, 7vw, 8rem);
-      font-weight: 700;
+      font-size: clamp(5rem, 7.2vw, 8.2rem);
+      font-weight: 800;
       line-height: .82;
       letter-spacing: -.03em;
     }
@@ -327,7 +339,8 @@
     body.homepage .home-benefit h3 {
       margin: 0 0 9px;
       font-family: var(--display);
-      font-size: 22px;
+      font-size: 24px;
+      font-weight: 700;
       line-height: .9;
     }
 
@@ -362,8 +375,8 @@
     body.homepage .home-athletes h2 {
       margin: 0;
       font-family: var(--display);
-      font-size: clamp(4.7rem, 6.5vw, 7.5rem);
-      font-weight: 700;
+      font-size: clamp(4.9rem, 6.8vw, 7.8rem);
+      font-weight: 800;
       line-height: .82;
       letter-spacing: -.03em;
     }
@@ -411,6 +424,7 @@
     body.homepage .home-athlete-card h3 {
       margin: 0 0 9px;
       font-size: 12px;
+      font-weight: 700;
       line-height: 1.25;
       letter-spacing: .08em;
     }
@@ -468,8 +482,8 @@
     body.homepage .home-coach-title h2 {
       margin: 0;
       font-family: var(--display);
-      font-size: clamp(4.5rem, 6vw, 7rem);
-      font-weight: 700;
+      font-size: clamp(4.7rem, 6.2vw, 7.2rem);
+      font-weight: 800;
       line-height: .82;
       letter-spacing: -.03em;
     }
@@ -558,8 +572,8 @@
     body.homepage .home-testimonials h2 {
       margin: 0;
       font-family: var(--display);
-      font-size: clamp(4rem, 5.5vw, 6.5rem);
-      font-weight: 700;
+      font-size: clamp(4.2rem, 5.7vw, 6.7rem);
+      font-weight: 800;
       line-height: .82;
     }
 
@@ -811,7 +825,11 @@
       }
 
       body.homepage .home-hero h1 {
-        font-size: clamp(5rem, 22vw, 7rem);
+        font-size: clamp(5.5rem, 24vw, 7.5rem);
+      }
+
+      body.homepage .home-hero .home-eyebrow {
+        font-size: 14px;
       }
 
       body.homepage .home-format,
@@ -959,14 +977,14 @@
 
       <div class="home-hero-copy">
 
-        <p class="home-eyebrow">
-          Private Volleyball Training
-        </p>
-
         <h1>
           PLAY<br>
           <span>BETTER.</span>
         </h1>
+
+        <p class="home-eyebrow">
+          Private Volleyball Training
+        </p>
 
         <p class="home-subhead">
           BUILT AROUND YOU. BACKED BY NCAA DIV I EXPERIENCE.
@@ -1190,8 +1208,6 @@
 
       <div class="home-athlete-grid">
 
-        <!-- VOLLEYBALL ICON ONLY -->
-
         <div class="home-athlete-card">
 
           <svg
@@ -1309,8 +1325,6 @@
 
     <section class="home-coach" id="about">
 
-      <!-- Larger photo spanning the bio area -->
-
       <div class="home-coach-photo">
 
         <img
@@ -1334,8 +1348,6 @@
       </div>
 
 
-      <!-- Personal quote moved up here -->
-
       <div class="home-coach-quote">
 
         <p>
@@ -1350,8 +1362,6 @@
 
       </div>
 
-
-      <!-- NCAA credentials now occupy the lower-right area -->
 
       <div class="home-credentials">
 
