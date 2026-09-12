@@ -14,8 +14,8 @@
   --line: #d9d5cc;
   --dark-line: #354057;
 
-  --display: "Barlow Condensed", sans-serif;
-  --body: "DM Sans", sans-serif;
+--display: 'Barlow Condensed', sans-serif;
+--body: 'Inter', sans-serif;
 }
 
 * {
