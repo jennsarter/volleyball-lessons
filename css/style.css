@@ -1704,8 +1704,8 @@ body.homepage .home-credentials > * {
   body.homepage .home-credentials-logos img {
     display: block !important;
     width: auto !important;
-    height: 200px !important;
-    max-width: 205px !important;
+    height: 100px !important;
+    max-width: 105px !important;
     object-fit: contain !important;
   }
 
