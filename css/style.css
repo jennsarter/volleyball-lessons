@@ -1544,6 +1544,12 @@ h3 {
     flex-direction: column;
   }
 
+   /* Homepage fonts */
+body.homepage {
+  --display: "Barlow Condensed", sans-serif;
+  --body: "Inter", sans-serif;
+}
+   
 }
 /* Homepage display headers — larger + heavier */
 body.homepage .home-hero h1,
@@ -1579,3 +1585,4 @@ body.homepage .home-coach-title h2 {
 body.homepage .home-testimonials h2 {
   font-size: clamp(4.4rem, 6.5vw, 7rem);
 }
+
