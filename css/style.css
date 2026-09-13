@@ -1622,21 +1622,61 @@ body.homepage .home-testimonial small {
    HOMEPAGE COACH LOGOS
    ========================================================= */
 
-body.homepage .home-credentials-logos {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 32px;
-}
-
-body.homepage .home-credentials-logos img {
-  width: 130px;
-  height: 130px;
-  object-fit: contain;
-}
 
 body.homepage .home-logo-divider {
   width: 1px;
   height: 100px;
   background: var(--line);
+}
+
+/* =========================================================
+   WHY I COACH — FINAL LOGO / LINE CLEANUP
+   ========================================================= */
+
+/* Remove the unwanted box/grid lines in the coach section */
+body.homepage .home-coach > * {
+  border: none !important;
+}
+
+/* Remove any horizontal rules created by the credentials container */
+body.homepage .home-credentials {
+  border: none !important;
+}
+
+/* Put the logos in their own clean horizontal group */
+body.homepage .home-credentials-logos {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 32px !important;
+  width: 100% !important;
+  border: none !important;
+}
+
+/* Keep the actual logos proportional */
+body.homepage .home-credentials-logos img {
+  display: block !important;
+  width: auto !important;
+  height: 100px !important;
+  max-width: 130px !important;
+  object-fit: contain !important;
+}
+
+/* The ONLY divider we want */
+body.homepage .home-logo-divider {
+  display: block !important;
+  width: 1px !important;
+  height: 70px !important;
+  margin: 0 4px !important;
+  background: var(--line) !important;
+  border: none !important;
+  flex: 0 0 1px !important;
+}
+
+/* Make sure no pseudo-elements create extra lines */
+body.homepage .home-credentials::before,
+body.homepage .home-credentials::after,
+body.homepage .home-coach::before,
+body.homepage .home-coach::after {
+  display: none !important;
 }
