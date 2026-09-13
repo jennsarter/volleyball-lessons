@@ -1586,3 +1586,34 @@ body.homepage .home-testimonials h2 {
   font-size: clamp(4.4rem, 6.5vw, 7rem);
 }
 
+/* TESTIMONIAL UPDATES ONLY */
+
+body.homepage .home-testimonial {
+  min-height: 330px;
+  padding: 34px;
+}
+
+/* Large blue curly quotation mark */
+body.homepage .home-testimonial .quote {
+  color: #2857ff;
+  font-family: "Arial Black", Arial, sans-serif;
+  font-size: 5rem;
+  font-weight: 900;
+  line-height: 0.7;
+  margin-bottom: 30px;
+}
+
+/* Larger testimonial copy */
+body.homepage .home-testimonial p {
+  font-family: var(--body);
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* Larger parent/name text */
+body.homepage .home-testimonial small {
+  font-family: var(--body);
+  font-size: 1.05rem;
+  font-weight: 700;
+}
