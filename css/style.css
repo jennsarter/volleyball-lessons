@@ -1617,3 +1617,26 @@ body.homepage .home-testimonial small {
   font-size: 1.05rem;
   font-weight: 700;
 }
+
+/* =========================================================
+   HOMEPAGE COACH LOGOS
+   ========================================================= */
+
+body.homepage .home-credentials-logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+}
+
+body.homepage .home-credentials-logos img {
+  width: 130px;
+  height: 130px;
+  object-fit: contain;
+}
+
+body.homepage .home-logo-divider {
+  width: 1px;
+  height: 100px;
+  background: var(--line);
+}
