@@ -1630,53 +1630,210 @@ body.homepage .home-logo-divider {
 }
 
 /* =========================================================
-   WHY I COACH — FINAL LOGO / LINE CLEANUP
+   WHY I COACH — FINAL DESKTOP + MOBILE LAYOUT
    ========================================================= */
 
-/* Remove the unwanted box/grid lines in the coach section */
-body.homepage .home-coach > * {
+/* Remove the unwanted box/grid lines */
+body.homepage .home-coach,
+body.homepage .home-coach > *,
+body.homepage .home-credentials,
+body.homepage .home-credentials > * {
   border: none !important;
 }
 
-/* Remove any horizontal rules created by the credentials container */
-body.homepage .home-credentials {
-  border: none !important;
+/* ---------------------------------------------------------
+   DESKTOP
+   --------------------------------------------------------- */
+
+@media (min-width: 651px) {
+
+  /* Three-column coach layout:
+     PHOTO | HEADLINE | QUOTE
+     PHOTO | LOGOS   | BIO
+  */
+  body.homepage .home-coach {
+    display: grid !important;
+    grid-template-columns: 34% 23% 43% !important;
+    grid-template-rows: auto auto !important;
+    border: none !important;
+  }
+
+  body.homepage .home-coach-photo {
+    grid-column: 1 !important;
+    grid-row: 1 / 3 !important;
+    border: none !important;
+  }
+
+  body.homepage .home-coach-title {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    border: none !important;
+  }
+
+  body.homepage .home-coach-quote {
+    grid-column: 3 !important;
+    grid-row: 1 !important;
+    border: none !important;
+  }
+
+  /* Credentials occupy the bottom-right area */
+  body.homepage .home-credentials {
+    grid-column: 2 / 4 !important;
+    grid-row: 2 !important;
+
+    display: grid !important;
+    grid-template-columns: 240px 1fr !important;
+    align-items: center !important;
+    column-gap: 45px !important;
+
+    border: none !important;
+  }
+
+  /* Logos stay completely inside their own column */
+  body.homepage .home-credentials-logos {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 24px !important;
+
+    width: 100% !important;
+    border: none !important;
+  }
+
+  /* Actual NCAA + SEC image proportions */
+  body.homepage .home-credentials-logos img {
+    display: block !important;
+    width: auto !important;
+    height: 100px !important;
+    max-width: 105px !important;
+    object-fit: contain !important;
+  }
+
+  /* Only divider remaining is between NCAA and SEC */
+  body.homepage .home-logo-divider {
+    display: block !important;
+    width: 1px !important;
+    height: 65px !important;
+    margin: 0 !important;
+    background: var(--line) !important;
+    border: none !important;
+    flex: 0 0 1px !important;
+  }
+
+  /* Absolutely no decorative lines */
+  body.homepage .home-coach::before,
+  body.homepage .home-coach::after,
+  body.homepage .home-credentials::before,
+  body.homepage .home-credentials::after {
+    display: none !important;
+  }
 }
 
-/* Put the logos in their own clean horizontal group */
-body.homepage .home-credentials-logos {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  gap: 32px !important;
-  width: 100% !important;
-  border: none !important;
-}
 
-/* Keep the actual logos proportional */
-body.homepage .home-credentials-logos img {
-  display: block !important;
-  width: auto !important;
-  height: 100px !important;
-  max-width: 130px !important;
-  object-fit: contain !important;
-}
+/* ---------------------------------------------------------
+   MOBILE
+   --------------------------------------------------------- */
 
-/* The ONLY divider we want */
-body.homepage .home-logo-divider {
-  display: block !important;
-  width: 1px !important;
-  height: 70px !important;
-  margin: 0 4px !important;
-  background: var(--line) !important;
-  border: none !important;
-  flex: 0 0 1px !important;
-}
+@media (max-width: 650px) {
 
-/* Make sure no pseudo-elements create extra lines */
-body.homepage .home-credentials::before,
-body.homepage .home-credentials::after,
-body.homepage .home-coach::before,
-body.homepage .home-coach::after {
-  display: none !important;
+  body.homepage .home-coach {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    grid-template-rows: auto !important;
+
+    border: none !important;
+  }
+
+  /* Photo first */
+  body.homepage .home-coach-photo {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    border: none !important;
+  }
+
+  /* Headline second */
+  body.homepage .home-coach-title {
+    grid-column: 1 !important;
+    grid-row: 2 !important;
+
+    border: none !important;
+    padding: 60px 7vw 25px !important;
+  }
+
+  /* Quote third */
+  body.homepage .home-coach-quote {
+    grid-column: 1 !important;
+    grid-row: 3 !important;
+
+    border: none !important;
+    padding: 20px 7vw 50px !important;
+  }
+
+  /* Credentials become a normal vertical section */
+  body.homepage .home-credentials {
+    grid-column: 1 !important;
+    grid-row: 4 !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+
+    gap: 35px !important;
+    padding: 45px 7vw 65px !important;
+
+    border: none !important;
+  }
+
+  /* Logos centered ABOVE the bio */
+  body.homepage .home-credentials-logos {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    width: 100% !important;
+    gap: 20px !important;
+
+    border: none !important;
+  }
+
+  body.homepage .home-credentials-logos img {
+    display: block !important;
+    width: auto !important;
+    height: 82px !important;
+    max-width: 95px !important;
+    object-fit: contain !important;
+  }
+
+  body.homepage .home-logo-divider {
+    display: block !important;
+    width: 1px !important;
+    height: 55px !important;
+    margin: 0 !important;
+
+    background: var(--line) !important;
+    border: none !important;
+    flex: 0 0 1px !important;
+  }
+
+  /* Remove every unwanted line on mobile */
+  body.homepage .home-coach > *,
+  body.homepage .home-credentials > * {
+    border-left: none !important;
+    border-right: none !important;
+    border-top: none !important;
+    border-bottom: none !important;
+  }
+
+  /* But keep the small logo divider */
+  body.homepage .home-credentials-logos .home-logo-divider {
+    border: none !important;
+    background: var(--line) !important;
+  }
+
+  body.homepage .home-coach::before,
+  body.homepage .home-coach::after,
+  body.homepage .home-credentials::before,
+  body.homepage .home-credentials::after {
+    display: none !important;
+  }
 }
