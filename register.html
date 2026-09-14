@@ -67,21 +67,20 @@
 
       <div class="schedule">
 
-        <!-- MASTER LESSON CALENDAR -->
-        <!-- Replace FPO DATE/TIME/LOCATION with actual lessons in chronological order. -->
+        <!-- MASTER LESSON CALENDAR — EARLIEST DATES FIRST -->
 
         <button
           type="button"
           class="slot available"
           data-type="lesson"
-          data-day="FPO DAY"
-          data-date="FPO DATE"
-          data-time="FPO TIME"
-          data-location="FPO LOCATION"
+          data-day="Tuesday"
+          data-date="Tuesday, Sept. 15"
+          data-time="4-5:00 PM"
+          data-location="Victorium"
           data-sunday="false">
-          <span class="slot-date">FPO DATE</span>
-          <span class="slot-time">FPO TIME</span>
-          <span class="slot-location">FPO LOCATION</span>
+          <span class="slot-date">Tuesday, Sept. 15</span>
+          <span class="slot-time">4-5:00 PM</span>
+          <span class="slot-location">Victorium</span>
           <span class="slot-status">AVAILABLE</span>
           <span class="slot-select">SELECT THIS LESSON →</span>
         </button>
@@ -90,29 +89,65 @@
           type="button"
           class="slot available"
           data-type="lesson"
-          data-day="FPO DAY"
-          data-date="FPO DATE"
-          data-time="FPO TIME"
-          data-location="FPO LOCATION"
+          data-day="Tuesday"
+          data-date="Tuesday, Sept. 15"
+          data-time="5-6:00 PM"
+          data-location="Victorium"
           data-sunday="false">
-          <span class="slot-date">FPO DATE</span>
-          <span class="slot-time">FPO TIME</span>
-          <span class="slot-location">FPO LOCATION</span>
+          <span class="slot-date">Tuesday, Sept. 15</span>
+          <span class="slot-time">5-6:00 PM</span>
+          <span class="slot-location">Victorium</span>
           <span class="slot-status">AVAILABLE</span>
           <span class="slot-select">SELECT THIS LESSON →</span>
         </button>
 
         <button
           type="button"
+          class="slot pending"
+          data-type="lesson"
+          data-day="Thursday"
+          data-date="Thursday, Sept. 17"
+          data-time="3:45-4:45 PM"
+          data-location="Victorium"
+          data-status="pending"
+          data-private-key="sept17-345"
+          data-sunday="false">
+          <span class="slot-date">Thursday, Sept. 17</span>
+          <span class="slot-time">3:45-4:45 PM</span>
+          <span class="slot-location">Victorium</span>
+          <span class="slot-status">PENDING CONFIRMATION</span>
+          <span class="slot-select">RESERVED</span>
+        </button>
+
+        <button
+          type="button"
+          class="slot booked"
+          data-type="lesson"
+          data-day="Thursday"
+          data-date="Thursday, Sept. 17"
+          data-time="7:15-8:15 PM"
+          data-location="Player-Provided Location"
+          data-private-key="sept17-715"
+          data-sunday="false"
+          disabled>
+          <span class="slot-date">Thursday, Sept. 17</span>
+          <span class="slot-time">7:15-8:15 PM</span>
+          <span class="slot-location">Player-Provided Location</span>
+          <span class="slot-status">BOOKED</span>
+          <span class="slot-select">UNAVAILABLE</span>
+        </button>
+
+        <button
+          type="button"
           class="slot available"
           data-type="lesson"
-          data-day="FPO DAY"
-          data-date="FPO DATE"
-          data-time="FPO TIME"
+          data-day="Sunday"
+          data-date="Sunday, Sept. 20"
+          data-time="12:00-1:00 PM"
           data-location="Archway Scottsdale"
           data-sunday="true">
-          <span class="slot-date">FPO DATE</span>
-          <span class="slot-time">FPO TIME</span>
+          <span class="slot-date">Sunday, Sept. 20</span>
+          <span class="slot-time">12:00-1:00 PM</span>
           <span class="slot-location">Archway Scottsdale</span>
           <span class="slot-status">AVAILABLE</span>
           <span class="slot-select">SELECT THIS LESSON →</span>
@@ -122,23 +157,79 @@
           type="button"
           class="slot available"
           data-type="lesson"
-          data-day="FPO DAY"
-          data-date="FPO DATE"
-          data-time="FPO TIME"
+          data-day="Sunday"
+          data-date="Sunday, Sept. 20"
+          data-time="1:00-2:00 PM"
           data-location="Archway Scottsdale"
           data-sunday="true">
-          <span class="slot-date">FPO DATE</span>
-          <span class="slot-time">FPO TIME</span>
+          <span class="slot-date">Sunday, Sept. 20</span>
+          <span class="slot-time">1:00-2:00 PM</span>
           <span class="slot-location">Archway Scottsdale</span>
           <span class="slot-status">AVAILABLE</span>
           <span class="slot-select">SELECT THIS LESSON →</span>
+        </button>
+
+        <button
+          type="button"
+          class="slot available"
+          data-type="lesson"
+          data-day="Sunday"
+          data-date="Sunday, Sept. 20"
+          data-time="2:00-3:00 PM"
+          data-location="Archway Scottsdale"
+          data-sunday="true">
+          <span class="slot-date">Sunday, Sept. 20</span>
+          <span class="slot-time">2:00-3:00 PM</span>
+          <span class="slot-location">Archway Scottsdale</span>
+          <span class="slot-status">AVAILABLE</span>
+          <span class="slot-select">SELECT THIS LESSON →</span>
+        </button>
+
+        <button
+          type="button"
+          class="slot available"
+          data-type="lesson"
+          data-day="Sunday"
+          data-date="Sunday, Sept. 20"
+          data-time="3:00-4:00 PM"
+          data-location="Archway Scottsdale"
+          data-sunday="true">
+          <span class="slot-date">Sunday, Sept. 20</span>
+          <span class="slot-time">3:00-4:00 PM</span>
+          <span class="slot-location">Archway Scottsdale</span>
+          <span class="slot-status">AVAILABLE</span>
+          <span class="slot-select">SELECT THIS LESSON →</span>
+        </button>
+
+        <button
+          type="button"
+          class="slot booked"
+          data-type="lesson"
+          data-day="Sunday"
+          data-date="Sunday, Sept. 20"
+          data-time="4:00-5:00 PM"
+          data-location="Archway Scottsdale"
+          data-private-key="sept20-4"
+          data-sunday="true"
+          disabled>
+          <span class="slot-date">Sunday, Sept. 20</span>
+          <span class="slot-time">4:00-5:00 PM</span>
+          <span class="slot-location">Archway Scottsdale</span>
+          <span class="slot-status">BOOKED</span>
+          <span class="slot-select">UNAVAILABLE</span>
         </button>
 
       </div>
 
       <div class="availability-note">
         <p>
-          Available lesson times and locations will be updated as scheduling is finalized.
+          Lessons marked PENDING CONFIRMATION or BOOKED are reserved and are not available for public registration.
+        </p>
+      </div>
+
+      <div id="private-registration-note" class="availability-note" hidden>
+        <p>
+          This private registration link is reserved for you. Complete the registration form below to register for this lesson.
         </p>
       </div>
 
