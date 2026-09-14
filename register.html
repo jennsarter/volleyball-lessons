@@ -8,16 +8,112 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
   <link rel="stylesheet" href="css/style.css">
-</head>
 
+  <style>
+    .schedule .slot {
+      display:grid;
+      grid-template-columns:240px 220px minmax(220px,1fr) 230px 130px;
+      align-items:center;
+      column-gap:28px;
+      width:100%;
+      min-height:118px;
+      padding:24px 0;
+      border:0;
+      border-bottom:1px solid var(--line);
+      box-sizing:border-box;
+    }
+    .schedule .slot-date {
+      font-family:"Inter",sans-serif;
+      font-size:17px;
+      font-weight:700;
+      line-height:1.3;
+      text-transform:uppercase;
+      color:var(--black);
+    }
+    .schedule .slot-time {
+      font-family:"Barlow Condensed",sans-serif;
+      font-size:31px;
+      font-weight:700;
+      line-height:1;
+      white-space:nowrap;
+      color:var(--black);
+    }
+    .schedule .slot-location {
+      font-family:"Inter",sans-serif;
+      font-size:14px;
+      font-weight:600;
+      line-height:1.3;
+      text-transform:uppercase;
+      color:var(--black);
+    }
+    .schedule .slot-action { justify-self:start; }
+    .schedule .slot-select {
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:13px 18px;
+      border:1px solid var(--blue);
+      background:var(--blue);
+      color:var(--white);
+      font-family:"Inter",sans-serif;
+      font-size:12px;
+      font-weight:700;
+      letter-spacing:.04em;
+      line-height:1;
+      white-space:nowrap;
+      cursor:pointer;
+      text-decoration:none;
+      transition:background .2s ease,color .2s ease,transform .2s ease;
+    }
+    .schedule .slot-select:hover {
+      background:transparent;
+      color:var(--blue);
+      transform:translateY(-2px);
+    }
+    .schedule .slot-status {
+      justify-self:end;
+      font-family:"Inter",sans-serif;
+      font-size:14px;
+      font-weight:700;
+      letter-spacing:.08em;
+      line-height:1;
+      color:var(--blue);
+      white-space:nowrap;
+    }
+    @media (max-width:1000px) {
+      .schedule .slot {
+        grid-template-columns:1.15fr 1fr 1.2fr;
+        column-gap:22px;
+        row-gap:18px;
+        padding:26px 0;
+      }
+      .schedule .slot-date{grid-column:1}
+      .schedule .slot-time{grid-column:2}
+      .schedule .slot-location{grid-column:3}
+      .schedule .slot-action{grid-column:1 / 3;grid-row:2}
+      .schedule .slot-status{grid-column:3;grid-row:2}
+    }
+    @media (max-width:650px) {
+      .schedule .slot {
+        grid-template-columns:1fr 1fr;
+        column-gap:16px;
+        row-gap:15px;
+        min-height:0;
+        padding:24px 0;
+      }
+      .schedule .slot-date{grid-column:1;font-size:15px}
+      .schedule .slot-time{grid-column:2;font-size:27px;text-align:right}
+      .schedule .slot-location{grid-column:1 / -1;font-size:14px}
+      .schedule .slot-action{grid-column:1;grid-row:auto}
+      .schedule .slot-status{grid-column:2;grid-row:auto;font-size:12px}
+    }
+  </style>
+</head>
 <body>
 
-  <!-- HEADER -->
   <header class="site-header">
     <a href="index.html" class="site-logo">JS.</a>
-
     <nav class="site-nav">
       <a href="index.html#training">Training</a>
       <a href="index.html#about">About</a>
@@ -26,540 +122,95 @@
     </nav>
   </header>
 
-
-  <!-- REGISTRATION HERO -->
   <main>
-
     <section class="registration-hero section-pad">
       <div class="registration-hero-inner">
-        <p class="eyebrow">REGISTRATION</p>
-
-        <h1>LET'S GET<br>STARTED.</h1>
-
+        <p class="eyebrow">PRIVATE LESSONS</p>
+        <h1>CHOOSE YOUR<br>LESSON.</h1>
         <p class="registration-intro">
-  Choose an available private lesson, then complete the registration form below. Private lessons are available for individual players or groups of 2–6 players, with pricing based on the number of players and training location.
-</p>
-
-<p class="registration-intro">
-  <strong>Private lesson rates range from $25–$50 per player, plus a $25 Victorium gym fee per session that is split among registered players.</strong>
-  Player-Provided Location sessions have no gym fee. Sunday private lessons at Archway Scottsdale have separate pricing, with the facility fee already included.
-</p>
+          Select an available private lesson below. You'll choose the number of players and complete registration on the next page.
+        </p>
+        <p class="registration-intro">
+          <strong>Regular private lesson rates are $25–$50 per player.</strong>
+          Victorium sessions include a $25 gym fee per session, split among registered players. Player-Provided Location sessions have no gym fee. Sunday lessons at Archway Scottsdale have separate pricing, with the facility fee included.
+        </p>
       </div>
     </section>
 
-
-    <!-- PRIVATE TRAINING -->
     <section class="availability-section section-pad" id="private-training">
-
       <div class="availability-intro">
         <div>
-          <p class="eyebrow">01 / PRIVATE TRAINING</p>
+          <p class="eyebrow">01 / PRIVATE LESSONS</p>
           <h2>AVAILABLE<br>LESSONS</h2>
         </div>
-
         <div class="availability-copy">
-          <p>
-            Select an available lesson below. Once a lesson is selected, choose how many players you are registering.
-          </p>
+          <p>Choose a date and time that works for you. Then click SELECT THIS LESSON to continue.</p>
         </div>
       </div>
 
+      <div class="schedule">
 
-     <div class="schedule">
+        <div class="slot available">
+          <span class="slot-date">TUESDAY, SEPT. 15</span><span class="slot-time">4–5:00 PM</span><span class="slot-location">VICTORIUM</span>
+          <span class="slot-action"><a class="slot-select" href="lesson-registration.html?date=Tuesday%2C%20Sept.%2015&time=4%E2%80%935%3A00%20PM&location=Victorium&sunday=false">SELECT THIS LESSON →</a></span>
+          <span class="slot-status">AVAILABLE</span>
+        </div>
 
-  <!-- TUESDAY, SEPT. 15 — 4:00 PM -->
-  <div
-    class="slot available"
-    data-type="lesson"
-    data-day="Tuesday"
-    data-date="Tuesday, Sept. 15"
-    data-time="4-5:00 PM"
-    data-location="Victorium"
-    data-sunday="false">
+        <div class="slot available">
+          <span class="slot-date">TUESDAY, SEPT. 15</span><span class="slot-time">5–6:00 PM</span><span class="slot-location">VICTORIUM</span>
+          <span class="slot-action"><a class="slot-select" href="lesson-registration.html?date=Tuesday%2C%20Sept.%2015&time=5%E2%80%936%3A00%20PM&location=Victorium&sunday=false">SELECT THIS LESSON →</a></span>
+          <span class="slot-status">AVAILABLE</span>
+        </div>
 
-    <span class="slot-date">Tuesday, Sept. 15</span>
-    <span class="slot-time">4-5:00 PM</span>
-    <span class="slot-location">VICTORIUM</span>
+        <div class="slot pending">
+          <span class="slot-date">THURSDAY, SEPT. 17</span><span class="slot-time">3:45–4:45 PM</span><span class="slot-location">VICTORIUM</span><span class="slot-action"></span><span class="slot-status">PENDING</span>
+        </div>
 
-    <button type="button" class="slot-select">
-      SELECT THIS LESSON →
-    </button>
+        <div class="slot booked">
+          <span class="slot-date">THURSDAY, SEPT. 17</span><span class="slot-time">7:15–8:15 PM</span><span class="slot-location">PLAYER-PROVIDED LOCATION</span><span class="slot-action"></span><span class="slot-status">BOOKED</span>
+        </div>
 
-    <span class="slot-status">AVAILABLE</span>
-  </div>
+        <div class="slot available">
+          <span class="slot-date">SUNDAY, SEPT. 20</span><span class="slot-time">12–1:00 PM</span><span class="slot-location">ARCHWAY SCOTTSDALE</span>
+          <span class="slot-action"><a class="slot-select" href="lesson-registration.html?date=Sunday%2C%20Sept.%2020&time=12%E2%80%931%3A00%20PM&location=Archway%20Scottsdale&sunday=true">SELECT THIS LESSON →</a></span>
+          <span class="slot-status">AVAILABLE</span>
+        </div>
 
+        <div class="slot available">
+          <span class="slot-date">SUNDAY, SEPT. 20</span><span class="slot-time">1–2:00 PM</span><span class="slot-location">ARCHWAY SCOTTSDALE</span>
+          <span class="slot-action"><a class="slot-select" href="lesson-registration.html?date=Sunday%2C%20Sept.%2020&time=1%E2%80%932%3A00%20PM&location=Archway%20Scottsdale&sunday=true">SELECT THIS LESSON →</a></span>
+          <span class="slot-status">AVAILABLE</span>
+        </div>
 
-  <!-- TUESDAY, SEPT. 15 — 5:00 PM -->
-  <div
-    class="slot available"
-    data-type="lesson"
-    data-day="Tuesday"
-    data-date="Tuesday, Sept. 15"
-    data-time="5-6:00 PM"
-    data-location="Victorium"
-    data-sunday="false">
+        <div class="slot available">
+          <span class="slot-date">SUNDAY, SEPT. 20</span><span class="slot-time">2–3:00 PM</span><span class="slot-location">ARCHWAY SCOTTSDALE</span>
+          <span class="slot-action"><a class="slot-select" href="lesson-registration.html?date=Sunday%2C%20Sept.%2020&time=2%E2%80%933%3A00%20PM&location=Archway%20Scottsdale&sunday=true">SELECT THIS LESSON →</a></span>
+          <span class="slot-status">AVAILABLE</span>
+        </div>
 
-    <span class="slot-date">Tuesday, Sept. 15</span>
-    <span class="slot-time">5-6:00 PM</span>
-    <span class="slot-location">VICTORIUM</span>
+        <div class="slot available">
+          <span class="slot-date">SUNDAY, SEPT. 20</span><span class="slot-time">3–4:00 PM</span><span class="slot-location">ARCHWAY SCOTTSDALE</span>
+          <span class="slot-action"><a class="slot-select" href="lesson-registration.html?date=Sunday%2C%20Sept.%2020&time=3%E2%80%934%3A00%20PM&location=Archway%20Scottsdale&sunday=true">SELECT THIS LESSON →</a></span>
+          <span class="slot-status">AVAILABLE</span>
+        </div>
 
-    <button type="button" class="slot-select">
-      SELECT THIS LESSON →
-    </button>
+        <div class="slot booked">
+          <span class="slot-date">SUNDAY, SEPT. 20</span><span class="slot-time">4–5:00 PM</span><span class="slot-location">ARCHWAY SCOTTSDALE</span><span class="slot-action"></span><span class="slot-status">BOOKED</span>
+        </div>
 
-    <span class="slot-status">AVAILABLE</span>
-  </div>
-
-
-  <!-- THURSDAY, SEPT. 17 — 3:45 PM -->
-  <div
-    class="slot pending"
-    data-type="lesson"
-    data-day="Thursday"
-    data-date="Thursday, Sept. 17"
-    data-time="3:45-4:45 PM"
-    data-location="Victorium"
-    data-status="pending"
-    data-private-key="sept17-345"
-    data-sunday="false">
-
-    <span class="slot-date">Thursday, Sept. 17</span>
-    <span class="slot-time">3:45-4:45 PM</span>
-    <span class="slot-location">VICTORIUM</span>
-
-    <span class="slot-status">PENDING</span>
-  </div>
-
-
-  <!-- THURSDAY, SEPT. 17 — 7:15 PM -->
-  <div
-    class="slot booked"
-    data-type="lesson"
-    data-day="Thursday"
-    data-date="Thursday, Sept. 17"
-    data-time="7:15-8:15 PM"
-    data-location="Player-Provided Location"
-    data-private-key="sept17-715"
-    data-sunday="false">
-
-    <span class="slot-date">Thursday, Sept. 17</span>
-    <span class="slot-time">7:15-8:15 PM</span>
-    <span class="slot-location">PLAYER-PROVIDED LOCATION</span>
-
-    <span class="slot-status">BOOKED</span>
-  </div>
-
-
-  <!-- SUNDAY, SEPT. 20 — 12:00 PM -->
-  <div
-    class="slot available"
-    data-type="lesson"
-    data-day="Sunday"
-    data-date="Sunday, Sept. 20"
-    data-time="12:00-1:00 PM"
-    data-location="Archway Scottsdale"
-    data-sunday="true">
-
-    <span class="slot-date">Sunday, Sept. 20</span>
-    <span class="slot-time">12:00-1:00 PM</span>
-    <span class="slot-location">ARCHWAY SCOTTSDALE</span>
-
-    <button type="button" class="slot-select">
-      SELECT THIS LESSON →
-    </button>
-
-    <span class="slot-status">AVAILABLE</span>
-  </div>
-
-
-  <!-- SUNDAY, SEPT. 20 — 1:00 PM -->
-  <div
-    class="slot available"
-    data-type="lesson"
-    data-day="Sunday"
-    data-date="Sunday, Sept. 20"
-    data-time="1:00-2:00 PM"
-    data-location="Archway Scottsdale"
-    data-sunday="true">
-
-    <span class="slot-date">Sunday, Sept. 20</span>
-    <span class="slot-time">1:00-2:00 PM</span>
-    <span class="slot-location">ARCHWAY SCOTTSDALE</span>
-
-    <button type="button" class="slot-select">
-      SELECT THIS LESSON →
-    </button>
-
-    <span class="slot-status">AVAILABLE</span>
-  </div>
-
-
-  <!-- SUNDAY, SEPT. 20 — 2:00 PM -->
-  <div
-    class="slot available"
-    data-type="lesson"
-    data-day="Sunday"
-    data-date="Sunday, Sept. 20"
-    data-time="2:00-3:00 PM"
-    data-location="Archway Scottsdale"
-    data-sunday="true">
-
-    <span class="slot-date">Sunday, Sept. 20</span>
-    <span class="slot-time">2:00-3:00 PM</span>
-    <span class="slot-location">ARCHWAY SCOTTSDALE</span>
-
-    <button type="button" class="slot-select">
-      SELECT THIS LESSON →
-    </button>
-
-    <span class="slot-status">AVAILABLE</span>
-  </div>
-
-
-  <!-- SUNDAY, SEPT. 20 — 3:00 PM -->
-  <div
-    class="slot available"
-    data-type="lesson"
-    data-day="Sunday"
-    data-date="Sunday, Sept. 20"
-    data-time="3:00-4:00 PM"
-    data-location="Archway Scottsdale"
-    data-sunday="true">
-
-    <span class="slot-date">Sunday, Sept. 20</span>
-    <span class="slot-time">3:00-4:00 PM</span>
-    <span class="slot-location">ARCHWAY SCOTTSDALE</span>
-
-    <button type="button" class="slot-select">
-      SELECT THIS LESSON →
-    </button>
-
-    <span class="slot-status">AVAILABLE</span>
-  </div>
-
-
-  <!-- SUNDAY, SEPT. 20 — 4:00 PM -->
-  <div
-    class="slot booked"
-    data-type="lesson"
-    data-day="Sunday"
-    data-date="Sunday, Sept. 20"
-    data-time="4:00-5:00 PM"
-    data-location="Archway Scottsdale"
-    data-private-key="sept20-4"
-    data-sunday="true">
-
-    <span class="slot-date">Sunday, Sept. 20</span>
-    <span class="slot-time">4:00-5:00 PM</span>
-    <span class="slot-location">ARCHWAY SCOTTSDALE</span>
-
-    <span class="slot-status">BOOKED</span>
-  </div>
-
-</div>
+      </div>
 
       <div class="availability-note">
-        <p>
-          Lessons marked PENDING CONFIRMATION or BOOKED are reserved and are not available for public registration.
-        </p>
+        <p>Lessons marked PENDING or BOOKED are reserved and are not available for public registration.</p>
       </div>
-
-      <div id="private-registration-note" class="availability-note" hidden>
-        <p>
-          This private registration link is reserved for you. Complete the registration form below to register for this lesson.
-        </p>
-      </div>
-
     </section>
-
-    <!-- REGISTRATION FORM -->
-    <section class="registration-form-section section-pad" id="registration-form">
-
-      <div class="form-wrapper">
-
-        <div class="form-heading">
-          <p class="eyebrow">03 / PLAYER INFORMATION</p>
-          <h2>REGISTER<br>YOUR PLAYER.</h2>
-          <p>
-            Complete the information below to request the selected session.
-          </p>
-        </div>
-
-
-        <!-- SELECTED SESSION -->
-        <div class="selected-session" id="selected-session">
-
-          <div class="selected-session-label">
-            SELECTED SESSION
-          </div>
-
-          <div class="selected-session-content">
-            <p id="selected-session-name">
-              Please select an available lesson or clinic above.
-            </p>
-
-            <p id="selected-session-details"></p>
-          </div>
-
-        </div>
-
-
-        <form id="registration-form-element">
-
-          <!-- Hidden session fields -->
-          <input type="hidden" id="sessionType" name="sessionType">
-          <input type="hidden" id="sessionDay" name="sessionDay">
-          <input type="hidden" id="sessionDate" name="sessionDate">
-          <input type="hidden" id="sessionTime" name="sessionTime">
-          <input type="hidden" id="sessionLocation" name="sessionLocation">
-          <input type="hidden" id="sessionClinic" name="sessionClinic">
-          <input type="hidden" id="sessionPrice" name="sessionPrice">
-
-
-          <!-- NUMBER OF PLAYERS -->
-          <div class="form-section" id="player-count-section">
-            <div class="form-section-heading">
-              <span>01</span>
-              <h3>NUMBER OF PLAYERS</h3>
-            </div>
-
-            <p class="format-intro">
-              How many players are you registering?
-            </p>
-
-            <div class="format-options player-count-options">
-              <label class="format-option">
-                <input type="radio" name="playerCount" value="1" required>
-                <span><strong>1</strong><small>PLAYER</small></span>
-              </label>
-              <label class="format-option">
-                <input type="radio" name="playerCount" value="2">
-                <span><strong>2</strong><small>PLAYERS</small></span>
-              </label>
-              <label class="format-option">
-                <input type="radio" name="playerCount" value="3">
-                <span><strong>3</strong><small>PLAYERS</small></span>
-              </label>
-              <label class="format-option">
-                <input type="radio" name="playerCount" value="4">
-                <span><strong>4</strong><small>PLAYERS</small></span>
-              </label>
-              <label class="format-option">
-                <input type="radio" name="playerCount" value="5">
-                <span><strong>5</strong><small>PLAYERS</small></span>
-              </label>
-              <label class="format-option">
-                <input type="radio" name="playerCount" value="6">
-                <span><strong>6</strong><small>PLAYERS</small></span>
-              </label>
-            </div>
-
-            <div id="additional-player-fields" class="additional-player-fields"></div>
-          </div>
-
-
-          <!-- PLAYER -->
-          <div class="form-section">
-            <div class="form-section-heading">
-              <span>02</span>
-              <h3>PLAYER</h3>
-            </div>
-
-            <div class="form-grid">
-              <div class="form-field">
-                <label for="playerFirstName">FIRST NAME *</label>
-                <input type="text" id="playerFirstName" name="playerFirstName" required>
-              </div>
-
-              <div class="form-field">
-                <label for="playerLastName">LAST NAME *</label>
-                <input type="text" id="playerLastName" name="playerLastName" required>
-              </div>
-
-              <div class="form-field">
-                <label for="playerAge">AGE *</label>
-                <input type="number" id="playerAge" name="playerAge" min="5" max="18" required>
-              </div>
-
-              <div class="form-field">
-                <label for="playerGrade">GRADE *</label>
-                <select id="playerGrade" name="playerGrade" required>
-                  <option value="">SELECT</option>
-                  <option value="Elementary School">ELEMENTARY SCHOOL</option>
-                  <option value="6th">6TH</option>
-                  <option value="7th">7TH</option>
-                  <option value="8th">8TH</option>
-                </select>
-              </div>
-
-              <div class="form-field form-field-full">
-                <label for="playerSchool">SCHOOL *</label>
-                <input type="text" id="playerSchool" name="playerSchool" required>
-              </div>
-
-              <div class="form-field form-field-full">
-                <label for="playerExperience">VOLLEYBALL EXPERIENCE / LEVEL *</label>
-                <textarea
-                  id="playerExperience"
-                  name="playerExperience"
-                  rows="4"
-                  placeholder="Tell me a little about your player's volleyball experience and current level."
-                  required></textarea>
-              </div>
-            </div>
-          </div>
-
-
-          <!-- PARENT / GUARDIAN -->
-          <div class="form-section">
-
-            <div class="form-section-heading">
-              <span>03</span>
-              <h3>PARENT / GUARDIAN</h3>
-            </div>
-
-            <div class="form-grid">
-
-              <div class="form-field form-field-full">
-                <label for="parentName">NAME *</label>
-                <input
-                  type="text"
-                  id="parentName"
-                  name="parentName"
-                  required>
-              </div>
-
-              <div class="form-field">
-                <label for="parentEmail">EMAIL *</label>
-                <input
-                  type="email"
-                  id="parentEmail"
-                  name="parentEmail"
-                  required>
-              </div>
-
-              <div class="form-field">
-                <label for="parentPhone">PHONE *</label>
-                <input
-                  type="tel"
-                  id="parentPhone"
-                  name="parentPhone"
-                  required>
-              </div>
-
-            </div>
-
-          </div>
-
-          <!-- COST -->
-          <div class="cost-box">
-
-            <div>
-              <p class="cost-label">SESSION COST</p>
-              <p class="cost-note">
-                Final cost is based on the number of players and selected lesson location.
-              </p>
-            </div>
-
-            <div class="cost-amount" id="cost-amount">
-              —
-            </div>
-
-          </div>
-
-
-          <!-- SUNDAY NOTICE -->
-          <div class="sunday-notice" id="sunday-notice">
-
-            <strong>SUNDAY REGISTRATION</strong>
-
-            <p>
-              Sunday private lessons at Archway Scottsdale have separate pricing, with the facility fee already included. After submitting this form, you will be directed to the appropriate contact for Sunday registration and payment.
-            </p>
-
-          </div>
-
-
-          <!-- PAYMENT -->
-          <div class="form-section">
-
-            <div class="form-section-heading">
-              <span>04</span>
-              <h3>PAYMENT</h3>
-            </div>
-
-            <p class="payment-copy">
-              Payment is handled directly and is not collected through this website.
-            </p>
-
-            <p class="payment-methods">
-              <strong>REGULAR LESSONS:</strong> CASH · ZELLE · VENMO
-            </p>
-
-          </div>
-
-          <button type="submit" class="form-submit">
-            SUBMIT REGISTRATION
-          </button>
-
-          <p class="form-disclaimer">
-            Submitting this form does not process payment. Registration is subject to availability and confirmation.
-          </p>
-
-        </form>
-
-      </div>
-
-    </section>
-
-
-    <!-- CONFIRMATION -->
-    <section class="confirmation-section section-pad" id="confirmation-section">
-
-      <div class="confirmation-inner">
-
-        <p class="eyebrow">REGISTRATION RECEIVED</p>
-
-        <h2>YOU'RE<br>ON YOUR WAY.</h2>
-
-        <p id="confirmation-message">
-          Thank you. Your registration request has been received.
-        </p>
-
-        <a href="index.html" class="button-primary">
-          BACK TO HOME
-        </a>
-
-      </div>
-
-    </section>
-
   </main>
 
-
-  <!-- FOOTER -->
   <footer class="site-footer">
-
-    <div class="footer-brand">
-      <a href="index.html" class="site-logo">JS.</a>
-      <p>PRIVATE VOLLEYBALL TRAINING</p>
-    </div>
-
-    <div class="footer-location">
-      <p>SCOTTSDALE, AZ</p>
-    </div>
-
-    <div class="footer-links">
-      <a href="index.html">HOME</a>
-      <a href="index.html#training">TRAINING</a>
-      <a href="index.html#about">ABOUT</a>
-      <a href="register.html">REGISTER</a>
-    </div>
-
+    <div class="footer-brand"><a href="index.html" class="site-logo">JS.</a><p>PRIVATE VOLLEYBALL TRAINING</p></div>
+    <div class="footer-location"><p>SCOTTSDALE, AZ</p></div>
+    <div class="footer-links"><a href="index.html">HOME</a><a href="index.html#training">TRAINING</a><a href="index.html#about">ABOUT</a><a href="register.html">REGISTER</a></div>
   </footer>
-
-
-  <script src="js/registration.js"></script>
 
 </body>
 </html>
