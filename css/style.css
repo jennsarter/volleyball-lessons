@@ -1919,6 +1919,6 @@ body.homepage .home-bottom-content .home-button {
 }
 
 /* Space between WHY I COACH paragraphs */
-body.homepage .home-coach-content p + p {
-  margin-top: 24px;
+body.homepage .home-coach-quote p + p {
+  margin-top: 24px !important;
 }
