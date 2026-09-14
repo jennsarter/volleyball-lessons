@@ -1,120 +1,294 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-  const slots = document.querySelectorAll(".slot.available");
-  const clinics = document.querySelectorAll(".clinic-card.available");
+  const lessonSlots = document.querySelectorAll(".slot.available");
+  const selectedSession = document.getElementById("selected-session");
+  const selectedSessionName = document.getElementById("selected-session-name");
+  const selectedSessionDetails = document.getElementById("selected-session-details");
 
-  const selectedSession =
-    document.getElementById("selectedSession");
+  const sessionType = document.getElementById("sessionType");
+  const sessionDay = document.getElementById("sessionDay");
+  const sessionDate = document.getElementById("sessionDate");
+  const sessionTime = document.getElementById("sessionTime");
+  const sessionLocation = document.getElementById("sessionLocation");
+  const sessionClinic = document.getElementById("sessionClinic");
+  const sessionPrice = document.getElementById("sessionPrice");
 
-  const selectedType =
-    document.getElementById("selectedType");
+  const sundayNotice = document.getElementById("sunday-notice");
+  const costAmount = document.getElementById("cost-amount");
 
-  const selectedDay =
-    document.getElementById("selectedDay");
+  const playerCountOptions = document.querySelectorAll(
+    'input[name="playerCount"]'
+  );
 
-  const selectedDate =
-    document.getElementById("selectedDate");
+  const additionalPlayerFields = document.getElementById(
+    "additional-player-fields"
+  );
 
-  const selectedTime =
-    document.getElementById("selectedTime");
+  const registrationForm = document.getElementById(
+    "registration-form-element"
+  );
 
-  const selectedLocation =
-    document.getElementById("selectedLocation");
+  /*
+   * REGULAR PRIVATE LESSON PRICING
+   *
+   * Training rate per player:
+   * 1 player = $50
+   * 2 players = $35/player
+   * 3 players = $35/player
+   * 4 players = $25/player
+   * 5 players = $25/player
+   * 6 players = $25/player
+   *
+   * Victorium adds a $25 gym fee per session,
+   * split among the registered players.
+   */
 
-  const selectedClinic =
-    document.getElementById("selectedClinic");
+  const regularTrainingPrices = {
+    1: 50,
+    2: 35,
+    3: 35,
+    4: 25,
+    5: 25,
+    6: 25
+  };
 
-  const sundayNotice =
-    document.getElementById("sundayNotice");
-
-  const clinicNotice =
-    document.getElementById("clinicNotice");
-
-  const sessionCost =
-    document.getElementById("sessionCost");
-
-  const registrationForm =
-    document.getElementById("registrationForm");
-
-  const privateTrainingOptions =
-    document.getElementById("privateTrainingOptions");
-
-
-  let currentType = "";
-  let currentDay = "";
-  let currentDate = "";
-  let currentTime = "";
-  let currentLocation = "";
-  let currentClinic = "";
-  let currentPrice = "";
+  const regularGymFee = 25;
 
 
   /*
-   * PRIVATE TRAINING PRICING
+   * SUNDAY PRIVATE LESSON PRICING
    *
-   * Replace these values with your actual prices.
+   * Sunday lessons are at Archway Scottsdale.
+   * Facility fee is already included.
    */
 
-  const prices = {
-    "1:1": 75,
-    "2:1": 45,
-    "3:1": 35,
-    "4:1": 30,
-    "5:1": 27,
-    "6:1": 25
+  const sundayPrices = {
+    1: 70,
+    2: 50,
+    3: 40,
+    4: 35,
+    5: 30,
+    6: 30
   };
 
 
   /*
-   * CLEAR CURRENT SELECTION
+   * KEEP TRACK OF THE SELECTED LESSON
    */
 
-  function clearSelections() {
-
-    slots.forEach(function (slot) {
-      slot.classList.remove("selected");
-    });
-
-    clinics.forEach(function (clinic) {
-      clinic.classList.remove("selected");
-    });
-
-  }
+  let selectedLesson = null;
 
 
   /*
-   * UPDATE FORM VISIBILITY
+   * LESSON SELECTION
    */
 
-  function updateFormForType() {
+  lessonSlots.forEach(function (slot) {
 
-    const isClinic = currentType === "clinic";
+    slot.addEventListener("click", function () {
 
-    privateTrainingOptions.hidden = isClinic;
+      selectedLesson = slot;
 
-    clinicNotice.hidden = !isClinic;
+      const day = slot.dataset.day || "";
+      const date = slot.dataset.date || "";
+      const time = slot.dataset.time || "";
+      const location = slot.dataset.location || "";
+      const isSunday = slot.dataset.sunday === "true";
 
-    if (isClinic) {
+      /*
+       * Update selected-session display
+       */
 
-      document
-        .querySelectorAll('input[name="format"]')
-        .forEach(function (input) {
-          input.checked = false;
-          input.required = false;
-        });
+      if (selectedSession) {
+        selectedSession.classList.add("active");
+      }
 
-      sessionCost.textContent =
-        currentPrice || "FPO";
+      if (selectedSessionName) {
+        selectedSessionName.textContent =
+          date + " · " + time;
+      }
 
-    } else {
+      if (selectedSessionDetails) {
 
-      document
-        .querySelectorAll('input[name="format"]')
-        .forEach(function (input) {
-          input.required = true;
-        });
+        let details = "";
 
-      sessionCost.textContent = "SELECT FORMAT";
+        if (day) {
+          details += day;
+        }
+
+        if (location) {
+          if (details) {
+            details += " · ";
+          }
+
+          details += location;
+        }
+
+        selectedSessionDetails.textContent = details;
+      }
+
+
+      /*
+       * Update hidden form fields
+       */
+
+      if (sessionType) {
+        sessionType.value = "lesson";
+      }
+
+      if (sessionDay) {
+        sessionDay.value = day;
+      }
+
+      if (sessionDate) {
+        sessionDate.value = date;
+      }
+
+      if (sessionTime) {
+        sessionTime.value = time;
+      }
+
+      if (sessionLocation) {
+        sessionLocation.value = location;
+      }
+
+      if (sessionClinic) {
+        sessionClinic.value = "";
+      }
+
+
+      /*
+       * Sunday pricing notice
+       */
+
+      if (sundayNotice) {
+
+        if (isSunday) {
+
+          sundayNotice.style.display = "block";
+
+          sundayNotice.innerHTML =
+            "<strong>Sunday registration:</strong> " +
+            "Sunday private lessons at Archway Scottsdale have separate pricing, " +
+            "with the facility fee already included. After submitting this form, " +
+            "you will be directed to the appropriate contact for Sunday registration " +
+            "and payment.";
+
+        } else {
+
+          sundayNotice.style.display = "none";
+          sundayNotice.innerHTML = "";
+
+        }
+      }
+
+
+      /*
+       * Recalculate cost if player count
+       * has already been selected.
+       */
+
+      updateCost();
+
+
+      /*
+       * Scroll to the selected lesson/form
+       */
+
+      if (selectedSession) {
+
+        setTimeout(function () {
+
+          selectedSession.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
+
+        }, 100);
+
+      }
+
+    });
+
+  });
+
+
+  /*
+   * CREATE ADDITIONAL PLAYER FIELDS
+   *
+   * Player 1 is the primary player already
+   * entered in the PLAYER section.
+   *
+   * If 2 players are selected, create
+   * Player 2.
+   *
+   * If 6 players are selected, create
+   * Players 2–6.
+   */
+
+  function updateAdditionalPlayerFields() {
+
+    if (!additionalPlayerFields) {
+      return;
+    }
+
+    const selectedPlayerCount = document.querySelector(
+      'input[name="playerCount"]:checked'
+    );
+
+    additionalPlayerFields.innerHTML = "";
+
+    if (!selectedPlayerCount) {
+      return;
+    }
+
+    const count = parseInt(
+      selectedPlayerCount.value,
+      10
+    );
+
+
+    for (let playerNumber = 2; playerNumber <= count; playerNumber++) {
+
+      const fieldWrapper = document.createElement("div");
+
+      fieldWrapper.className = "additional-player-field";
+
+
+      const label = document.createElement("label");
+
+      label.setAttribute(
+        "for",
+        "additional-player-" + playerNumber
+      );
+
+      label.textContent =
+        "PLAYER " + playerNumber + " NAME";
+
+
+      const input = document.createElement("input");
+
+      input.type = "text";
+
+      input.id =
+        "additional-player-" + playerNumber;
+
+      input.name =
+        "additionalPlayer" + playerNumber;
+
+      input.placeholder =
+        "Player " + playerNumber + " full name";
+
+      input.required = true;
+
+
+      fieldWrapper.appendChild(label);
+
+      fieldWrapper.appendChild(input);
+
+      additionalPlayerFields.appendChild(
+        fieldWrapper
+      );
 
     }
 
@@ -122,160 +296,132 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   /*
-   * PRIVATE LESSON SELECTION
+   * CALCULATE TOTAL COST
    */
 
-  slots.forEach(function (slot) {
+  function updateCost() {
 
-    slot.addEventListener("click", function () {
+    if (!costAmount) {
+      return;
+    }
 
-      clearSelections();
+    const selectedPlayerCount = document.querySelector(
+      'input[name="playerCount"]:checked'
+    );
 
-      slot.classList.add("selected");
+    if (!selectedPlayerCount || !selectedLesson) {
 
-      currentType =
-        slot.dataset.type || "lesson";
+      costAmount.textContent = "$—";
 
-      currentDay =
-        slot.dataset.day || "";
+      if (sessionPrice) {
+        sessionPrice.value = "";
+      }
 
-      currentDate =
-        slot.dataset.date || "";
-
-      currentTime =
-        slot.dataset.time || "";
-
-      currentLocation =
-        slot.dataset.location || "";
-
-      currentClinic = "";
-
-      currentPrice = "";
+      return;
+    }
 
 
-      selectedType.value = currentType;
-      selectedDay.value = currentDay;
-      selectedDate.value = currentDate;
-      selectedTime.value = currentTime;
-      selectedLocation.value = currentLocation;
-      selectedClinic.value = "";
+    const playerCount = parseInt(
+      selectedPlayerCount.value,
+      10
+    );
+
+    const isSunday =
+      selectedLesson.dataset.sunday === "true";
+
+    const location =
+      selectedLesson.dataset.location || "";
 
 
-      selectedSession.textContent =
-        currentDay +
-        " • " +
-        currentDate +
-        " • " +
-        currentTime;
+    let total = 0;
+
+
+    /*
+     * SUNDAY
+     */
+
+    if (isSunday) {
+
+      const pricePerPlayer =
+        sundayPrices[playerCount];
+
+      total =
+        pricePerPlayer * playerCount;
+
+    }
+
+
+    /*
+     * REGULAR LESSON
+     */
+
+    else {
+
+      const trainingPrice =
+        regularTrainingPrices[playerCount];
+
+      total =
+        trainingPrice * playerCount;
 
 
       /*
-       * Sunday lessons have a separate workflow.
+       * Victorium gym fee
+       *
+       * Player-Provided Location has no
+       * gym fee.
        */
 
-      if (currentDay === "Sunday") {
+      if (
+        location.toLowerCase() !==
+        "player-provided location"
+      ) {
 
-        sundayNotice.hidden = false;
-
-      } else {
-
-        sundayNotice.hidden = true;
+        total += regularGymFee;
 
       }
 
-
-      updateFormForType();
-
-    });
-
-  });
+    }
 
 
-  /*
-   * CLINIC SELECTION
-   */
+    /*
+     * Update visible cost
+     */
 
-  clinics.forEach(function (clinic) {
-
-    clinic.addEventListener("click", function () {
-
-      clearSelections();
-
-      clinic.classList.add("selected");
-
-      currentType = "clinic";
-
-      currentDay = "";
-
-      currentDate =
-        clinic.dataset.date || "";
-
-      currentTime =
-        clinic.dataset.time || "";
-
-      currentLocation =
-        clinic.dataset.location || "";
-
-      currentClinic =
-        clinic.dataset.clinic || "";
-
-      currentPrice =
-        clinic.dataset.price || "FPO";
+    const pricePerPlayer =
+      total / playerCount;
 
 
-      selectedType.value = currentType;
-      selectedDay.value = "";
-      selectedDate.value = currentDate;
-      selectedTime.value = currentTime;
-      selectedLocation.value = currentLocation;
-      selectedClinic.value = currentClinic;
+    costAmount.textContent =
+      "$" +
+      pricePerPlayer.toFixed(2) +
+      " / PLAYER · $" +
+      total.toFixed(2) +
+      " TOTAL";
 
 
-      selectedSession.textContent =
-        currentClinic +
-        " • " +
-        currentDate +
-        " • " +
-        currentTime;
+    /*
+     * Update hidden price field
+     */
 
+    if (sessionPrice) {
+      sessionPrice.value =
+        total.toFixed(2);
+    }
 
-      sundayNotice.hidden = true;
-
-      updateFormForType();
-
-    });
-
-  });
+  }
 
 
   /*
-   * PRIVATE TRAINING FORMAT / COST
+   * PLAYER COUNT CHANGES
    */
 
-  const formatOptions =
-    document.querySelectorAll(
-      'input[name="format"]'
-    );
-
-
-  formatOptions.forEach(function (option) {
+  playerCountOptions.forEach(function (option) {
 
     option.addEventListener("change", function () {
 
-      if (currentType === "clinic") {
-        return;
-      }
+      updateAdditionalPlayerFields();
 
-      const format = option.value;
-
-      if (prices[format] !== undefined) {
-
-        sessionCost.textContent =
-          "$" +
-          prices[format] +
-          " / SESSION";
-
-      }
+      updateCost();
 
     });
 
@@ -285,149 +431,134 @@ document.addEventListener("DOMContentLoaded", function () {
   /*
    * FORM SUBMISSION
    *
-   * This currently demonstrates the registration flow.
-   *
-   * The final version will POST the form to Google Apps Script.
-   * That backend will:
-   *
-   * 1. Save the registration privately.
-   * 2. Check whether the selected lesson is still available.
-   * 3. Prevent double booking.
-   * 4. Track clinic enrollment.
-   * 5. Automatically cap clinics at six players.
+   * This is currently a front-end confirmation.
+   * It does not yet send registration information
+   * to a private database or email service.
    */
 
-  registrationForm.addEventListener(
-    "submit",
-    function (event) {
+  if (registrationForm) {
 
-      event.preventDefault();
+    registrationForm.addEventListener(
+      "submit",
+      function (event) {
 
-
-      /*
-       * Make sure a lesson or clinic was selected.
-       */
-
-      if (!currentType) {
-
-        alert(
-          "Please select an available lesson or clinic before submitting."
-        );
-
-        return;
-
-      }
+        event.preventDefault();
 
 
-      /*
-       * Private lesson requires a format.
-       */
+        /*
+         * Make sure a lesson was selected.
+         */
 
-      if (currentType === "lesson") {
-
-        const selectedFormat =
-          document.querySelector(
-            'input[name="format"]:checked'
-          );
-
-
-        if (!selectedFormat) {
+        if (!selectedLesson) {
 
           alert(
-            "Please select a training format."
+            "Please select an available lesson before submitting."
           );
 
           return;
 
         }
 
-      }
 
+        /*
+         * Make sure player count was selected.
+         */
 
-      /*
-       * Confirmation elements.
-       */
-
-      const confirmation =
-        document.getElementById("confirmation");
-
-      const confirmationMessage =
-        document.getElementById(
-          "confirmationMessage"
-        );
-
-
-      /*
-       * Sunday confirmation.
-       */
-
-      if (
-        currentType === "lesson" &&
-        currentDay === "Sunday"
-      ) {
-
-        confirmationMessage.textContent =
-          "Your Sunday session request has been received. " +
-          "You will receive instructions for contacting the " +
-          "Sunday registration contact to confirm your time " +
-          "and arrange payment.";
-
-      }
-
-
-      /*
-       * Clinic confirmation.
-       */
-
-      else if (currentType === "clinic") {
-
-        confirmationMessage.textContent =
-          "Your registration request for the " +
-          currentClinic +
-          " has been received. " +
-          "The clinic is capped at six players and you will " +
-          "receive confirmation of your spot and payment instructions.";
-
-      }
-
-
-      /*
-       * Regular lesson confirmation.
-       */
-
-      else {
-
-        const selectedFormat =
+        const selectedPlayerCount =
           document.querySelector(
-            'input[name="format"]:checked'
+            'input[name="playerCount"]:checked'
           );
 
 
-        confirmationMessage.textContent =
-          "Your registration request for " +
-          currentDay +
-          " at " +
-          currentTime +
-          " has been received. " +
-          "Payment will be arranged directly with Coach Jenn.";
+        if (!selectedPlayerCount) {
+
+          alert(
+            "Please select how many players you are registering."
+          );
+
+          return;
+
+        }
+
+
+        /*
+         * Recalculate one final time
+         * before submission.
+         */
+
+        updateCost();
+
+
+        /*
+         * Determine whether this is Sunday.
+         */
+
+        const isSunday =
+          selectedLesson.dataset.sunday === "true";
+
+
+        /*
+         * Hide the form.
+         */
+
+        registrationForm.style.display =
+          "none";
+
+
+        /*
+         * Show confirmation.
+         */
+
+        const confirmation =
+          document.getElementById(
+            "registration-confirmation"
+          );
+
+
+        if (confirmation) {
+
+          confirmation.style.display =
+            "block";
+
+
+          const confirmationMessage =
+            confirmation.querySelector(
+              ".confirmation-message"
+            );
+
+
+          if (confirmationMessage) {
+
+            if (isSunday) {
+
+              confirmationMessage.innerHTML =
+                "Your Sunday lesson request has been received. " +
+                "Because Sunday lessons at Archway Scottsdale use separate " +
+                "registration and payment arrangements, you will need to " +
+                "complete those steps with the appropriate contact.";
+
+            } else {
+
+              confirmationMessage.innerHTML =
+                "Your private lesson request has been received. " +
+                "Coach Jenn will follow up with you to confirm the lesson " +
+                "and arrange payment directly.";
+
+            }
+
+          }
+
+
+          confirmation.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
+
+        }
 
       }
+    );
 
-
-      /*
-       * Hide form and show confirmation.
-       */
-
-      registrationForm.style.display =
-        "none";
-
-      confirmation.hidden = false;
-
-      confirmation.scrollIntoView({
-        behavior: "smooth"
-      });
-
-    }
-  );
+  }
 
 });
