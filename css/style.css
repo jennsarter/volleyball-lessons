@@ -1922,3 +1922,65 @@ body.homepage .home-bottom-content .home-button {
 body.homepage .home-coach-quote p + p {
   margin-top: 24px !important;
 }
+/* =========================================================
+   REGISTRATION SCHEDULE — ALIGNMENT + LOCATION SIZE
+   ========================================================= */
+
+.schedule .slot {
+  display: grid;
+  grid-template-columns: 220px 1fr 180px 220px;
+  align-items: center;
+  column-gap: 24px;
+}
+
+.schedule .slot-date,
+.schedule .slot-time,
+.schedule .slot-location,
+.schedule .slot-status,
+.schedule .slot-select {
+  margin: 0;
+}
+
+.schedule .slot-time {
+  text-align: left;
+  white-space: nowrap;
+}
+
+.schedule .slot-location {
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.schedule .slot-status,
+.schedule .slot-select {
+  white-space: nowrap;
+}
+
+/* Keep the schedule usable on smaller screens */
+@media (max-width: 800px) {
+  .schedule .slot {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 8px;
+  }
+
+  .schedule .slot-date {
+    grid-column: 1;
+  }
+
+  .schedule .slot-time {
+    grid-column: 2;
+  }
+
+  .schedule .slot-location {
+    grid-column: 1;
+    font-size: 1.05rem;
+  }
+
+  .schedule .slot-status {
+    grid-column: 2;
+  }
+
+  .schedule .slot-select {
+    grid-column: 1 / -1;
+  }
+}
