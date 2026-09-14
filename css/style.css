@@ -1858,3 +1858,11 @@ body.homepage .why-coach video {
   display: block;
   object-fit: cover;
 }
+
+body.homepage .home-coach-photo video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
