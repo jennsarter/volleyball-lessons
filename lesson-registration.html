@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Complete Registration | Private Volleyball Training</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .lesson-registration-inner{max-width:900px}
+    .lesson-registration-intro{max-width:680px;margin-top:24px}
+    .lesson-summary{display:grid;grid-template-columns:1fr 1fr 1fr;margin:40px 0 70px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .lesson-summary-item{padding:24px 28px;border-right:1px solid var(--line)}
+    .lesson-summary-item:last-child{border-right:0}
+    .lesson-summary-label{margin:0 0 8px;font-family:"Inter",sans-serif;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+    .lesson-summary-value{margin:0;font-family:"Barlow Condensed",sans-serif;font-size:28px;font-weight:700;line-height:1.05;text-transform:uppercase}
+    .lesson-summary-value.location{font-family:"Inter",sans-serif;font-size:14px;line-height:1.3;letter-spacing:.03em}
+    .registration-step{margin-top:60px;padding-top:34px;border-top:1px solid var(--line)}
+    .step-heading{display:flex;align-items:baseline;gap:16px;margin-bottom:28px}
+    .step-number{font-family:"Barlow Condensed",sans-serif;font-size:16px;font-weight:700;letter-spacing:.08em}
+    .step-heading h2{margin:0;font-family:"Barlow Condensed",sans-serif;font-size:38px;font-weight:700;line-height:.95}
+    .format-options-new{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+    .format-option-new{position:relative;cursor:pointer}
+    .format-option-new input{position:absolute;opacity:0;pointer-events:none}
+    .format-card{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:105px;border:1px solid var(--line);background:transparent;text-align:center;transition:background .2s ease,color .2s ease,border-color .2s ease}
+    .format-card strong{font-family:"Barlow Condensed",sans-serif;font-size:34px;line-height:1;font-weight:700}
+    .format-card small{margin-top:6px;font-family:"Inter",sans-serif;font-size:10px;font-weight:700;letter-spacing:.08em}
+    .format-option-new input:checked + .format-card{background:var(--blue);border-color:var(--blue);color:var(--white)}
+    .price-panel{margin-top:28px;padding:30px;background:var(--light-gray);display:flex;justify-content:space-between;align-items:center;gap:30px}
+    .price-panel-label{margin:0 0 8px;font-family:"Inter",sans-serif;font-size:11px;font-weight:700;letter-spacing:.1em}
+    .price-breakdown{margin:0;font-family:"Inter",sans-serif;font-size:15px;line-height:1.6}
+    .price-total{font-family:"Barlow Condensed",sans-serif;font-size:46px;font-weight:700;line-height:1;white-space:nowrap}
+    .player-fields{display:grid;gap:16px}
+    .field-label{display:block;margin-bottom:8px;font-family:"Inter",sans-serif;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+    .registration-input,.registration-textarea{width:100%;box-sizing:border-box;padding:14px 15px;border:1px solid var(--line);background:var(--white);font-family:"Inter",sans-serif;font-size:15px;color:var(--black)}
+    .registration-textarea{min-height:120px;resize:vertical}
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}.contact-grid .full{grid-column:1/-1}
+    .payment-note,.sunday-note-new{margin-top:24px;padding:22px 24px;border-left:3px solid var(--blue);background:var(--light-gray)}
+    .payment-note p,.sunday-note-new p{margin:0;font-family:"Inter",sans-serif;font-size:14px;line-height:1.6}.sunday-note-new{display:none}
+    .submit-registration{width:100%;margin-top:40px;padding:18px 24px;border:1px solid var(--blue);background:var(--blue);color:var(--white);font-family:"Inter",sans-serif;font-size:13px;font-weight:700;letter-spacing:.06em;cursor:pointer}.submit-registration:hover{background:transparent;color:var(--blue)}
+    .back-link{display:inline-block;margin-top:24px;font-family:"Inter",sans-serif;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+    .registration-confirmation{display:none;max-width:700px;margin:0 auto;padding:90px 0;text-align:center}.registration-confirmation.visible{display:block}.registration-form-wrap.hidden{display:none}
+    @media(max-width:800px){.lesson-summary{grid-template-columns:1fr}.lesson-summary-item{border-right:0;border-bottom:1px solid var(--line)}.lesson-summary-item:last-child{border-bottom:0}.format-options-new{grid-template-columns:repeat(3,1fr)}.price-panel{flex-direction:column;align-items:flex-start}.contact-grid{grid-template-columns:1fr}.contact-grid .full{grid-column:auto}}
+    @media(max-width:500px){.format-options-new{grid-template-columns:repeat(2,1fr)}.step-heading h2{font-size:32px}.price-total{font-size:40px}}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a href="index.html" class="site-logo">JS.</a>
+    <nav class="site-nav"><a href="index.html#training">Training</a><a href="index.html#about">About</a><a href="index.html#testimonials">Testimonials</a><a href="register.html" class="nav-register">Register</a></nav>
+  </header>
+
+  <main>
+    <section class="registration-hero section-pad">
+      <div class="registration-hero-inner lesson-registration-inner">
+        <p class="eyebrow">02 / YOUR PRIVATE LESSON</p>
+        <h1>COMPLETE YOUR<br>REGISTRATION.</h1>
+        <p class="registration-intro lesson-registration-intro">Your lesson is selected below. Choose how many players you're registering, review the price, then enter the player and parent/guardian information.</p>
+        <div class="lesson-summary">
+          <div class="lesson-summary-item"><p class="lesson-summary-label">DATE</p><p class="lesson-summary-value" id="lesson-date">—</p></div>
+          <div class="lesson-summary-item"><p class="lesson-summary-label">TIME</p><p class="lesson-summary-value" id="lesson-time">—</p></div>
+          <div class="lesson-summary-item"><p class="lesson-summary-label">LOCATION</p><p class="lesson-summary-value location" id="lesson-location">—</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="registration-form-section section-pad">
+      <div class="form-wrapper lesson-registration-inner">
+        <div id="registration-form-wrap">
+          <form id="lesson-registration-form">
+            <input type="hidden" id="sessionDate" name="sessionDate"><input type="hidden" id="sessionTime" name="sessionTime"><input type="hidden" id="sessionLocation" name="sessionLocation"><input type="hidden" id="sessionSunday" name="sessionSunday"><input type="hidden" id="sessionPrice" name="sessionPrice">
+
+            <div class="registration-step">
+              <div class="step-heading"><span class="step-number">01</span><h2>HOW MANY PLAYERS?</h2></div>
+              <div class="format-options-new">
+                <label class="format-option-new"><input type="radio" name="playerCount" value="1" required><span class="format-card"><strong>1:1</strong><small>1 PLAYER</small></span></label>
+                <label class="format-option-new"><input type="radio" name="playerCount" value="2"><span class="format-card"><strong>2:1</strong><small>2 PLAYERS</small></span></label>
+                <label class="format-option-new"><input type="radio" name="playerCount" value="3"><span class="format-card"><strong>3:1</strong><small>3 PLAYERS</small></span></label>
+                <label class="format-option-new"><input type="radio" name="playerCount" value="4"><span class="format-card"><strong>4:1</strong><small>4 PLAYERS</small></span></label>
+                <label class="format-option-new"><input type="radio" name="playerCount" value="5"><span class="format-card"><strong>5:1</strong><small>5 PLAYERS</small></span></label>
+                <label class="format-option-new"><input type="radio" name="playerCount" value="6"><span class="format-card"><strong>6:1</strong><small>6 PLAYERS</small></span></label>
+              </div>
+              <div class="price-panel" id="price-panel" hidden><div><p class="price-panel-label">YOUR PRICE</p><p class="price-breakdown" id="price-breakdown"></p></div><div class="price-total" id="price-total">—</div></div>
+              <div class="sunday-note-new" id="sunday-note"><p><strong>SUNDAY PRIVATE LESSONS:</strong> Archway Scottsdale pricing includes the facility fee. Sunday registration and payment are handled separately after you submit this form.</p></div>
+            </div>
+
+            <div class="registration-step"><div class="step-heading"><span class="step-number">02</span><h2>PLAYER INFORMATION</h2></div><div id="player-fields" class="player-fields"></div></div>
+
+            <div class="registration-step"><div class="step-heading"><span class="step-number">03</span><h2>PARENT / GUARDIAN</h2></div><div class="contact-grid">
+              <div class="full"><label class="field-label" for="parentName">NAME *</label><input class="registration-input" type="text" id="parentName" name="parentName" required></div>
+              <div><label class="field-label" for="parentEmail">EMAIL *</label><input class="registration-input" type="email" id="parentEmail" name="parentEmail" required></div>
+              <div><label class="field-label" for="parentPhone">PHONE *</label><input class="registration-input" type="tel" id="parentPhone" name="parentPhone" required></div>
+              <div class="full"><label class="field-label" for="notes">ANYTHING ELSE COACH JENN SHOULD KNOW?</label><textarea class="registration-textarea" id="notes" name="notes"></textarea></div>
+            </div></div>
+
+            <div class="registration-step"><div class="step-heading"><span class="step-number">04</span><h2>PAYMENT</h2></div><div class="payment-note"><p>Payment is handled directly and is not collected through this website. <strong>Regular lessons:</strong> Cash · Zelle · Venmo</p></div></div>
+
+            <button type="submit" class="submit-registration">SUBMIT REGISTRATION →</button>
+            <a class="back-link" href="register.html">← BACK TO LESSONS</a>
+          </form>
+        </div>
+
+        <div id="registration-confirmation" class="registration-confirmation">
+          <p class="eyebrow">REGISTRATION RECEIVED</p><h2>YOU'RE<br>ON YOUR WAY.</h2><p id="confirmation-message"></p><a href="index.html" class="button-primary">BACK TO HOME</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="footer-brand"><a href="index.html" class="site-logo">JS.</a><p>PRIVATE VOLLEYBALL TRAINING</p></div><div class="footer-location"><p>SCOTTSDALE, AZ</p></div><div class="footer-links"><a href="index.html">HOME</a><a href="index.html#training">TRAINING</a><a href="index.html#about">ABOUT</a><a href="register.html">REGISTER</a></div></footer>
+  <script src="js/lesson-registration.js"></script>
+</body>
+</html>
