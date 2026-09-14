@@ -219,73 +219,61 @@ document.addEventListener("DOMContentLoaded", function () {
    * PRIVATE LESSON SELECTION
    */
 
-  slots.forEach(function (slot) {
+slots.forEach(function (slot) {
+  const selectButton = slot.querySelector(".slot-select");
 
-    slot.addEventListener("click", function () {
+  if (!selectButton) {
+    return;
+  }
 
-      clearSelections();
+  selectButton.addEventListener("click", function (event) {
+    event.preventDefault();
 
-      slot.classList.add("selected");
+    clearSelections();
+    slot.classList.add("selected");
 
+    currentType = slot.dataset.type || "lesson";
+    currentDay = slot.dataset.day || "";
+    currentDate = slot.dataset.date || "";
+    currentTime = slot.dataset.time || "";
+    currentLocation = slot.dataset.location || "";
 
-      currentType =
-        slot.dataset.type || "lesson";
+    currentIsSunday =
+      slot.dataset.sunday === "true" ||
+      currentDay.toLowerCase() === "sunday";
 
-      currentDay =
-        slot.dataset.day || "";
+    selectedType.value = currentType;
+    selectedDay.value = currentDay;
+    selectedDate.value = currentDate;
+    selectedTime.value = currentTime;
+    selectedLocation.value = currentLocation;
+    selectedClinic.value = "";
 
-      currentDate =
-        slot.dataset.date || "";
+    selectedSessionName.textContent = currentDate;
 
-      currentTime =
-        slot.dataset.time || "";
+    selectedSessionDetails.textContent =
+      currentDay +
+      " • " +
+      currentTime +
+      " • " +
+      currentLocation;
 
-      currentLocation =
-        slot.dataset.location || "";
+    if (currentIsSunday) {
+      sundayNotice.hidden = false;
+    } else {
+      sundayNotice.hidden = true;
+    }
 
-      currentIsSunday =
-        slot.dataset.sunday === "true" ||
-        currentDay.toLowerCase() === "sunday";
+    calculateCost();
 
-
-      selectedType.value = currentType;
-      selectedDay.value = currentDay;
-      selectedDate.value = currentDate;
-      selectedTime.value = currentTime;
-      selectedLocation.value = currentLocation;
-      selectedClinic.value = "";
-
-
-      selectedSessionName.textContent =
-        currentDate;
-
-
-      selectedSessionDetails.textContent =
-        currentDay +
-        " • " +
-        currentTime +
-        " • " +
-        currentLocation;
-
-
-      if (currentIsSunday) {
-        sundayNotice.hidden = false;
-      } else {
-        sundayNotice.hidden = true;
-      }
-
-
-      calculateCost();
-
-
-      selectedSession.scrollIntoView({
+    document
+      .getElementById("registration-form")
+      .scrollIntoView({
         behavior: "smooth",
-        block: "center"
+        block: "start"
       });
-
-    });
-
   });
+});
 
 
   /*
