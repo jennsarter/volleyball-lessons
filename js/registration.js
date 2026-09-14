@@ -1,32 +1,61 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-  const lessonSlots = document.querySelectorAll(".slot.available");
-  const selectedSession = document.getElementById("selected-session");
-  const selectedSessionName = document.getElementById("selected-session-name");
-  const selectedSessionDetails = document.getElementById("selected-session-details");
+  const slots = document.querySelectorAll(".slot.available");
 
-  const sessionType = document.getElementById("sessionType");
-  const sessionDay = document.getElementById("sessionDay");
-  const sessionDate = document.getElementById("sessionDate");
-  const sessionTime = document.getElementById("sessionTime");
-  const sessionLocation = document.getElementById("sessionLocation");
-  const sessionClinic = document.getElementById("sessionClinic");
-  const sessionPrice = document.getElementById("sessionPrice");
+  const selectedSession =
+    document.getElementById("selected-session");
 
-  const sundayNotice = document.getElementById("sunday-notice");
-  const costAmount = document.getElementById("cost-amount");
+  const selectedSessionName =
+    document.getElementById("selected-session-name");
 
-  const playerCountOptions = document.querySelectorAll(
-    'input[name="playerCount"]'
-  );
+  const selectedSessionDetails =
+    document.getElementById("selected-session-details");
 
-  const additionalPlayerFields = document.getElementById(
-    "additional-player-fields"
-  );
+  const selectedType =
+    document.getElementById("sessionType");
 
-  const registrationForm = document.getElementById(
-    "registration-form-element"
-  );
+  const selectedDay =
+    document.getElementById("sessionDay");
+
+  const selectedDate =
+    document.getElementById("sessionDate");
+
+  const selectedTime =
+    document.getElementById("sessionTime");
+
+  const selectedLocation =
+    document.getElementById("sessionLocation");
+
+  const selectedClinic =
+    document.getElementById("sessionClinic");
+
+  const selectedPrice =
+    document.getElementById("sessionPrice");
+
+  const sundayNotice =
+    document.getElementById("sunday-notice");
+
+  const sessionCost =
+    document.getElementById("cost-amount");
+
+  const registrationForm =
+    document.getElementById("registration-form-element");
+
+  const playerCountOptions =
+    document.querySelectorAll('input[name="playerCount"]');
+
+  const additionalPlayerFields =
+    document.getElementById("additional-player-fields");
+
+
+  let currentType = "";
+  let currentDay = "";
+  let currentDate = "";
+  let currentTime = "";
+  let currentLocation = "";
+  let currentPrice = "";
+  let currentIsSunday = false;
+
 
   /*
    * REGULAR PRIVATE LESSON PRICING
@@ -35,6 +64,354 @@ document.addEventListener("DOMContentLoaded", function () {
    * 1 player = $50
    * 2 players = $35/player
    * 3 players = $35/player
+   * 4 players = $25/player
+   * 5 players = $25/player
+   * 6 players = $25/player
+   *
+   * Victorium adds a $25 session gym fee,
+   * split among the registered players.
+   *
+   * Player-Provided Location has no gym fee.
+   */
+
+  const regularTrainingPrices = {
+    1: 50,
+    2: 35,
+    3: 35,
+    4: 25,
+    5: 25,
+    6: 25
+  };
+
+
+  /*
+   * SUNDAY PRIVATE LESSON PRICING
+   *
+   * Facility fee is already included.
+   */
+
+  const sundayPrices = {
+    1: 70,
+    2: 50,
+    3: 40,
+    4: 35,
+    5: 30,
+    6: 30
+  };
+
+
+  function clearSelections() {
+
+    slots.forEach(function (slot) {
+      slot.classList.remove("selected");
+    });
+
+  }
+
+
+  function updatePlayerFields(count) {
+
+    if (!additionalPlayerFields) {
+      return;
+    }
+
+    additionalPlayerFields.innerHTML = "";
+
+    const playerTotal = Number(count);
+
+    if (!playerTotal || playerTotal <= 1) {
+      return;
+    }
+
+    for (let i = 2; i <= playerTotal; i++) {
+
+      const field = document.createElement("div");
+
+      field.className = "form-field form-field-full";
+
+      field.innerHTML =
+        '<label for="additionalPlayer' + i + '">PLAYER ' + i + ' NAME *</label>' +
+        '<input type="text" id="additionalPlayer' + i + '" ' +
+        'name="additionalPlayer' + i + '" required>';
+
+      additionalPlayerFields.appendChild(field);
+
+    }
+
+  }
+
+
+  function calculateCost() {
+
+    const selectedCount =
+      document.querySelector('input[name="playerCount"]:checked');
+
+    if (!selectedCount || !currentType) {
+
+      sessionCost.textContent = "—";
+      selectedPrice.value = "";
+
+      return;
+    }
+
+    const count = Number(selectedCount.value);
+
+
+    if (currentIsSunday) {
+
+      const pricePerPlayer = sundayPrices[count];
+
+      if (pricePerPlayer !== undefined) {
+
+        const total = pricePerPlayer * count;
+
+        sessionCost.textContent =
+          "$" + pricePerPlayer +
+          " / PLAYER · $" + total +
+          " TOTAL";
+
+        selectedPrice.value = total;
+
+      }
+
+      return;
+    }
+
+
+    const trainingPrice =
+      regularTrainingPrices[count];
+
+    if (trainingPrice === undefined) {
+      return;
+    }
+
+
+    const isPlayerProvidedLocation =
+      currentLocation.trim().toLowerCase() ===
+      "player-provided location";
+
+
+    const gymFee =
+      isPlayerProvidedLocation ? 0 : 25;
+
+
+    const total =
+      (trainingPrice * count) + gymFee;
+
+    const perPlayerTotal =
+      total / count;
+
+
+    sessionCost.textContent =
+      "$" +
+      perPlayerTotal.toFixed(2).replace(/\.00$/, "") +
+      " / PLAYER · $" +
+      total +
+      " TOTAL";
+
+
+    selectedPrice.value = total;
+
+  }
+
+
+  /*
+   * PRIVATE LESSON SELECTION
+   */
+
+  slots.forEach(function (slot) {
+
+    slot.addEventListener("click", function () {
+
+      clearSelections();
+
+      slot.classList.add("selected");
+
+
+      currentType =
+        slot.dataset.type || "lesson";
+
+      currentDay =
+        slot.dataset.day || "";
+
+      currentDate =
+        slot.dataset.date || "";
+
+      currentTime =
+        slot.dataset.time || "";
+
+      currentLocation =
+        slot.dataset.location || "";
+
+      currentIsSunday =
+        slot.dataset.sunday === "true" ||
+        currentDay.toLowerCase() === "sunday";
+
+
+      selectedType.value = currentType;
+      selectedDay.value = currentDay;
+      selectedDate.value = currentDate;
+      selectedTime.value = currentTime;
+      selectedLocation.value = currentLocation;
+      selectedClinic.value = "";
+
+
+      selectedSessionName.textContent =
+        currentDate;
+
+
+      selectedSessionDetails.textContent =
+        currentDay +
+        " • " +
+        currentTime +
+        " • " +
+        currentLocation;
+
+
+      if (currentIsSunday) {
+        sundayNotice.hidden = false;
+      } else {
+        sundayNotice.hidden = true;
+      }
+
+
+      calculateCost();
+
+
+      selectedSession.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+      });
+
+    });
+
+  });
+
+
+  /*
+   * PLAYER COUNT / COST
+   */
+
+  playerCountOptions.forEach(function (option) {
+
+    option.addEventListener("change", function () {
+
+      updatePlayerFields(option.value);
+
+      calculateCost();
+
+    });
+
+  });
+
+
+  /*
+   * FORM SUBMISSION
+   */
+
+  registrationForm.addEventListener(
+    "submit",
+    function (event) {
+
+      event.preventDefault();
+
+
+      if (!currentType) {
+
+        alert(
+          "Please select an available lesson before submitting."
+        );
+
+        return;
+      }
+
+
+      const selectedCount =
+        document.querySelector(
+          'input[name="playerCount"]:checked'
+        );
+
+
+      if (!selectedCount) {
+
+        alert(
+          "Please select how many players you are registering."
+        );
+
+        return;
+      }
+
+
+      const count = Number(selectedCount.value);
+
+      updatePlayerFields(count);
+
+      calculateCost();
+
+
+      /*
+       * Confirmation elements.
+       */
+
+      const confirmation =
+        document.getElementById("confirmation-section");
+
+      const confirmationMessage =
+        document.getElementById(
+          "confirmation-message"
+        );
+
+
+      /*
+       * Sunday confirmation.
+       */
+
+      if (currentIsSunday) {
+
+        confirmationMessage.textContent =
+          "Your Sunday private lesson request has been received. " +
+          "Sunday pricing at Archway Scottsdale includes the facility fee. " +
+          "You will receive instructions for contacting the Sunday " +
+          "registration contact to confirm your time and arrange payment.";
+
+      }
+
+
+      /*
+       * Regular lesson confirmation.
+       */
+
+      else {
+
+        confirmationMessage.textContent =
+          "Your private lesson request for " +
+          currentDate +
+          " at " +
+          currentTime +
+          " has been received. " +
+          "Payment will be arranged directly with Coach Jenn.";
+
+      }
+
+
+      /*
+       * Hide form and show confirmation.
+       */
+
+      registrationForm.style.display =
+        "none";
+
+      confirmation.hidden = false;
+
+      confirmation.scrollIntoView({
+        behavior: "smooth"
+      });
+
+    }
+
+  );
+
+});   * 3 players = $35/player
    * 4 players = $25/player
    * 5 players = $25/player
    * 6 players = $25/player
